@@ -6,6 +6,7 @@ import NavbarResponsive from "./components/Navbar/NavbarResponsive";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import AutoToTop from "./components/AutoToTop/AutoToTop";
 
 AOS.init();
 
@@ -17,6 +18,7 @@ function App() {
 
     <>
 <NavbarResponsive/>
+    <AutoToTop/>
       <Routes>
        
         <Route path='details' element={<CarDetails/>} />
