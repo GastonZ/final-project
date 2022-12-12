@@ -1,9 +1,14 @@
-
+import CarDetails from "./pages/CarDetails";
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
 
-    <div></div>
+    <>
+      <Routes>
+        <Route path='details' element={<CarDetails/>} />
+      </Routes>
+    </>
 
   );
   
