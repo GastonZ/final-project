@@ -8,7 +8,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 
 function NavbarResponsive() {
 
-    const [ navbarBackground, setNavbarBackground ]= useState('bg-dark')
+    const [ navbarBackground, setNavbarBackground ]= useState('')
     useEffect(()=>{
         window.addEventListener("scroll",()=>{
             if(window.scrollY> 250){
