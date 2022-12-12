@@ -143,10 +143,9 @@ h1 {
   flex-direction: column;
   height: 80vh;
   background-color: rgb(255, 255, 255);
- background-image: url(https://i.ibb.co/FD8CH8k/dasd123123212.png);
+  background-image: url(https://i.ibb.co/FD8CH8k/dasd123123212.png);
 }
 .subtitle09 {
-  
   font-size: 20px;
   margin-top: 5px;
   letter-spacing: 4px;
@@ -155,14 +154,13 @@ h1 {
   text-align: start;
   margin-bottom: 5px;
   width: 100%;
- 
+
   border-radius: 10px;
   width: 80%;
- margin-left: 50px;
+  margin-left: 50px;
 }
 
-.bestSellers09{
- 
+.bestSellers09 {
   width: 84%;
   height: 90vh;
   display: flex;
@@ -171,14 +169,12 @@ h1 {
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  
-
 }
 
-.cardBestSeller09{
+.cardBestSeller09 {
   background-color: rgb(247, 247, 247);
   width: 320px;
-  height:650px;
+  height: 650px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -187,35 +183,56 @@ h1 {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
- 
 }
 
-.cardBestSeller09 img{
- object-position: 50%;
+.cardBestSeller09 img {
+  object-position: 50%;
 
- object-fit: cover;
- 
+  object-fit: cover;
+
   height: 75%;
   width: 80%;
   border-radius: 5px;
   cursor: pointer;
-
 }
 
-.cardBestSeller09 img:hover{
+.cardBestSeller09 img:hover {
+  height: 80%;
+  width: 80%;
+  border-radius: 5px;
+  transition-duration: 300ms;
+}
 
-
-  
-   height: 80%;
-   width: 80%;
-   border-radius: 5px;
- transition-duration: 300ms;
- }
-
-.cardBestSeller09 h3{
+.cardBestSeller09 h3 {
   text-align: center;
   letter-spacing: 0px;
   font-weight: lighter;
   font-size: 17px;
- 
+}
+
+.sectionTienda09 {
+  height: 85vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/tesla-shop-marketing-imagery/image-grid/desktop_Mini.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sectionTienda09 h3 {
+  font-size: 58px;
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mainTienda{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }

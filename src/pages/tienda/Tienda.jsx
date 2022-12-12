@@ -13,9 +13,13 @@ export default function Tienda() {
       <article className="mainTienda09">
         <h3 className="subtitle09">Iconic Items & Best Sellers</h3>
         <CarrouselBestSellers></CarrouselBestSellers>
-        </article>
+      </article>
 
-      
+      <div className="sectionTienda09">
+        <h3>[ Lifestyle ]</h3>
+        <button className="buttonshop08">Shop Now</button>
+      </div>
+   
     </>
   );
 }
