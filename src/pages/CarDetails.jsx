@@ -1,15 +1,13 @@
 import React from 'react'
 import './carDetails.css'
+import NavbarResponsive from '../components/Navbar/NavbarResponsive'
+
 
 function CarDetails() {
 
-  function randomColor() {
-    return Math.floor(Math.random() * 255)
-  }
-  
-
   return (
     <>
+    <NavbarResponsive/>
     <main className='car-details-container'>
         <img className='car-details-img' src="https://tesla-cdn.thron.com/delivery/public/image/tesla/8a74d206-66dc-4386-8c7a-88ff32174e7d/bvlatuR/std/4096x2560/Model-S-Main-Hero-Desktop-LHD" alt="Model S" />
         <section className='car-details-title'>
