@@ -18,12 +18,13 @@ function Testimonials() {
 
  className="supremee">
 
+
 <div href="#" class="c-preview">
-  <div class="c-preview__image"></div>
-  <div class="c-preview__info">
-    <h2 class="c-preview__title">Shop</h2>
-    <ul class="c-preview__stats">
-      <li>The best items</li>
+  <div className="c-preview__image"></div>
+  <div className="c-preview__info">
+    <h2 className="c-preview__title">Shop</h2>
+    <ul className="c-preview__stats">
+      <li>The best items</li>Name
       <li>Are here</li>
     </ul>
   </div>
