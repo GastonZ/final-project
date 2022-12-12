@@ -22,11 +22,13 @@ export default function App() {
         className="mySwiper"
       >
         <SwiperSlide>
+         
           <img
             src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/teslaweb/homepage/Wall_Connector_banner_web.jpg"
             alt="carrouselImg01"
             
           />
+          
         </SwiperSlide>
         <SwiperSlide>
           <img
