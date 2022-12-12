@@ -11,7 +11,10 @@ function CarDetails() {
     <main className='car-details-container'>
         <img className='car-details-img' src="https://tesla-cdn.thron.com/delivery/public/image/tesla/8a74d206-66dc-4386-8c7a-88ff32174e7d/bvlatuR/std/4096x2560/Model-S-Main-Hero-Desktop-LHD" alt="Model S" />
         <section className='car-details-title'>
-          <h1>Model S</h1>
+          <p class="button-title-detail btn-shine">
+            <span>Model S</span>
+          </p>
+{/*           <h1>Model S</h1> */}
         </section>
         <section className='car-specifications'>
           <div className='specifications-item'>

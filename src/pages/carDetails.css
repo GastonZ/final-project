@@ -5,6 +5,77 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+  
+  .button-title-detail:hover {
+    animation: rotate624 0.7s ease-in-out both;
+  }
+  
+  .button-title-detail:hover span {
+    animation: storm1261 0.7s ease-in-out both;
+    animation-delay: 0.06s;
+  }
+  
+  @keyframes rotate624 {
+    0% {
+      transform:  translate3d(0, 0, 0);
+    }
+  
+    25% {
+      transform:  translate3d(0, 0, 0);
+    }
+  
+    50% {
+      transform:  translate3d(0, 0, 0);
+    }
+  
+    75% {
+      transform:  translate3d(0, 0, 0);
+    }
+  
+    100% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+  }
+  
+
+  
+  .btn-shine {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .btn-shine span {
+    z-index: 20;
+    
+  }
+  
+  .btn-shine:after {
+    background: #fefefe;
+    filter: brightness(2000);
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: 0.4;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: -10;
+    z-index: 2;
+
+  }
+  
+  .btn-shine:hover:after {
+    left: 120%;
+    transition: all 2000ms cubic-bezier(0.19, 1, 0.22, 1);
+    
+  }
+
+
+
+
 .car-details-body {
     background: #000;
     z-index: -2;
@@ -29,6 +100,7 @@
 
 .car-details-title {
     padding-top: 120px;
+    margin-bottom: 150px;
     text-align: center;
     font-size: 2.5rem;
 }

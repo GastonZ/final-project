@@ -4,14 +4,14 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function NavbarResponsive() {
 
     const [ navbarBackground, setNavbarBackground ]= useState('')
     useEffect(()=>{
         window.addEventListener("scroll",()=>{
-            if(window.scrollY> 250){
+            if(window.scrollY> 50){
                 setNavbarBackground('bg-solid')
             }else{
                 setNavbarBackground('')
@@ -26,7 +26,7 @@ function NavbarResponsive() {
         <Navbar key={expand} expand={expand} className={navbarBackground}>
           <Container fluid>
             <section className='navbar-section'>
-                <h1>MotorX</h1>
+                <h1><Link style={{ textDecoration: 'none', color: '#fff' }} to="/">MotorX</Link></h1>
             </section>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
