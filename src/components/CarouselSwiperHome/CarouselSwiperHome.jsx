@@ -1,0 +1,68 @@
+import React, { useRef, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import car from "./pagannini.png"
+import car1 from "./pagani1.png"
+import car2 from "./pagani2.png"
+import car3 from "./pagani3.png"
+import car4 from "./pagani4.png"
+import "./styles.css";
+
+// import required modules
+import { Pagination } from "swiper";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
+export default function CarouselSwiperHome() {
+  return (
+    <>
+    <h2 data-aos="fade-right" data-aos-duration="1000" className="findYourPerfect">Find your perfect model.</h2>
+
+
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={10}
+        pagination={{
+          clickable: true,
+        }}
+        breakpoints={{
+          "@0.00": {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          "@0.75": {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          "@1.00": {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+          "@1.50": {
+            slidesPerView: 4,
+            spaceBetween: 50,
+          },
+        }}
+        modules={[Pagination]}
+        className="mySwiper"
+      >
+    
+        <SwiperSlide><img src={car1} alt="" /></SwiperSlide>
+        <SwiperSlide><img src={car2} alt="" /></SwiperSlide>
+        <SwiperSlide><img src={car3} alt="" /></SwiperSlide>
+        <SwiperSlide><img src={car2} alt=""/></SwiperSlide>
+        <SwiperSlide>
+          <img src={car3} alt="" />
+        </SwiperSlide>
+
+     
+      </Swiper>
+
+    </>
+  );
+}
