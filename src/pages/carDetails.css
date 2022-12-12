@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.car-details-body {
+    background: #000;
+    z-index: -1;
+}
+
+.car-details-container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.car-details-img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+}
+
+.car-details-title {
+    padding: 50px;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.car-specifications {
+    display: flex;
+    width: 100%;
+    padding: 60px;
+    justify-content: space-around;
+}
+
+.specifications-item {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 2rem;
+    color: rgb(239, 237, 237);
+    transition: 400ms ease-in-out;
+}
+
+.specifications-item>p{
+    padding: 10px;
+    font-size: 1.1rem;
+}
+
+.specification-container {
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 50px;
+}
+
+.specifications-card {
+    display: flex;
+    color: white;
+    font-size: 1.3rem;
+    width: 80%;
+    align-items: center;
+    transition: 400ms ease-in-out;
+}
+
+.specification-image {
+    height: 400px;
+    width: 600px;
+    object-fit: cover;
+
+}
+
+.specification-article>h3 {
+    margin: 25px;
+}
+
+.specification-article>p {
+    margin: 25px;
+    font-size: 16px;
+}
+
+.specifications-card-reverse {
+    flex-direction: row-reverse;
+}
+
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+video{
+    width: 600px;
+    height: 300px;
+    object-fit: cover;
+    object-position:0px 1px ;
+    z-index: -1;
+  }
+
+
+
+/* Responsiveness */
+
+@media screen and (max-width: 1183px) {
+    .specification-image {
+        height: 200px;
+        width: 400px;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 894px) {
+    .specifications-item {
+        font-size: 16px;
+    }
+    .specifications-item>p {
+        font-size: 12px;
+    }
+    .specifications-card {
+        flex-direction: column;
+        width: 100%;
+    }
+    .specification-image {
+        height: auto;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 665px) {
+    .specifications-card {
+        width: 100%;
+
+    }
+    .specification-image {
+        height: auto;
+        width: 100%;
+        object-fit: cover;
+    }
+}
