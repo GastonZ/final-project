@@ -1,32 +1,28 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.mainTienda08{
-    
-    height: 100vh;
+/* //PRIMERA SCREEN DE LA PAGINA// */
+
+
+.mainTienda08 {
+  height: 100vh;
 }
-
-
 
 /* CARROUSSEL TIENDA CSS */
 
-#app { height: 100% }
-html,
-body {
-  position: relative;
-  height: 100%;
+.imagenCarrousel {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+  display: flex;
 }
 
-body {
-  background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
+h1 {
+  color: #f1f1f1;
 }
 
 .swiper {
@@ -51,7 +47,8 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
-  align-items: center;
+  align-items: flex-end;
+
 }
 
 .swiper-slide img {
@@ -59,26 +56,77 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: fixed;
 }
 
-
 .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-    text-align: center;
-    line-height: 20px;
-    font-size: 12px;
-    color: rgb(245, 236, 236);
-    opacity: 1;
-    background: rgba(247, 247, 247, 0.2);
-  }
-  
-  .swiper-pagination-bullet-active {
-    color: #fff;
-    background: #f1f1f1;
-  }
-  
-.mainTienda09{
-    
-    height: 100vh;
+  width: 8px;
+  height: 8px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  color: rgb(245, 236, 236);
+  opacity: 1;
+  background: rgba(247, 247, 247, 0.2);
+}
+
+.swiper-pagination-bullet-active {
+  color: #fff;
+  background: #f1f1f1;
+}
+
+.titulo1shop {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f1f1f1;
+  margin-top: 10px;
+  font-size: 50px;
+}
+.titulo2shop {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f1f1f1;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.contenedorTienda08{
+
+  margin-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 20;
+  height: 200px;
+  justify-content: center;
+
+  align-items: center;
+
+}
+
+.buttonshop08{
+  background-color: rgb(241, 237, 237);
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(65, 63, 63);
+  font-size: 14px;
+  font-weight: 700;
+  width: 300px;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 32px;
+  cursor: pointer;
+}
+
+.buttonshop08:hover{
+ 
+  transition-duration: 600ms;
+ background-color: rgb(255, 255, 255);
+}
+
+/* //SEGUNDA SCREEN DE LA PAGINA// */
+
+
+.mainTienda09 {
+  height: 100vh;
+
+  background-color: rgb(237, 243, 243);
+
 }

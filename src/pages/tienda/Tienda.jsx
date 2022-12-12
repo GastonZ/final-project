@@ -5,10 +5,12 @@ import "../tienda/Tienda.css";
 export default function Tienda() {
   return (
     <>
-      <div className="mainTienda08" alt="herotienda">
+      <header className="mainTienda08" alt="herotienda">
         <CarrouselTienda></CarrouselTienda>
-      </div>
-      <div className="mainTienda09"></div>
+      </header>
+      <article className="mainTienda09">
+<h3>Our Best Sellers</h3>
+      </article>
     </>
   );
 }
