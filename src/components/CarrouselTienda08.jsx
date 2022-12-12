@@ -5,13 +5,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
 import "../pages/tienda/Tienda.css";
 
 // import required modules
 import { Pagination } from "swiper";
 
-export default function App() {
+export default function CarrouselTienda() {
   return (
     <>
       <Swiper
