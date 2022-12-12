@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-
+import { Link } from 'react-router-dom';
 
 function NavbarResponsive() {
 
@@ -39,7 +39,7 @@ function NavbarResponsive() {
               <Offcanvas.Body className=''>
                 <Nav className="navbar-heigth-canvas justify-content-between flex-grow-1 pe-3">
                 <section className='navbar-section'>
-                    <h1 className='motor-primary'>MotorX</h1>
+                  <Link to="/"> <h1 className='motor-primary'>MotorX</h1></Link>  
                 </section>
                 <section className='navbar-section'>
                     <h2>Model 1</h2>
