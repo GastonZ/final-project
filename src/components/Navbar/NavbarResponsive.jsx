@@ -22,8 +22,8 @@ function NavbarResponsive() {
     let res = dispatch(getCars())
     console.log(res);
   },[])
-  
-  console.log(cars + 'hola');
+
+  console.log(cars);
   
     const [ navbarBackground, setNavbarBackground ]= useState('')
     useEffect(()=>{
@@ -75,7 +75,7 @@ function NavbarResponsive() {
                 </section>
                 <section className='navbar-section'>
                   {
-                    navArray.map(x =>{
+                    cars.map(x =>{
                       return (
                         <h2><Link className='section-shop'>{x.title} </Link> </h2>
                       )

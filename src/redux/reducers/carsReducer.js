@@ -13,7 +13,7 @@ const carsReducer = createReducer(initialState,
         .addCase(getCars.fulfilled,(state,action)=>{
             return {
                 ...state,
-                cars: action.payload
+                cars: action.payload.cars
             }
         })
     })
