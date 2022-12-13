@@ -11,7 +11,8 @@ export default function Tienda() {
       </header>
 
       <article className="mainTienda09">
-        <h3 className="subtitle09">Iconic Items & Best Sellers</h3>
+        <div className="cardBestSeller19"> <h3 className="subtitle09">Iconic Items & Best Sellers.</h3></div>
+       
         <CarrouselBestSellers></CarrouselBestSellers>
       </article>
 

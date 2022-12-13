@@ -13,7 +13,7 @@ import { Pagination } from "swiper";
 export default function CarrouselBestSellers() {
   return (
     <>
-     <div className="bestSellers09">
+ 
 
         <div className="cardBestSeller09">
        
@@ -33,8 +33,7 @@ export default function CarrouselBestSellers() {
         <div className="cardBestSeller09">
             <img src="https://media.discordapp.net/attachments/1019730194984091739/1051986508472651878/Sin_titulo-1.png?width=583&height=671" alt="" srcset="" />
             <h3>Accesories</h3>
-        </div>
-
+       
         
       
       
