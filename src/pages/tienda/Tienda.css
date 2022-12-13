@@ -123,6 +123,29 @@ h1 {
   /* color: #f1f1f1; */
 }
 
+.buttonshop09 {
+  background-color: #eeeeeb;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(39, 38, 38);
+  font-size: 14px;
+  font-weight: 700;
+  width: 300px;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 32px;
+  cursor: pointer;
+}
+
+.buttonshop09:hover {
+  transition-duration: 400ms;
+  background-color: #cef10a;
+  
+}
+
+
+
+
 
 /* //SEGUNDA SCREEN DE LA PAGINA// */
 
@@ -193,7 +216,7 @@ h1 {
 }
 
 .cardBestSeller09 img {
-  object-position: 50%;
+  
 
   object-fit: cover;
 
