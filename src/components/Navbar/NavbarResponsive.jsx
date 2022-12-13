@@ -23,7 +23,7 @@ function NavbarResponsive() {
     
   },[])
   
-  console.log(cars + 'hola');
+  console.log(cars);
   
     const [ navbarBackground, setNavbarBackground ]= useState('')
     useEffect(()=>{
