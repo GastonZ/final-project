@@ -25,9 +25,9 @@ function CarDetails() {
     <>
 {/*     <NavbarResponsive/> */}
     <motion.div
-    initial={{width: 0}}
-    animate={{width: '100%'}}
-    exit={{x: window.innerWidth, transition: { duration: 1} }}>
+    initial={{opacity: 0}}
+    animate={{opacity: 1}}
+    exit={{opacity: 0}}>
     <main className='car-details-container'>
         <img className='car-details-img' src={image} alt={title} />
         <section className='car-details-title'>

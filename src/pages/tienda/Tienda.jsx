@@ -9,9 +9,9 @@ export default function Tienda() {
   return (
     <>
     <motion.div
-    initial={{width: 0}}
-    animate={{width: '100%'}}
-    exit={{x: window.innerWidth, transition: { duration: 1}}}>
+    initial={{opacity: 0}}
+    animate={{opacity: 1}}
+    exit={{opacity: 0}}>
     <header className="mainTienda08" alt="herotienda">
         <CarrouselTienda></CarrouselTienda>
       </header>
