@@ -5,9 +5,23 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Link, NavLink } from 'react-router-dom';
+import carsActions from '../../redux/actions/carsActions';
+import { useDispatch, useSelector } from 'react-redux';
 
 function NavbarResponsive() {
 
+  let { getCars } = carsActions
+
+  let dispatch = useDispatch()
+
+  const { cars } = useSelector((state)=> state.cars)
+  
+  useEffect(()=>{
+    let res = dispatch(getCars())
+    console.log(res);
+  },[])
+  console.log(cars + 'hola');
+  
     const [ navbarBackground, setNavbarBackground ]= useState('')
     useEffect(()=>{
         window.addEventListener("scroll",()=>{
