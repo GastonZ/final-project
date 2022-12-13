@@ -1,6 +1,7 @@
 import React from 'react'
 import './carDetails.css'
 import NavbarResponsive from '../components/Navbar/NavbarResponsive'
+import CountUp from 'react-countup';
 
 
 function CarDetails() {
@@ -22,11 +23,11 @@ function CarDetails() {
             <p>0-60 mph*</p>
           </div>
           <div className='specifications-item'>
-            <h2>200 mph</h2>
+            <h2><CountUp duration={4} end={200}/> mph</h2>
             <p>Top Speed</p>
           </div>
           <div className='specifications-item'>
-            <h2>1080 hp</h2>
+            <h2><CountUp duration={4} end={1080}/> hp</h2>
             <p>Peak Power</p>
           </div>
       </section>

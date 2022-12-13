@@ -19,6 +19,21 @@ function NavbarResponsive() {
         })
     }, [])
 
+    const navArray = [
+      {
+        title : 'car1'
+      },
+      {
+        title : 'car2'
+      },
+      {
+        title : 'car3'
+      },
+      {
+        title : 'car4'
+      }
+    ]
+
   return (
     <main className='position-navbar'>
         <div className='navbar-container'>
@@ -42,15 +57,17 @@ function NavbarResponsive() {
                   <Link to="/"> <h1 className='motor-primary'>MotorX</h1></Link>  
                 </section>
                 <section className='navbar-section'>
-                    <h2>Model 1</h2>
-                    <h2>Model 2</h2>
-                    <h2>Model 3</h2>
-                    <h2>Model 4</h2>
-                    <h2>Model 5</h2>
+                  {
+                    navArray.map(x =>{
+                      return (
+                        <h2><Link className='section-shop'>{x.title} </Link> </h2>
+                      )
+                    })
+                  }
                 </section>
                 <section className='navbar-section'>
-                    <h2>Shop</h2>
-                    <h2>Account</h2>
+                    <h2><Link className='section-shop' to='/shop'> Shop</Link></h2>
+                    <h2><Link className='section-shop' to='/signin'> Account</Link></h2>
                 </section>
                 </Nav>
               </Offcanvas.Body>
