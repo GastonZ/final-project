@@ -1,12 +1,12 @@
 
-.swiper {
+.mySwiperrino {
     width: 100%;
     height: 50vh;
  cursor: pointer;
   }
 
 
-  .swiper-slide {
+  .swiperiper {
     text-align: center;
  
     background: #fff;
@@ -26,7 +26,7 @@
     align-items: center;
   }
   
-  .swiper-slide img {
+  .swiperiper img {
     display: block;
     width: 100%;
     height: 100%;
