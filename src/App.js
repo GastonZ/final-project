@@ -8,6 +8,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import AutoToTop from "./components/AutoToTop/AutoToTop";
+import SignIn from "./pages/signin/SignIn";
+import BackToTop from './components/BackToTop/BackToTop'
 
 AOS.init();
 
@@ -20,11 +22,13 @@ function App() {
     <>
 <NavbarResponsive/>
     <AutoToTop/>
+    <BackToTop/>
       <Routes>
        
         <Route path='details/:id' element={<CarDetails/>} />
         <Route path="/"  element={<Home/>}></Route>
         <Route path='shop' element={<Tienda/>} />
+        <Route path='signin' element={<SignIn/>} />
       </Routes>
  
 <Footer/>
