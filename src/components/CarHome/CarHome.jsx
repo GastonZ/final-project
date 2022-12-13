@@ -1,21 +1,40 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import "./carhome.css"
 import AOS from 'aos';
+import carsActions from '../../redux/actions/carsActions';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 AOS.init();
 function CarHome() {
 
+  let { getCars } = carsActions
 
+  let dispatch = useDispatch()
+
+  const { cars } = useSelector((state)=> state.cars)
+  
+  useEffect(()=>{
+    dispatch(getCars())
+    
+  },[])
+  
+  console.log(cars);
 
   return (
     <>
+
+{cars.map((x)=>{
+
+  return(
 <main className='car-details-container' data-aos="fade-right" >
-        <img className='car-details-img' src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/IJ7CWTDIPFAUXA4WKIVVHTQMTI.jpg" alt="Model S" />
+        <img className='car-details-img' src={x.image} alt="Model S" />
         <section className='car-details-title'>
-          <h1 className='text-title-car'>Model L</h1>
+          <h1 className='text-title-car'>{x.title}</h1>
         </section>
         <section >
         <Link to="/Details">
@@ -30,6 +49,10 @@ function CarHome() {
       </main>
       
       
+  )
+})}
+
+
  
  
      
