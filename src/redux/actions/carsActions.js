@@ -6,9 +6,9 @@ import axios from 'axios'
 const getCars = createAsyncThunk('getCars', async () => {
     try {
         const res = await axios.get(
-            `http://localhost:8000/api/cars`
-            )
-         console.log(res);
+            `${BASE_URL}cars`
+        )
+        console.log(res);
         return {
             cars : res.data.response
         }
