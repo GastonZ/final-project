@@ -17,7 +17,7 @@ export default function Tienda() {
       </article>
 
       <div className="sectionTienda09">
-        <h3>[ Lifestyle ]</h3>
+        <h3 > <span className="bolder">#</span>Lifestyle</h3>
         <button className="buttonshop08">Shop Now</button>
       </div>
    
