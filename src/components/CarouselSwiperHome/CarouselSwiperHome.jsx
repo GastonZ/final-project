@@ -49,14 +49,14 @@ export default function CarouselSwiperHome() {
           },
         }}
         modules={[Pagination]}
-        className="mySwiper"
+        className="mySwiperrino"
       >
-        <SwiperSlide><img src={car1} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={car2} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={car3} alt="" /></SwiperSlide>
-        <SwiperSlide><img src={car2} alt=""/></SwiperSlide>
-        <SwiperSlide>
-          <img src={car3} alt="" />
+        <SwiperSlide className="swiperiper"><img className="swiper-imge" src={car1} alt="" /></SwiperSlide>
+        <SwiperSlide className="swiperiper"><img className="swiper-imge" src={car2} alt="" /></SwiperSlide>
+        <SwiperSlide className="swiperiper"><img className="swiper-imge" src={car3} alt="" /></SwiperSlide>
+        <SwiperSlide className="swiperiper"><img className="swiper-imge" src={car2} alt=""/></SwiperSlide>
+        <SwiperSlide className="swiperiper">
+          <img className="swiper-imge" src={car3} alt="" />
         </SwiperSlide>
         <div className="custom-shape-divider-top-1670874572">
     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
