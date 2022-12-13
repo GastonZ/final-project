@@ -60,7 +60,7 @@ button {
     margin: 0;
     width: 3rem;
     height: 3rem;
-    background: #282936;
+    background: #55ff01;
     border-radius: 1.625rem;
    }
    
@@ -88,8 +88,8 @@ button {
     right: 0.0625rem;
     width: 0.625rem;
     height: 0.625rem;
-    border-top: 0.125rem solid #fff;
-    border-right: 0.125rem solid #fff;
+    border-top: 0.125rem solid rgb(26, 26, 26);
+    border-right: 0.125rem solid rgb(28, 28, 28);
     transform: rotate(45deg);
    }
    
@@ -114,7 +114,7 @@ button {
    }
    
    button:hover .circle .icon.arrow {
-    background: #fff;
+    background: rgb(32, 32, 32);
     transform: translate(1rem, 0);
    }
    

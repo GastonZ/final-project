@@ -7,20 +7,22 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Link, NavLink } from 'react-router-dom';
 import carsActions from '../../redux/actions/carsActions';
 import { useDispatch, useSelector } from 'react-redux';
+import { BASE_URL } from '../../api/url'
+
 
 function NavbarResponsive() {
 
-  let { getCars } = carsActions
+   let { getCars } = carsActions
 
   let dispatch = useDispatch()
 
   const { cars } = useSelector((state)=> state.cars)
   
   useEffect(()=>{
-    let res = dispatch(getCars())
-    console.log(res);
+    dispatch(getCars())
+    
   },[])
-  console.log(cars + 'hola');
+  console.log(cars);
   
     const [ navbarBackground, setNavbarBackground ]= useState('')
     useEffect(()=>{
@@ -32,21 +34,6 @@ function NavbarResponsive() {
             }
         })
     }, [])
-
-    const navArray = [
-      {
-        title : 'car1'
-      },
-      {
-        title : 'car2'
-      },
-      {
-        title : 'car3'
-      },
-      {
-        title : 'car4'
-      }
-    ]
 
   return (
     <main className='position-navbar'>
@@ -72,7 +59,7 @@ function NavbarResponsive() {
                 </section>
                 <section className='navbar-section'>
                   {
-                    navArray.map(x =>{
+                    cars.map(x =>{
                       return (
                         <h2><Link className='section-shop'>{x.title} </Link> </h2>
                       )
