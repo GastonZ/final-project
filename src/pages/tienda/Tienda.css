@@ -59,7 +59,7 @@ h1 {
   height: 100%;
   object-fit: cover;
   position: fixed;
-  filter: brightness(75%);
+  filter: brightness(80%);
   filter: blur(1%);
 }
 
@@ -104,9 +104,9 @@ h1 {
 }
 
 .buttonshop08 {
-  background-color: rgb(255, 255, 255);
+  background-color: #cef10a;
   font-family: "Montserrat", sans-serif;
-  color: rgb(54, 54, 54);
+  color: rgb(39, 38, 38);
   font-size: 14px;
   font-weight: 700;
   width: 300px;
@@ -119,9 +119,32 @@ h1 {
 
 .buttonshop08:hover {
   transition-duration: 400ms;
-  background-color: rgb(150, 150, 150);
-  color: #f1f1f1;
+  background-color: #f8f7f5;
+  /* color: #f1f1f1; */
 }
+
+.buttonshop09 {
+  background-color: #eeeeeb;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(39, 38, 38);
+  font-size: 14px;
+  font-weight: 700;
+  width: 300px;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 32px;
+  cursor: pointer;
+}
+
+.buttonshop09:hover {
+  transition-duration: 400ms;
+  background-color: #cef10a;
+  
+}
+
+
+
 
 
 /* //SEGUNDA SCREEN DE LA PAGINA// */
@@ -132,7 +155,7 @@ h1 {
   font-size: 20px;
   margin-top: 20px;
   letter-spacing: 3px;
-  color: #252525;
+  color: #eeeaea;
   z-index: 100;
   text-align: start;
 
@@ -187,10 +210,13 @@ h1 {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
+ 
+
+ 
 }
 
 .cardBestSeller09 img {
-  object-position: 50%;
+  
 
   object-fit: cover;
 
@@ -249,14 +275,18 @@ h1 {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #2e2d2d;
-  border-radius: 30px 0px 0px 30px;
+  background-color: #cef10a;
+  border-radius: 9px 0px 0px 9px;
   
 }
 
 
 .cardBestSeller19 h3 {
 
-color: #f7f4f4;
-  font-weight: 600;
+color: #252424;
+  font-weight: 800;
+}
+
+
+.bolder{font-weight: 800;
 }

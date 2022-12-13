@@ -24,7 +24,7 @@ function App() {
     <AutoToTop/>
       <Routes>
        
-        <Route path='details' element={<CarDetails/>} />
+        <Route path='details/:id' element={<CarDetails/>} />
         <Route path="/"  element={<Home/>}></Route>
         <Route path='shop' element={<Tienda/>} />
         <Route path="signup" element={<SignUp></SignUp>}></Route>

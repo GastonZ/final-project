@@ -22,7 +22,6 @@ function NavbarResponsive() {
     dispatch(getCars())
     
   },[])
-  
   console.log(cars);
   
     const [ navbarBackground, setNavbarBackground ]= useState('')
@@ -35,21 +34,6 @@ function NavbarResponsive() {
             }
         })
     }, [])
-
-    const navArray = [
-      {
-        title : 'car1'
-      },
-      {
-        title : 'car2'
-      },
-      {
-        title : 'car3'
-      },
-      {
-        title : 'car4'
-      }
-    ]
 
   return (
     <main className='position-navbar'>
@@ -75,9 +59,9 @@ function NavbarResponsive() {
                 </section>
                 <section className='navbar-section'>
                   {
-                    navArray.map(x =>{
+                    cars.map(x =>{
                       return (
-                        <h2><Link className='section-shop'>{x.title} </Link> </h2>
+                        <h2><Link to={`/details/:${x._id}`} className='section-shop'>{x.title} </Link> </h2>
                       )
                     })
                   }
