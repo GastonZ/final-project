@@ -12,7 +12,6 @@ const carsReducer = createReducer(initialState,
         builder
         .addCase(getCars.fulfilled,(state,action)=>{
             return {
-                ...state,
                 cars: action.payload
             }
         })
