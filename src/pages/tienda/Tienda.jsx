@@ -2,11 +2,17 @@ import React from "react";
 import CarrouselBestSellers from "../../components/CarrouselBestSellers";
 import CarrouselTienda from "../../components/CarrouselTienda08";
 import "../tienda/Tienda.css";
+import { motion } from 'framer-motion'
+
 
 export default function Tienda() {
   return (
     <>
-      <header className="mainTienda08" alt="herotienda">
+    <motion.div
+    initial={{width: 0}}
+    animate={{width: '100%'}}
+    exit={{x: window.innerWidth, transition: { duration: 1}}}>
+    <header className="mainTienda08" alt="herotienda">
         <CarrouselTienda></CarrouselTienda>
       </header>
 
@@ -20,7 +26,7 @@ export default function Tienda() {
         <h3 > <span className="bolder">#</span>Lifestyle</h3>
         <button className="buttonshop08">Shop Now</button>
       </div>
-   
+    </motion.div>
     </>
   );
 }

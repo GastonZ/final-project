@@ -1,19 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './carDetails.css'
 import NavbarResponsive from '../components/Navbar/NavbarResponsive'
 import CountUp from 'react-countup';
-
+import { useParams } from 'react-router-dom';
+import { BASE_URL } from '../api/url';
+import axios from 'axios';
+import { motion } from 'framer-motion'
 
 function CarDetails() {
 
+  let car = useParams()
+  let [filter, setFilter] = useState([])
+  car = (car.id).slice(1)
+  console.log(car);
+  useEffect(()=> {
+    axios.get(`${BASE_URL}cars`)
+    .then(response=>setFilter(response.data.response.find((x)=>x._id === car)))
+  },[filter])
+
+
+  let { title, image, price, peakPower, milesPerSec, acceleration } = filter
+
   return (
     <>
-    <NavbarResponsive/>
+{/*     <NavbarResponsive/> */}
+    <motion.div
+    initial={{width: 0}}
+    animate={{width: '100%'}}
+    exit={{x: window.innerWidth, transition: { duration: 1} }}>
     <main className='car-details-container'>
-        <img className='car-details-img' src="https://tesla-cdn.thron.com/delivery/public/image/tesla/8a74d206-66dc-4386-8c7a-88ff32174e7d/bvlatuR/std/4096x2560/Model-S-Main-Hero-Desktop-LHD" alt="Model S" />
+        <img className='car-details-img' src={image} alt={title} />
         <section className='car-details-title'>
           <p class="button-title-detail btn-shine">
-            <span>Model S</span>
+            <span>{title}</span>
           </p>
 {/*           <h1>Model S</h1> */}
         </section>
@@ -23,11 +42,11 @@ function CarDetails() {
             <p>0-60 mph*</p>
           </div>
           <div className='specifications-item'>
-            <h2><CountUp duration={4} end={200}/> mph</h2>
+            <h2><CountUp duration={4} end={milesPerSec}/> mph</h2>
             <p>Top Speed</p>
           </div>
           <div className='specifications-item'>
-            <h2><CountUp duration={4} end={1080}/> hp</h2>
+            <h2><CountUp duration={4} end={peakPower}/> hp</h2>
             <p>Peak Power</p>
           </div>
       </section>
@@ -61,6 +80,8 @@ function CarDetails() {
         </article>
       </section>
     </body>
+    </motion.div>
+ 
     </>
   )
 }
