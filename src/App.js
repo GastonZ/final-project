@@ -1,4 +1,5 @@
 import CarDetails from "./pages/CarDetails";
+import Tienda from "./pages/tienda/Tienda";
 import { Route, Routes } from 'react-router-dom';
 import Home from "./pages/Home";
 import Footer from "./components/Footer/Footer";
@@ -23,6 +24,7 @@ function App() {
        
         <Route path='details' element={<CarDetails/>} />
         <Route path="/"  element={<Home/>}></Route>
+        <Route path='shop' element={<Tienda/>} />
       </Routes>
  
 <Footer/>
