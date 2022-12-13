@@ -22,7 +22,8 @@ export default function CarrouselTienda() {
       >
         <SwiperSlide>
           <div className="contenedorTienda08">
-            <h1 className="titulo1shop" href="#">
+
+            <h1 className="titulo1shop" href="#" >
               Wall Connector
             </h1>
             <h2 className="titulo2shop">The most convenient way to charge</h2>
@@ -36,8 +37,8 @@ export default function CarrouselTienda() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <div className="contenedorTienda08">
-            <h1 className="titulo1shop" href="#">
+          <div className="contenedorTienda08" >
+            <h1 className="titulo1shop" href="#" >
               Chill Collection
             </h1>
             <h2 className="titulo2shop">Premium Confort for Any Season</h2>
@@ -50,11 +51,11 @@ export default function CarrouselTienda() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <div className="contenedorTienda08">
-            <h1 className="titulo1shop" href="#">
+          <div className="contenedorTienda08"  >
+            <h1 className="titulo1shop" href="#"  >
               Weather Interior
             </h1>
-            <h2 className="titulo2shop">Maximum protection and durability</h2>
+            <h2 className="titulo2shop" >Maximum protection and durability</h2>
             <button className="buttonshop08">Shop Now</button>
           </div>
           <img

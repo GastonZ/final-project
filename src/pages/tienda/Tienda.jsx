@@ -11,14 +11,14 @@ export default function Tienda() {
       </header>
 
       <article className="mainTienda09">
-        <div className="cardBestSeller19"> <h3 className="subtitle09">Iconic Items & Best Sellers.</h3></div>
+        <div className="cardBestSeller19" data-aos="fade-right" data-aos-duration="2000"> <h3 className="subtitle09" >Iconic Items & Best Sellers.</h3></div>
        
         <CarrouselBestSellers></CarrouselBestSellers>
       </article>
 
-      <div className="sectionTienda09">
-        <h3 > <span className="bolder">#</span>Lifestyle</h3>
-        <button className="buttonshop08">Shop Now</button>
+      <div className="sectionTienda09" >
+        <h3 data-aos="fade-right" data-aos-duration="1500"> <span className="bolder">#</span>Lifestyle</h3>
+        <button className="buttonshop08" >Shop Now</button>
       </div>
    
     </>
