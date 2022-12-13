@@ -10,17 +10,17 @@ import { useDispatch, useSelector } from 'react-redux';
 
 function NavbarResponsive() {
 
-  let { getCars } = carsActions
+/*   let { getCars } = carsActions
 
   let dispatch = useDispatch()
 
   const { cars } = useSelector((state)=> state.cars)
   
   useEffect(()=>{
-    let res = dispatch(getCars())
-    console.log(res);
+    dispatch(getCars())
+    
   },[])
-  console.log(cars + 'hola');
+  console.log(cars ); */
   
     const [ navbarBackground, setNavbarBackground ]= useState('')
     useEffect(()=>{

@@ -11,11 +11,14 @@ const carsReducer = createReducer(initialState,
     (builder)=> {
         builder
         .addCase(getCars.fulfilled,(state,action)=>{
+            console.log(action.payload);
             return {
-                cars: action.payload
+                ...state,
+                cars: action.payload.cars
             }
         })
     })
+
 
 
 export default carsReducer
