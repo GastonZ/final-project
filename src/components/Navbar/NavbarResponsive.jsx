@@ -7,6 +7,8 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Link, NavLink } from 'react-router-dom';
 import carsActions from '../../redux/actions/carsActions';
 import { useDispatch, useSelector } from 'react-redux';
+import { BASE_URL } from '../../api/url'
+
 
 function NavbarResponsive() {
 
@@ -20,6 +22,7 @@ function NavbarResponsive() {
     let res = dispatch(getCars())
     console.log(res);
   },[])
+  
   console.log(cars + 'hola');
   
     const [ navbarBackground, setNavbarBackground ]= useState('')
