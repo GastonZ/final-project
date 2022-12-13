@@ -35,21 +35,6 @@ function NavbarResponsive() {
         })
     }, [])
 
-    const navArray = [
-      {
-        title : 'car1'
-      },
-      {
-        title : 'car2'
-      },
-      {
-        title : 'car3'
-      },
-      {
-        title : 'car4'
-      }
-    ]
-
   return (
     <main className='position-navbar'>
         <div className='navbar-container'>
