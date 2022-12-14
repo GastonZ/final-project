@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import usersActions from "../actions/userAction";
-const { newUser, logIn } = usersActions
+const { newUser, logIn, enterAgain } = usersActions
 
 const initialState ={
     profiles : [],
@@ -37,6 +37,32 @@ const userReducer = createReducer (initialState,
                     role: userToken.role,
                     logged: true,
                     token: token
+                }
+                return newState
+            } else {
+                let newState = {
+                    ...state,
+                    message: response
+                }
+                return newState
+            }
+        })
+        .addCase(enterAgain.fulfilled, (state,action)=> {
+            
+            const { success, response} = action.payload
+            console.log(action.payload);
+            console.log(response);
+            if(success) {
+                let { userToken, token } = response
+                console.log(userToken);
+                let newState = {
+                    ...state,
+                    name: userToken.name,
+                    photo: userToken.photo,
+                    logged: true,
+                    token: token,
+                    role: userToken.role,
+                    id: userToken.id
                 }
                 return newState
             } else {

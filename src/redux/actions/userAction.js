@@ -53,9 +53,31 @@ const logIn = createAsyncThunk('logIn', async (data) => {
     }
 })
 
+const enterAgain = createAsyncThunk('enterAgain', async (token) =>{
+    let url = `${BASE_URL}token`
+    let headers = {headers: {'Authorization': `Bearer ${token}`}}
+    try {
+        let user = await axios.post(url,null,headers)
+        return {
+            success: true,
+            response: {
+                user: user.data.response.userToken,
+                token
+            }
+        }
+    } catch (error) {
+        console.log(error.response);
+        return {
+            success: false,
+            response: error.response.data.message
+        }
+    }
+})
+
 const usersActions = {
     newUser,
-    logIn
+    logIn,
+    enterAgain
 }
 
 export default usersActions

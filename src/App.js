@@ -13,15 +13,29 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import AutoToTop from "./components/AutoToTop/AutoToTop";
 import SignIn from "./pages/signin/SignIn";
 import BackToTop from './components/BackToTop/BackToTop'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import usersActions from "./redux/actions/userAction";
+import React, {useEffect} from "react"
 
 AOS.init();
 
 function App() {
+
+  let { enterAgain } = usersActions
+  let dispatch = useDispatch()
+
  
   let { logged } = useSelector(store => store.usuario)
 
-  console.log(logged);
+  async function enterAgainToken(){
+    let token = JSON.parse(localStorage.getItem("token"))
+    if (token){
+     await dispatch(enterAgain(token.token.user))
+    }
+  }
+    useEffect(  ()=>{
+   enterAgainToken()
+    },[])
  
   return (
 
