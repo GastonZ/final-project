@@ -8,11 +8,12 @@ import { Link, NavLink } from 'react-router-dom';
 import carsActions from '../../redux/actions/carsActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { BASE_URL } from '../../api/url'
-
+import { useParams } from 'react-router-dom'
 
 function NavbarResponsive() {
-
-   let { getCars } = carsActions
+  
+  console.log(window.location);
+  let { getCars } = carsActions
 
   let dispatch = useDispatch()
 
@@ -27,9 +28,10 @@ function NavbarResponsive() {
     const [ navbarBackground, setNavbarBackground ]= useState('')
     useEffect(()=>{
         window.addEventListener("scroll",()=>{
-            if(window.scrollY> 50){
+            if(window.scrollY > 50 /* || window.location.includes('/signup') */){
                 setNavbarBackground('bg-solid')
-            }else{
+            }
+            else{
                 setNavbarBackground('')
             }
         })
@@ -61,7 +63,7 @@ function NavbarResponsive() {
                   {
                     cars.map(x =>{
                       return (
-                        <h2><Link to={`/details/:${x._id}`} className='section-shop'>{x.title} </Link> </h2>
+                        <h2><NavLink aria-label='Close' to={`/details/:${x._id}`} key={x._id} className='section-shop'>{x.title} </NavLink> </h2>
                       )
                     })
                   }

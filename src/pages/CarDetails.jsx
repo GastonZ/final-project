@@ -10,14 +10,22 @@ import { motion } from 'framer-motion'
 function CarDetails() {
 
   let car = useParams()
-  let [filter, setFilter] = useState([])
-  car = (car.id).slice(1)
-  console.log(car);
-  useEffect(()=> {
-    axios.get(`${BASE_URL}cars`)
-    .then(response=>setFilter(response.data.response.find((x)=>x._id === car)))
-  },[filter])
 
+  let [filter, setFilter] = useState([])
+  const [reload, setReload] = useState(true)
+
+  car = (car.id).slice(1)
+
+
+  async function detailsCars() {
+    await axios.get(`${BASE_URL}cars`)
+    .then(response=>setFilter(response.data.response.find((x)=>x._id === car)))
+  }
+
+  useEffect(()=> {
+    detailsCars()
+  },[car])
+  
 
   let { title, image, price, peakPower, milesPerSec, acceleration } = filter
 

@@ -1,0 +1,105 @@
+
+.cute-input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url('./aesthetic.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-next {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(0deg,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.4)), url("wheel.png");
+    background-color: #ECEEF0;
+    width: 170%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (max-width:620px){
+    .bg-next{
+    display: none;
+    }}
+.bg-next>h2 {
+    font-size: 5rem;
+    padding: 10rem;
+    backdrop-filter: blur(0px) saturate(200%);
+    -webkit-backdrop-filter: blur(0px) saturate(200%);
+    background-color: rgba(17, 25, 40, 0.43);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    color: white;
+}
+
+.text-sign{
+    padding-top: 60px;
+    margin: 30px;
+    text-align: center;
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    color: #24262B;
+}
+
+
+
+.container-input {
+    height: 100vh;
+  width: 100%;
+}
+
+.text-center{
+    text-align: center;
+    margin: 20px;
+}
+
+
+.btn-google:hover {
+    transform: scale(1.02);
+}
+
+.container-input-box {
+    padding: 50px;
+}
+
+.input-space {
+    margin-bottom: 30px
+;}
+
+
+
+.input-signup:enabled {
+    border: red;
+    outline: none;
+}
+
+.button-signup{
+    margin-top: 30px;
+    height: 30px;
+    width: 250px;
+    background-color: #24262B;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 300ms ease-in-out;
+}
+
+.button-signup:hover{
+    transform: scale(1.02);
+   background-color: #cef10a;
+   color: #24262B;
+}
+.inputi09{
+  background-color: #f2f2f2;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+   width: 250px;
+    height: 50px;
+}
