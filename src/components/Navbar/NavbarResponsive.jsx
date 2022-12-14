@@ -26,11 +26,11 @@ function NavbarResponsive() {
     const [ navbarBackground, setNavbarBackground ]= useState('')
     useEffect(()=>{
         window.addEventListener("scroll",()=>{
-            if(window.scrollY > 50 /* || window.location.includes('/signup') */){
-                setNavbarBackground('bg-solid')
-            }
-            else if (window.scrollY < 50 ){
+            if(window.scrollY < 50 /* || window.location.includes('/signup') */){
                 setNavbarBackground('bg-almost-solid')
+            }
+            else if (window.scrollY > 50 ){
+                setNavbarBackground('bg-solid')
             }
         })
     }, [])
