@@ -4,7 +4,9 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: rgb(249, 249, 249);
+    background-image: url('./aesthetic.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .bg-next {
