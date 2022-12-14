@@ -68,7 +68,7 @@ function NavbarResponsive() {
                 </section>
                 <section className='navbar-section'>
                     <h2><Link className='section-shop' to='/shop'> Shop</Link></h2>
-                    <h2><Link className='section-shop' to='/signin'> Account</Link></h2>
+                    <h2><Link className='section-shop' to='/signup'> Account</Link></h2>
                 </section>
                 </Nav>
               </Offcanvas.Body>
