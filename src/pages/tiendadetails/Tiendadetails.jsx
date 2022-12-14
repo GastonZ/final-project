@@ -9,17 +9,16 @@ export default function TiendaDetails() {
       <header className="headerTiendaDetails010"></header>
 
       <article className="titular010TiendaDetails">
-      
-     
+    
       </article>
 
       <main className="mainTiendaDetails010">
-        <div className="banner"  data-aos="fade-down" data-aos-duration="2000">
+        {/* <div className="banner"  data-aos="fade-down" data-aos-duration="2000">
            <img src="https://media.discordapp.net/attachments/763661782555426817/1052683529626075207/Pngtreeblack_and_white_icons_of_7554658.png?width=931&height=524" alt="" srcset="" />
          
       
          <h1 data-aos="fade-up" data-aos-duration="2000">#HighQualityClothes</h1>
-        </div>
+        </div> */}
         {/* //empieza card */}
         <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
           <img
