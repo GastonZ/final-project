@@ -39,7 +39,7 @@ function SignUp (){
             Swal.fire({
                 position: 'center',
                 title: res.payload.response,
-                showConfirmButton: false,
+                showConfirmButton: true,
                 timer: 2000
               })
         }
