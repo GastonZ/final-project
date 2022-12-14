@@ -9,37 +9,166 @@ export default function TiendaDetails() {
       <header className="headerTiendaDetails010"></header>
 
       <article className="titular010TiendaDetails">
-        <h1>Our collections</h1>
-        <h3>Qualified high-end items.</h3>
+      
+     
       </article>
 
       <main className="mainTiendaDetails010">
+        <div className="banner">
+          <img src="https://media.discordapp.net/attachments/763661782555426817/1052683529626075207/Pngtreeblack_and_white_icons_of_7554658.png?width=931&height=524" alt="" srcset="" />
+        
+        </div>
+        {/* //empieza card */}
         <div class="card089">
           <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/SOCKS/1741613-00-A_1_2000.jpg"
+            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/LIFESTYLE/OUTERWEAR/JACKETS/1740521-00-A_0_2000.jpg"
             alt=""
             srcset=""
           />
-        </div>
 
-        <div class="card1234">
-          <div class="card-imagecard1234">
-            <img
-              src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/SOCKS/1741613-00-A_1_2000.jpg"
-              alt=""
-              srcset=""
-            />
-          </div>
-          <div class="categorycard1234"> Illustration </div>
-          <div class="headingcard1234">
-            {" "}
-            A heading that must span over two lines
-            <div class="authorcard1234">
-              {" "}
-              By <span class="namecard1234">Abi</span> 4 days ago
+          <div className="cardTiendaContainer">
+            <div className="cardTiendaText">
+              <h6>Grey-B Sockets</h6>
+              <h6>Price: $10</h6>
+            </div>
+
+            <div className="cardTiendaButton">
+              <button className="chango"></button>
+              <button className="lupa"></button>
             </div>
           </div>
         </div>
+         {/* //termina card */}
+           {/* //empieza card */}
+        <div class="card089">
+          <img
+            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/LIFESTYLE/TOPS/HOODIES_SWEATSHIRTS/1740176-00-A_0_2000.jpg"
+            alt=""
+            srcset=""
+          />
+
+          <div className="cardTiendaContainer">
+            <div className="cardTiendaText">
+              <h6>Grey-B Sockets</h6>
+              <h6>Price: $10</h6>
+            </div>
+
+            <div className="cardTiendaButton">
+              <button className="chango"></button>
+              <button className="lupa"></button>
+            </div>
+          </div>
+        </div>
+         {/* //termina card */}
+           {/* //empieza card */}
+        <div class="card089">
+          <img
+            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/LIFESTYLE/TOPS/TSHIRTS/1741425-00-A_0_2000.jpg"
+            alt=""
+            srcset=""
+          />
+
+          <div className="cardTiendaContainer">
+            <div className="cardTiendaText">
+              <h6>Grey-B Sockets</h6>
+              <h6>Price: $10</h6>
+            </div>
+
+            <div className="cardTiendaButton">
+              <button className="chango"></button>
+              <button className="lupa"></button>
+            </div>
+          </div>
+        </div>
+         {/* //termina card */}
+
+             {/* //empieza card */}
+        <div class="card089">
+          <img
+            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/LIFESTYLE/TOPS/HOODIES_SWEATSHIRTS/1741111-00-A_0_2000.jpg"
+            alt=""
+            srcset=""
+          />
+
+          <div className="cardTiendaContainer">
+            <div className="cardTiendaText">
+              <h6>Grey-B Sockets</h6>
+              <h6>Price: $10</h6>
+            </div>
+
+            <div className="cardTiendaButton">
+              <button className="chango"></button>
+              <button className="lupa"></button>
+            </div>
+          </div>
+        </div>
+         {/* //termina card */}
+                {/* //empieza card */}
+        <div class="card089">
+          <img
+            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/TOPS/HOODIES_SWEATSHIRTS/8529100-00-A_0_2000.jpg"
+            alt=""
+            srcset=""
+          />
+
+          <div className="cardTiendaContainer">
+            <div className="cardTiendaText">
+              <h6>Grey-B Sockets</h6>
+              <h6>Price: $10</h6>
+            </div>
+
+            <div className="cardTiendaButton">
+              <button className="chango"></button>
+              <button className="lupa"></button>
+            </div>
+          </div>
+        </div>
+         {/* //termina card */}
+                   {/* //empieza card */}
+        <div class="card089">
+          <img
+            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/TOPS/HOODIES_SWEATSHIRTS/8764613-00-A_0_2000.jpg"
+            alt=""
+            srcset=""
+          />
+
+          <div className="cardTiendaContainer">
+            <div className="cardTiendaText">
+              <h6>Grey-B Sockets</h6>
+              <h6>Price: $10</h6>
+            </div>
+
+            <div className="cardTiendaButton">
+              <button className="chango"></button>
+              <button className="lupa"></button>
+            </div>
+          </div>
+        </div>
+         {/* //termina card */}
+
+               {/* //empieza card */}
+        <div class="card089">
+          <img
+            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/TOPS/HOODIES_SWEATSHIRTS/8764613-00-A_0_2000.jpg"
+            alt=""
+            srcset=""
+          />
+
+          <div className="cardTiendaContainer">
+            <div className="cardTiendaText">
+              <h6>Grey-B Sockets</h6>
+              <h6>Price: $10</h6>
+            </div>
+
+            <div className="cardTiendaButton">
+              <button className="chango"></button>
+              <button className="lupa"></button>
+            </div>
+          </div>
+        </div>
+         {/* //termina card */}
+        
+        
       </main>
     </>
   );
