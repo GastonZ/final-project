@@ -10,7 +10,9 @@ import carsActions from '../../redux/actions/carsActions';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 AOS.init();
-function CarHome() {
+function CarHome(props) {
+
+  let { id } = props
 
   let { getCars } = carsActions
 
@@ -37,7 +39,7 @@ function CarHome() {
           <h1 className='text-title-car'>{x.title}</h1>
         </section>
         <section >
-        <Link to="/Details">
+        <Link to={`/details/:${x._id}`}>
         <button class="learn-more">
   <span className="circle" aria-hidden="true">
   <span className="icon arrow"></span>

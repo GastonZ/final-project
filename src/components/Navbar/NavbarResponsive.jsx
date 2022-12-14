@@ -61,7 +61,7 @@ function NavbarResponsive() {
                   {
                     cars.map(x =>{
                       return (
-                        <h2><Link className='section-shop'>{x.title} </Link> </h2>
+                        <h2><Link to={`/details/:${x._id}`} className='section-shop'>{x.title} </Link> </h2>
                       )
                     })
                   }
