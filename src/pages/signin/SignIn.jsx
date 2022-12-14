@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom'
 import './signin.css'
 import usersActions from '../../redux/actions/userAction'
+import { motion } from 'framer-motion'
 
 
 function SignIn() {
@@ -43,6 +44,10 @@ function SignIn() {
   
   return (
     <>
+    <motion.div
+    initial={{opacity: 0}}
+    animate={{opacity: 1}}
+    exit={{opacity: 0}}>
       <div className='cuter-input-container'>
       <div className='bg-next-in'>
 
@@ -64,6 +69,7 @@ function SignIn() {
         </div>
         </div>
       </div>
+    </motion.div>
     </>
 
   )
