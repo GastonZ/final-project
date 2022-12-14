@@ -13,12 +13,15 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import AutoToTop from "./components/AutoToTop/AutoToTop";
 import SignIn from "./pages/signin/SignIn";
 import BackToTop from './components/BackToTop/BackToTop'
+import { useSelector } from "react-redux";
 
 AOS.init();
 
 function App() {
  
- 
+  let { logged } = useSelector(store => store.usuario)
+
+  console.log(logged);
  
   return (
 

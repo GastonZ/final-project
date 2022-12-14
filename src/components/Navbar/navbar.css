@@ -4,6 +4,29 @@
     z-index: 999;
 }
 
+.navbar-logo-img {
+    height: 50px;
+    width: 100px;
+    padding-bottom: 10px;
+    transition: 500ms ease-in-out;
+}
+
+.navbar-logo-img:hover {
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+.bg-almost-solid {
+    background-color: rgba(17, 25, 40, 0.25);
+}
 
 .bg-solid {
     background-color: #000;

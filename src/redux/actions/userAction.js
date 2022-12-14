@@ -1,5 +1,6 @@
 import {  createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { BASE_URL } from '../../api/url'
 
 const newUser = createAsyncThunk('newUser', async(data)=> {
     let url = `http://localhost:8000/users`
@@ -26,9 +27,35 @@ const newUser = createAsyncThunk('newUser', async(data)=> {
     }
 })
 
+const logIn = createAsyncThunk('logIn', async (data) => {
+    let url = `${BASE_URL}signin`
+    try {
+        let user = await axios.post(url, data)
+        console.log(user);
+
+        if(user.data.response.userToken.id) {
+            return {
+                success: true,
+                response: user.data.response
+            }
+        }else {
+            return {
+                success: false,
+                response: user.response.data.message
+            }
+        }
+    } catch (error) {
+        return{
+
+            success: false,
+            response: 'lptm un error'
+        }
+    }
+})
+
 const usersActions = {
     newUser,
-
+    logIn
 }
 
 export default usersActions
