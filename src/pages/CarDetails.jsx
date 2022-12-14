@@ -12,11 +12,11 @@ function CarDetails() {
   let car = useParams()
   let [filter, setFilter] = useState([])
   car = (car.id).slice(1)
-  console.log(car);
+
   useEffect(()=> {
     axios.get(`${BASE_URL}cars`)
     .then(response=>setFilter(response.data.response.find((x)=>x._id === car)))
-  },[filter])
+  },[])
 
 
   let { title, image, price, peakPower, milesPerSec, acceleration } = filter
