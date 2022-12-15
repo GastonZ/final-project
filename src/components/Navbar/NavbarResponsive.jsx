@@ -44,7 +44,7 @@ function NavbarResponsive() {
             <section className='navbar-section'>
                 <Link style={{ textDecoration: 'none', color: '#fff' }} to="/"><img className='navbar-logo-img' src={require('./logo-x.png')}></img></Link>
             </section>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+            <Navbar.Toggle className='text-light bg-ligth-canvas' aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
