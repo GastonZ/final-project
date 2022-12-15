@@ -140,12 +140,7 @@ h1 {
 .buttonshop09:hover {
   transition-duration: 400ms;
   background-color: #cef10a;
-  
 }
-
-
-
-
 
 /* //SEGUNDA SCREEN DE LA PAGINA// */
 
@@ -164,15 +159,12 @@ h1 {
   border-radius: 10px;
   width: 20%;
   height: 40vh;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 60px;
-  
 }
-
-
 
 .mainTienda09 {
   padding: 20px;
@@ -182,7 +174,7 @@ h1 {
   justify-content: center;
   align-items: center;
   gap: 15px;
-  margin-top: 22px;  margin-bottom: 25px;
+  margin-top: 22px;
   margin-bottom: 25px;
   font-family: "Montserrat", sans-serif;
 }
@@ -210,14 +202,9 @@ h1 {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
- 
-
- 
 }
 
 .cardBestSeller09 img {
-  
-
   object-fit: cover;
 
   height: 75%;
@@ -261,10 +248,7 @@ h1 {
   font-family: "Montserrat", sans-serif;
 }
 
-
-
 .cardBestSeller19 {
-
   width: 320px;
   height: 650px;
   border-radius: 5px;
@@ -277,16 +261,117 @@ h1 {
   margin-bottom: 10px;
   background-color: #cef10a;
   border-radius: 9px 0px 0px 9px;
-  
 }
 
-
 .cardBestSeller19 h3 {
-
-color: #252424;
+  color: #252424;
   font-weight: 800;
 }
 
+.bolder {
+  font-weight: 800;
+}
 
-.bolder{font-weight: 800;
+@media (max-width: 1679px) {
+  .cardBestSeller19 {
+    width: 200px;
+    height: 650px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #cef10a;
+    border-radius: 9px 0px 0px 9px;
+  }
+
+  .cardBestSeller09 {
+    background-color: rgb(247, 247, 247);
+    width: 320px;
+    height: 650px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .cardBestSeller09 img {
+    width: 320px;
+    height: 650px;
+  }
+
+  .cardBestSeller19 h3 {
+    font-size: 30px;
+  }
+}
+
+
+
+@media (max-width: 1588px) {
+  .cardBestSeller19 {
+    width: 95%;
+    height: 150px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-evenly; */
+   
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #cef10a;
+    border-radius: 2px 2px 2px 2px;
+  }
+
+  .cardBestSeller09 {
+    background-color: rgb(247, 247, 247);
+    width: 320px;
+    height: 650px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .cardBestSeller09 img {
+    width: 320px;
+    height: 650px;
+  }
+
+  .cardBestSeller19 h3 {
+    font-size: 40px;
+    width: 90%;
+  }
+}
+
+
+@media (max-width: 811px) {
+  
+  .cardBestSeller19 h3 {
+    font-size: 15px;
+    width: 100%;
+    padding: 2px;
+  }
+}
+
+
+
+@media (max-width: 385px) {
+  
+  .cardBestSeller19{
+    display: none;
+  }
 }
