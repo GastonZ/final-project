@@ -48,7 +48,7 @@ const logIn = createAsyncThunk('logIn', async (data) => {
         return{
 
             success: false,
-            response: 'lptm un error'
+            response: error.response.data.message
         }
     }
 })
@@ -58,10 +58,11 @@ const enterAgain = createAsyncThunk('enterAgain', async (token) =>{
     let headers = {headers: {'Authorization': `Bearer ${token}`}}
     try {
         let user = await axios.post(url,null,headers)
+        console.log(user);
         return {
             success: true,
             response: {
-                user: user.data.response.userToken,
+                user: user.data.response.user,
                 token
             }
         }

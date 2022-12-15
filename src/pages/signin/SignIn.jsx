@@ -65,7 +65,7 @@ function SignIn() {
             </div>
             <button onClick={signIn} type='submit' className='button-signup'>Sign In</button>
           </div>
-            <Link to='/signup'>Already have an account ?</Link>   
+            <Link to='/signup'>Don't have an account yet ?</Link>   
         </div>
         </div>
       </div>

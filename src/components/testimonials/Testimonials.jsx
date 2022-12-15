@@ -3,7 +3,7 @@ import React from 'react'
 
 import marca1 from "./pirelli.png"
 import marca2 from "./red.png"
-import marca3 from "./god.png"
+
 import './testi.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
@@ -32,7 +32,7 @@ function Testimonials() {
     </div>
     <div className='marcaContainer'>
 <img className='marca-img' src={marca1} alt="" />
-<img  className='marca-img' src={marca3} alt="" />
+
 <img className='marca-img' src={marca2} alt="" />
     </div>
     </>

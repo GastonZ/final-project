@@ -28,8 +28,9 @@ function App() {
   let dispatch = useDispatch()
 
  
-  let { logged } = useSelector(store => store.usuario)
-
+  let { name, photo } = useSelector(store => store.usuario)
+  console.log(name);
+  console.log(photo);
   async function enterAgainToken(){
     let token = JSON.parse(localStorage.getItem("token"))
     if (token){
@@ -67,3 +68,7 @@ function App() {
 }
 
 export default App;
+
+
+/* Viernes 19, presentar en menos de 5 min, entre app web y mobile, no pisar las funcionalidades es decir,
+mostrar cosas diferentes una de la otra */
