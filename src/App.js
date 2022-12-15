@@ -1,6 +1,9 @@
 import CarDetails from "./pages/CarDetails";
 import Tienda from "./pages/tienda/Tienda";
 import TiendaDetails from "./pages/tiendadetails/Tiendadetails";
+import TiendaDetailsAccesories from "./pages/tiendaaccesories/TiendaDetailsAccesories";
+import TiendaDetailsWomen from "./pages/tiendawomen/TiendaDetailsMujer";
+import TiendaDetailsKids from "./pages/tiendakids/TiendaDetailsNiños"
 import { Route, Routes } from 'react-router-dom';
 import Home from "./pages/Home";
 import Footer from "./components/Footer/Footer";
@@ -51,7 +54,10 @@ function App() {
         <Route path='shop' element={<Tienda/>} />
         <Route path="signup" element={<SignUp></SignUp>}></Route>
         <Route path="/*" element={<NotFound></NotFound>}></Route>
-        <Route path='shoppin' element={<TiendaDetails/>} />
+        <Route path='shop/men' element={<TiendaDetails/>} />
+        <Route path='shop/women' element={<TiendaDetailsWomen/>} />
+        <Route path='shop/kids' element={<TiendaDetailsKids/>} />
+        <Route path='shop/accesories' element={<TiendaDetailsAccesories/>} />
         <Route path='signin' element={<SignIn/>} />
       </Routes>
  

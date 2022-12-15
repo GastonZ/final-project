@@ -7,10 +7,20 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "../pages/tienda/Tienda.css";
 
+
 // import required modules
 import { Pagination } from "swiper";
+import { useNavigate } from "react-router";
 
 export default function CarrouselTienda() {
+  const navigate = useNavigate()
+  function toShopMen(){
+    navigate("/shop/men")
+  }
+  function toShopAccesories(){
+    navigate("/shop/accesories")
+  }
+
   return (
     <>
       <Swiper
@@ -27,7 +37,7 @@ export default function CarrouselTienda() {
               Wall Connector
             </h1>
             <h2 className="titulo2shop">The most convenient way to charge</h2>
-            <button className="buttonshop08">Shop Now</button>
+            <button className="buttonshop08" onClick={toShopAccesories}>Shop Now</button>
           </div>
 
           <img
@@ -42,7 +52,7 @@ export default function CarrouselTienda() {
               Chill Collection
             </h1>
             <h2 className="titulo2shop">Premium Confort for Any Season</h2>
-            <button className="buttonshop08">Shop Now</button>
+            <button className="buttonshop08" onClick={toShopMen}>Shop Now</button>
           </div>
           <img
             src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/teslaweb/homepage/Chill_banner_web.jpg"
@@ -56,7 +66,7 @@ export default function CarrouselTienda() {
               Weather Interior
             </h1>
             <h2 className="titulo2shop" >Maximum protection and durability</h2>
-            <button className="buttonshop08">Shop Now</button>
+            <button className="buttonshop08" onClick={toShopAccesories}>Shop Now</button>
           </div>
           <img
             src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/teslaweb/homepage/MY_Floormats_banner_web.jpg"
