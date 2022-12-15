@@ -30,7 +30,7 @@ const userReducer = createReducer (initialState,
                 let { userToken,token } = response //este token es el codigo que viene del backend
                 localStorage.setItem('token',JSON.stringify({token: {user: token}})) //este objeto token va a guardar
                 //la propiedad con el nombre del tipo de token y el token que guarda
-                console.log(state);
+             
                 let newState = {
                     ...state,
                     name: userToken.name,
@@ -54,16 +54,16 @@ const userReducer = createReducer (initialState,
             console.log(response);
             console.log(state);
             if(success) {
-                let { userToken, token } = response
-                console.log(userToken);
+                let { user, token } = response
+              
                 let newState = {
                     ...state,
-                    name: userToken.name,
-                    photo: userToken.photo,
+                    name: user.name,
+                    photo: user.photo,
                     logged: true,
                     token: token,
-                    role: userToken.role,
-                    id: userToken.id
+                    role: user.role,
+                    id: user.id
                 }
                 return newState
             } else {

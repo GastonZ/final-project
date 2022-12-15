@@ -6,8 +6,11 @@ import { useParams } from 'react-router-dom';
 import { BASE_URL } from '../api/url';
 import axios from 'axios';
 import { motion } from 'framer-motion'
+import { useDispatch ,useSelector} from 'react-redux';
 
 function CarDetails() {
+
+
 
   let car = useParams()
 
@@ -27,7 +30,7 @@ function CarDetails() {
   },[car])
   
 
-  let { title, image, price, peakPower, milesPerSec, acceleration } = filter
+  let { title, image,imageDetails, price, peakPower, milesPerSec, acceleration } = filter
 
   return (
     <>
@@ -37,7 +40,7 @@ function CarDetails() {
     animate={{opacity: 1}}
     exit={{opacity: 0}}>
     <main className='car-details-container'>
-        <img className='car-details-img' src={image} alt={title} />
+        <img className='car-details-img' src={imageDetails} alt={title} />
         <section className='car-details-title'>
           <p class="button-title-detail btn-shine">
             <span>{title}</span>

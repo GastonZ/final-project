@@ -61,7 +61,7 @@ const enterAgain = createAsyncThunk('enterAgain', async (token) =>{
         return {
             success: true,
             response: {
-                user: user.data.response.userToken,
+                user: user.data.response.user,
                 token
             }
         }
