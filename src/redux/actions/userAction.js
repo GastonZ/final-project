@@ -31,7 +31,7 @@ const logIn = createAsyncThunk('logIn', async (data) => {
     let url = `${BASE_URL}signin`
     try {
         let user = await axios.post(url, data)
-        console.log(user);
+        console.log(user.data.response.userToken);
 
         if(user.data.response.userToken.id) {
             return {
@@ -48,7 +48,7 @@ const logIn = createAsyncThunk('logIn', async (data) => {
         return{
 
             success: false,
-            response: 'lptm un error'
+            response: error.response.data.message
         }
     }
 })
