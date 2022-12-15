@@ -19,6 +19,7 @@ import BackToTop from './components/BackToTop/BackToTop'
 import { useDispatch, useSelector } from "react-redux";
 import usersActions from "./redux/actions/userAction";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Profile from "./pages/profile/Profile";
 import React, {useEffect} from "react"
 
 AOS.init();
@@ -61,6 +62,7 @@ function App() {
         <Route path='shop/kids' element={<TiendaDetailsKids/>} />
         <Route path='shop/accesories' element={<TiendaDetailsAccesories/>} />
         <Route path='signin' element={ logged? <Home/>:<SignIn/>} />
+        <Route path='profile' element={<Profile/>} />
       </Routes>
  
 <Footer/>
