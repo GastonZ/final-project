@@ -14,9 +14,9 @@ export default function Home() {
     exit={{opacity: 0}}>
       <Main></Main>
       
-      <CarHome></CarHome>
       <CarouselSwiperHome></CarouselSwiperHome>
       <Testimonials></Testimonials>
+      <CarHome></CarHome>
     </motion.div>
 
  </>

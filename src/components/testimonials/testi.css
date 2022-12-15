@@ -101,11 +101,11 @@ overflow: hidden;
  } 
  .marcaContainer{
     width: 100%;
-    height: 15vh;
+    height: 20vh;
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin-bottom: 80px;
+
   flex-wrap: wrap;
   overflow: hidden;
  
@@ -113,6 +113,3 @@ overflow: hidden;
  .marca-img{
     height: 100px;
  }
-.marca-imgg{
-    height: 60px;
-}
