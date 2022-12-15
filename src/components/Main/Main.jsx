@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './main.css'
-import videoBg from "../Main/bugaa.mp4"
+import videoBg from "../Main/bugaaa.mp4"
 
 function Main() {
   return (
