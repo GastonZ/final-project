@@ -6,14 +6,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import car from "./pagannini.png"
-import car1 from "./pagani1.png"
-import car2 from "./pagani2.png"
-import car3 from "./pagani3.png"
-import car4 from "./pagani4.png"
+import car1 from "./bugatti1.png"
+import car2 from "./bugatti2.png"
+import car3 from "./bugatti3.png"
+import car4 from "./bugatti4.png"
 import "./styles.css";
 
 // import required modules
 import { Pagination } from "swiper";
+import { Navigation } from "swiper";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
@@ -25,7 +26,8 @@ export default function CarouselSwiperHome() {
 
 
       <Swiper
-        slidesPerView={1}
+
+        slidesPerView={3}
         spaceBetween={10}
         pagination={{
           clickable: true,
@@ -53,10 +55,10 @@ export default function CarouselSwiperHome() {
       >
         <SwiperSlide className="swiperiper"><img className="swiper-imge" src={car1} alt="" /></SwiperSlide>
         <SwiperSlide className="swiperiper"><img className="swiper-imge" src={car2} alt="" /></SwiperSlide>
+        <SwiperSlide className="swiperiper"><img className="swiper-imge" src={car4} alt=""/></SwiperSlide>
         <SwiperSlide className="swiperiper"><img className="swiper-imge" src={car3} alt="" /></SwiperSlide>
-        <SwiperSlide className="swiperiper"><img className="swiper-imge" src={car2} alt=""/></SwiperSlide>
         <SwiperSlide className="swiperiper">
-          <img className="swiper-imge" src={car3} alt="" />
+          <img className="swiper-imge" src={car1} alt="" />
         </SwiperSlide>
         <div className="custom-shape-divider-top-1670874572">
     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
