@@ -12,7 +12,6 @@ import { useParams } from 'react-router-dom'
 
 function NavbarResponsive() {
   
-  console.log(window.location);
   let { getCars } = carsActions
 
   let dispatch = useDispatch()
@@ -23,16 +22,15 @@ function NavbarResponsive() {
     dispatch(getCars())
     
   },[])
-  console.log(cars);
   
     const [ navbarBackground, setNavbarBackground ]= useState('')
     useEffect(()=>{
         window.addEventListener("scroll",()=>{
-            if(window.scrollY > 50 /* || window.location.includes('/signup') */){
-                setNavbarBackground('bg-solid')
+            if(window.scrollY < 50 /* || window.location.includes('/signup') */){
+                setNavbarBackground('bg-almost-solid')
             }
-            else{
-                setNavbarBackground('')
+            else if (window.scrollY > 50 ){
+                setNavbarBackground('bg-solid')
             }
         })
     }, [])
@@ -44,7 +42,7 @@ function NavbarResponsive() {
         <Navbar key={expand} expand={expand} className={navbarBackground}>
           <Container fluid>
             <section className='navbar-section'>
-                <h1><Link style={{ textDecoration: 'none', color: '#fff' }} to="/">MotorX</Link></h1>
+                <Link style={{ textDecoration: 'none', color: '#fff' }} to="/"><img className='navbar-logo-img' src={require('./logo-x.png')}></img></Link>
             </section>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
