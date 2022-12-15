@@ -92,7 +92,7 @@ const [password, setPassword] = useState('')
                         <button type='submit' onClick={createNewUser}  className='button-signup'>Sign Up</button>
                        
                     </div>
-                    <Link to='/signin'>Don't have an account yet ?</Link> 
+                    <Link to='/signin'>Already have an account ?</Link> 
         </div>
     </div>
       </motion.div> 

@@ -53,18 +53,17 @@ const userReducer = createReducer (initialState,
             
             const { success, response} = action.payload
             console.log(response);
-            console.log(state);
             if(success) {
-                let { userToken, token } = response
-                console.log(userToken);
+                let { user, token } = response
+                console.log(user);
                 let newState = {
                     ...state,
-                    name: userToken.name,
-                    photo: userToken.photo,
+                    name: user.name,
+                    photo: user.photo,
                     logged: true,
                     token: token,
-                    role: userToken.role,
-                    id: userToken.id
+                    role: user.role,
+                    id: user.id
                 }
                 return newState
             } else {

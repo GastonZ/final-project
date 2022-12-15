@@ -31,7 +31,7 @@ const logIn = createAsyncThunk('logIn', async (data) => {
     let url = `${BASE_URL}signin`
     try {
         let user = await axios.post(url, data)
-        console.log(user.data.response.userToken);
+        console.log(user);
 
         if(user.data.response.userToken.id) {
             return {
@@ -58,10 +58,11 @@ const enterAgain = createAsyncThunk('enterAgain', async (token) =>{
     let headers = {headers: {'Authorization': `Bearer ${token}`}}
     try {
         let user = await axios.post(url,null,headers)
+        console.log(user);
         return {
             success: true,
             response: {
-                user: user.data.response.userToken,
+                user: user.data.response.user,
                 token
             }
         }

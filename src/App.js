@@ -25,8 +25,9 @@ function App() {
   let dispatch = useDispatch()
 
  
-  let { name } = useSelector(store => store.usuario)
+  let { name, photo } = useSelector(store => store.usuario)
   console.log(name);
+  console.log(photo);
   async function enterAgainToken(){
     let token = JSON.parse(localStorage.getItem("token"))
     if (token){
