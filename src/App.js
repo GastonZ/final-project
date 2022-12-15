@@ -13,12 +13,29 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import AutoToTop from "./components/AutoToTop/AutoToTop";
 import SignIn from "./pages/signin/SignIn";
 import BackToTop from './components/BackToTop/BackToTop'
+import { useDispatch, useSelector } from "react-redux";
+import usersActions from "./redux/actions/userAction";
+import React, {useEffect} from "react"
 
 AOS.init();
 
 function App() {
+
+  let { enterAgain } = usersActions
+  let dispatch = useDispatch()
+
  
- 
+  let { name } = useSelector(store => store.usuario)
+  console.log(name);
+  async function enterAgainToken(){
+    let token = JSON.parse(localStorage.getItem("token"))
+    if (token){
+     await dispatch(enterAgain(token.token.user))
+    }
+  }
+    useEffect(  ()=>{
+   enterAgainToken()
+    },[])
  
   return (
 
@@ -44,3 +61,7 @@ function App() {
 }
 
 export default App;
+
+
+/* Viernes 19, presentar en menos de 5 min, entre app web y mobile, no pisar las funcionalidades es decir,
+mostrar cosas diferentes una de la otra */

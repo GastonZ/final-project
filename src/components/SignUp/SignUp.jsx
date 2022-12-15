@@ -1,9 +1,11 @@
 import React, {useRef, useEffect, useState} from 'react'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import usersActions from "../../redux/actions/userAction";
 import Swal from 'sweetalert2';
 import "./signup.css"
+import { motion } from 'framer-motion';
+
 function SignUp (){
 
 
@@ -53,8 +55,12 @@ const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 
     return(
-        <> 
- <div className='cute-input-container'>
+        <>
+    <motion.div
+    initial={{opacity: 0}}
+    animate={{opacity: 1}}
+    exit={{opacity: 0}}>
+    <div iv className='cute-input-container'>
         <div className='bg-next'>
 
         </div>
@@ -86,9 +92,10 @@ const [password, setPassword] = useState('')
                         <button type='submit' onClick={createNewUser}  className='button-signup'>Sign Up</button>
                        
                     </div>
-        
+                    <Link to='/signin'>Don't have an account yet ?</Link> 
         </div>
     </div>
+      </motion.div> 
 
 
         </>

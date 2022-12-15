@@ -24,8 +24,7 @@ function CarHome(props) {
     dispatch(getCars())
     
   },[])
-  
-  console.log(cars);
+
 
   return (
     <>
