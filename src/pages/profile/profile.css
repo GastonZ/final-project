@@ -1,0 +1,143 @@
+.main-profile-container {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #24262B;
+}
+
+.profile-banner {
+    height: 40vh;
+    width: 100%;
+}
+
+.banner-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.edit-banner-btn {
+    position: relative;
+    float: right;
+    bottom: 50px;
+    right: 50px;
+    background: #E4E6EB;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 150ms ease-in-out;
+}
+
+.edit-banner-btn-small {
+    position: relative;
+    float: right;
+    bottom: 50px;
+    right: 50px;
+    background: #E4E6EB;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 150ms ease-in-out;
+    display: none;
+}
+
+.edit-banner-btn:hover {
+    background: #e4e6ebd0;
+}
+
+.profile-info {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.user-profile-img {
+    height: 300px;
+    width: 300px;
+    margin: 50px;
+    border-radius: 50%;
+    position: relative;
+    top: -150px;
+    bottom: 50px;
+    border: 5px solid #cef10a;
+    object-fit: cover;
+    transition: 150ms ease-in-out;
+    cursor: pointer;
+}
+
+.user-profile-img:hover {
+    filter: brightness(0.8);
+}
+
+.edit-img-user-btn {
+    height: 55px;
+    position: relative;
+    bottom: 50px;
+    right: 115px;
+    background: #cef10a;
+    padding: 10px;
+    border-radius: 50%;
+    transition: 100ms ease-in-out;
+}
+
+.edit-img-user-btn:hover {
+    background: #b0cc11;
+}
+
+.user-profile-name {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #E4E6EB;
+}
+
+.edit-profile-btn {
+    background: #E4E6EB;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 150ms ease-in-out;
+}
+
+.edit-profile-btn:hover {
+    background: #e4e6ebd0;
+}
+
+.edit-icon-img {
+    margin-right: 5px;
+}
+
+.modal-background-profile-img {
+    background: #24262B;
+    border: none;
+}
+
+.show-modal-profile-img {
+    width: 100%;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 992px) {
+    .profile-info {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .user-profile-img {
+        margin: 50px;
+        border-radius: 50%;
+        top: 50;
+    }
+    .edit-banner-btn {
+        display: none;
+    }
+    .edit-banner-btn-small {
+        display: block;
+    }
+    .profile-section {
+        display: flex;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .profile-username {
+        position: relative;
+        bottom: 180px;
+    }
+}

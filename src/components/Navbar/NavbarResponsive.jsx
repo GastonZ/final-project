@@ -15,7 +15,7 @@ function NavbarResponsive() {
   let { getCars } = carsActions
 
   let dispatch = useDispatch()
-
+  let { logged, photo } = useSelector(store => store.usuario)
   const { cars } = useSelector((state)=> state.cars)
   
   useEffect(()=>{
@@ -44,7 +44,7 @@ function NavbarResponsive() {
             <section className='navbar-section'>
                 <Link style={{ textDecoration: 'none', color: '#fff' }} to="/"><img className='navbar-logo-img' src={require('./logo-x.png')}></img></Link>
             </section>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+            <Navbar.Toggle className='text-light bg-ligth-canvas' aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
@@ -67,8 +67,18 @@ function NavbarResponsive() {
                   }
                 </section>
                 <section className='navbar-section'>
-                    <h2><Link className='section-shop' to='/shop'> Shop</Link></h2>
-                    <h2><Link className='section-shop' to='/signin'> Account</Link></h2>
+                  <h2><Link className='section-shop' to='/shop'> Shop</Link></h2>
+                  {
+                    logged ?
+                     <section className='navbar-section'>
+                      <Link to='/profile'><img className='navbar-section-profileImg' src={photo} alt=""/></Link>
+                     </section>
+                      :
+                     <section className='navbar-section'>
+                      <h2><Link className='section-shop' to='/signin'> Account</Link></h2>
+                    </section> 
+                  }
+
                 </section>
                 </Nav>
               </Offcanvas.Body>

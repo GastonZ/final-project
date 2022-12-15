@@ -18,6 +18,8 @@ import SignIn from "./pages/signin/SignIn";
 import BackToTop from './components/BackToTop/BackToTop'
 import { useDispatch, useSelector } from "react-redux";
 import usersActions from "./redux/actions/userAction";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Profile from "./pages/profile/Profile";
 import React, {useEffect} from "react"
 
 AOS.init();
@@ -28,9 +30,10 @@ function App() {
   let dispatch = useDispatch()
 
  
-  let { name, photo } = useSelector(store => store.usuario)
-  console.log(name);
-  console.log(photo);
+  let { role, logged } = useSelector(store => store.usuario)
+  console.log(role);
+  console.log(logged);
+
   async function enterAgainToken(){
     let token = JSON.parse(localStorage.getItem("token"))
     if (token){
@@ -52,13 +55,14 @@ function App() {
         <Route path='details/:id' element={<CarDetails/>}  />
         <Route path="/"  element={<Home/>}></Route>
         <Route path='shop' element={<Tienda/>} />
-        <Route path="signup" element={<SignUp></SignUp>}></Route>
-        <Route path="/*" element={<NotFound></NotFound>}></Route>
+        <Route path="signup" element={ logged? <Home/>:<SignUp/>}></Route>
+        <Route path="/*" element={<NotFound/>}></Route>
         <Route path='shop/men' element={<TiendaDetails/>} />
         <Route path='shop/women' element={<TiendaDetailsWomen/>} />
         <Route path='shop/kids' element={<TiendaDetailsKids/>} />
         <Route path='shop/accesories' element={<TiendaDetailsAccesories/>} />
-        <Route path='signin' element={<SignIn/>} />
+        <Route path='signin' element={ logged? <Home/>:<SignIn/>} />
+        <Route path='profile' element={<Profile/>} />
       </Routes>
  
 <Footer/>
