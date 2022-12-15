@@ -4,13 +4,9 @@ import CarrouselTienda from "../../components/CarrouselTienda08";
 import "../tienda/Tienda.css";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router";
+import { NavLink } from "react-router-dom";
 
 export default function Tienda() {
-  const navigate = useNavigate();
-  function toShopWomen() {
-    navigate("women");
-  }
-
   return (
     <>
       <motion.div
@@ -40,9 +36,10 @@ export default function Tienda() {
             {" "}
             <span className="bolder">#</span>Lifestyle
           </h3>
-          <button className="buttonshop08" onClick={toShopWomen}>
-            Shop Now
-          </button>
+
+          <NavLink to="/shop/women">
+            <button className="buttonshop08">Shop Now</button>
+          </NavLink>
         </div>
       </motion.div>
     </>
