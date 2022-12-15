@@ -6,9 +6,9 @@
 }
 
 .headerTiendaDetails010 {
-  height: 8vh;
+  height: 7vh;
   width: 100%;
-  background-color: #252525; 
+  background-color: #2c2b2b; 
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
