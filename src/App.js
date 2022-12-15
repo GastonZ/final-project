@@ -36,10 +36,10 @@ function App() {
         <Route path='shop' element={<Tienda/>} />
         <Route path="signup" element={<SignUp></SignUp>}></Route>
         <Route path="/*" element={<NotFound></NotFound>}></Route>
-        <Route path='shopmen' element={<TiendaDetails/>} />
-        <Route path='shopwomen' element={<TiendaDetailsWomen/>} />
-        <Route path='shopkids' element={<TiendaDetailsKids/>} />
-        <Route path='shopaccesories' element={<TiendaDetailsAccesories/>} />
+        <Route path='shop/men' element={<TiendaDetails/>} />
+        <Route path='shop/women' element={<TiendaDetailsWomen/>} />
+        <Route path='shop/kids' element={<TiendaDetailsKids/>} />
+        <Route path='shop/accesories' element={<TiendaDetailsAccesories/>} />
         <Route path='signin' element={<SignIn/>} />
       </Routes>
  

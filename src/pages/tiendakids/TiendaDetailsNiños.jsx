@@ -22,7 +22,7 @@ export default function TiendaDetailsKids() {
         {/* //empieza card */}
         <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
           <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/LIFESTYLE/OUTERWEAR/JACKETS/1740521-00-A_0_2000.jpg"
+            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/LIFESTYLE/KIDS/TOPS/1753970-00-A_1_2000.jpg"
             alt=""
             srcset=""
           />
@@ -43,7 +43,7 @@ export default function TiendaDetailsKids() {
            {/* //empieza card */}
         <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
           <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/LIFESTYLE/TOPS/HOODIES_SWEATSHIRTS/1740176-00-A_0_2000.jpg"
+            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/KIDS/HATS/1740410-00-A_0_2000.jpg"
             alt=""
             srcset=""
           />
@@ -64,7 +64,7 @@ export default function TiendaDetailsKids() {
            {/* //empieza card */}
         <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
           <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/LIFESTYLE/TOPS/TSHIRTS/1741425-00-A_0_2000.jpg"
+            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/KIDS/TOPS/1742694-00-A_1_2000.jpg"
             alt=""
             srcset=""
           />
@@ -83,91 +83,7 @@ export default function TiendaDetailsKids() {
         </div>
          {/* //termina card */}
 
-             {/* //empieza card */}
-        <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
-          <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/LIFESTYLE/TOPS/HOODIES_SWEATSHIRTS/1741111-00-A_0_2000.jpg"
-            alt=""
-            srcset=""
-          />
-
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
-            </div>
-
-            <div className="cardTiendaButton">
-              <button className="chango"></button>
-              <button className="lupa"></button>
-            </div>
-          </div>
-        </div>
-         {/* //termina card */}
-                {/* //empieza card */}
-        <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
-          <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/TOPS/HOODIES_SWEATSHIRTS/8529100-00-A_0_2000.jpg"
-            alt=""
-            srcset=""
-          />
-
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
-            </div>
-
-            <div className="cardTiendaButton">
-              <button className="chango"></button>
-              <button className="lupa"></button>
-            </div>
-          </div>
-        </div>
-         {/* //termina card */}
-                   {/* //empieza card */}
-        <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
-          <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/TOPS/HOODIES_SWEATSHIRTS/8764613-00-A_0_2000.jpg"
-            alt=""
-            srcset=""
-          />
-
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
-            </div>
-
-            <div className="cardTiendaButton">
-              <button className="chango"></button>
-              <button className="lupa"></button>
-            </div>
-          </div>
-        </div>
-         {/* //termina card */}
-
-               {/* //empieza card */}
-        <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
-          <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/TOPS/HOODIES_SWEATSHIRTS/8764613-00-A_0_2000.jpg"
-            alt=""
-            srcset=""
-          />
-
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
-            </div>
-
-            <div className="cardTiendaButton">
-              <button className="chango"></button>
-              <button className="lupa"></button>
-            </div>
-          </div>
-        </div>
-         {/* //termina card */}
+      
         
         
       </main>
