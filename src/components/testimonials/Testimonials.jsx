@@ -32,7 +32,7 @@ function Testimonials() {
     </div>
     <div className='marcaContainer'>
 <img className='marca-img' src={marca1} alt="" />
-
+<img  className='marca-img' src="" alt="" />
 <img className='marca-img' src={marca2} alt="" />
     </div>
     </>
