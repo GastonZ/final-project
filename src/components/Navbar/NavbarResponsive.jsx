@@ -15,7 +15,7 @@ function NavbarResponsive() {
   let { getCars } = carsActions
 
   let dispatch = useDispatch()
-
+  let { logged, photo } = useSelector(store => store.usuario)
   const { cars } = useSelector((state)=> state.cars)
   
   useEffect(()=>{
@@ -67,8 +67,18 @@ function NavbarResponsive() {
                   }
                 </section>
                 <section className='navbar-section'>
-                    <h2><Link className='section-shop' to='/shop'> Shop</Link></h2>
-                    <h2><Link className='section-shop' to='/signin'> Account</Link></h2>
+                  <h2><Link className='section-shop' to='/shop'> Shop</Link></h2>
+                  {
+                    logged ?
+                     <section className='navbar-section'>
+                      <Link to='/profile'><img className='navbar-section-profileImg' src={photo} alt=""/></Link>
+                     </section>
+                      :
+                     <section className='navbar-section'>
+                      <h2><Link className='section-shop' to='/signin'> Account</Link></h2>
+                    </section> 
+                  }
+
                 </section>
                 </Nav>
               </Offcanvas.Body>
