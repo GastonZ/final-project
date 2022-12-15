@@ -11,8 +11,7 @@ const initialState ={
 
 const userReducer = createReducer (initialState,
     (builder)=>{
-     
-      
+
         builder   
         .addCase(newUser.fulfilled, (state, action)=> {
             if (action.payload.success) {
