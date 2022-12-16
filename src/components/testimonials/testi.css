@@ -117,14 +117,69 @@ background: hsla(0, 0%, 100%, 1);
     height: 100px;
  }
 .bugattono{
-    min-height: 40vh;
-    background: linear-gradient(180deg, rgb(39, 39, 39) 0%, rgb(20, 20, 20) 80%);
+height: 60vh;
+   
     width: 100%;
     background-image: url("./nosebackground.png");
 
 }
 .bugattii{
-    height: 100vh;
+    height: 90vh;
+
     width: 100%;
     object-fit: cover;
+}
+@media only screen and (max-width: 940px){
+    .bugattii{
+    height: 89vh;
+  
+    }
+}
+@media only screen and (max-width: 898px){
+    .bugattii{
+    height: 60vh;
+  
+    }
+    .bugattono{
+        background-image: url("./dsadassda.png");
+    }
+}
+@media only screen and (max-width: 611px){
+
+    .bugattii{
+        height: 45vh;
+      
+        }
+        .bugattono{
+            height: 40vh;
+        }
+}
+@media only screen and (max-width: 455px){
+    .bugattii{
+        height:43vh;
+    }
+}
+@media only screen and (max-width: 435px){
+    .bugattii{
+        height:40vh;
+    }
+    .bugattono{
+        background-image: url("./dsadassda.png");
+    }
+}
+@media only screen and (max-width: 418px){
+    .bugattii{
+        height:35vh;
+    }
+    .bugattono{
+       height: 30vh;
+    }
+}
+@media only screen and (max-width: 357px){
+    .bugattii{
+        height:30vh;
+    }
+    .bugattono{
+       height: 30vh;
+    }
 }
