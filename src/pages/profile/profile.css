@@ -88,6 +88,10 @@
     color: #E4E6EB;
 }
 
+.btn-profile-container {
+    padding: 5px;
+}
+
 .edit-profile-btn {
     background: #E4E6EB;
     padding: 10px;
@@ -97,6 +101,17 @@
 
 .edit-profile-btn:hover {
     background: #e4e6ebd0;
+}
+
+.log-out-btn {
+    background: #b0cc11;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 150ms ease-in-out;
+}
+
+.log-out-btn:hover {
+    background: #b0cc11dc;
 }
 
 .edit-icon-img {

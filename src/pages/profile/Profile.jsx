@@ -1,12 +1,46 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { motion } from 'framer-motion'
 import './profile.css'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal'
+import usersActions from "../../redux/actions/userAction";
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function Profile(props) {
 
+    let { name, photo, banner, token } = useSelector(store => store.usuario)
+    let { logOut } = usersActions
+    let dispatch = useDispatch()
+    let history = useNavigate()
+
+
+    async function handleLogOut(e){
+        e.preventDefault()
+        Swal.fire({
+            title: "You're logging out",
+            text: "Are you sure ?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#b0cc11',
+            cancelButtonColor: '#24262B',
+            confirmButtonText: 'Yes, log me out !'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Loged Out!',
+                'success'
+                )
+                dispatch(logOut(token))
+                history('/')
+            }
+          })
+    }
+
+    useEffect(()=>{
+        handleLogOut()
+    },[])
 
     const [show, setShow] = useState(false);
     const [show1, setShow1] = useState(false);
@@ -24,7 +58,6 @@ function Profile(props) {
 
 
 
-    let { name, photo, banner } = useSelector(store => store.usuario)
     console.log(banner);
     return (
         <motion.div>
@@ -44,10 +77,15 @@ function Profile(props) {
                         </div>
                         <section className='profile-section profile-username'>
                             <h2 className='user-profile-name'>{name}</h2>
-                            <div>
+                            <div className='btn-profile-container'>
                                 <button onClick={handleShow2} className='edit-profile-btn'>
                                     <img  className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053031104380149760/icons8-edit-24.png" alt="edit" />
                                     Edit profile</button>
+                            </div>
+                            <div className='btn-profile-container'>
+                                <button onClick={handleLogOut} className='log-out-btn'> 
+                                <img src="https://cdn.discordapp.com/attachments/1019371264860770376/1053128783776981112/icons8-log-out-25.png" alt="logout" />
+                                LogOut </button>
                             </div>
                         </section>
                     </div>

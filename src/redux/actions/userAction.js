@@ -75,10 +75,28 @@ const enterAgain = createAsyncThunk('enterAgain', async (token) =>{
     }
 })
 
+const logOut = createAsyncThunk('logOut', async (token)=> {
+    let url = `${BASE_URL}signout`
+    let headers = {headers: {'Authorization': `Bearer ${token}`}}
+    try {
+        let user = await axios.put(url, null, headers)
+        return {
+            success: true,
+            response: user.data.message
+        }
+    } catch (error) {
+        return {
+            success: false,
+            response: error.response.data.message
+        }
+    }
+})
+
 const usersActions = {
     newUser,
     logIn,
-    enterAgain
+    enterAgain,
+    logOut
 }
 
 export default usersActions
