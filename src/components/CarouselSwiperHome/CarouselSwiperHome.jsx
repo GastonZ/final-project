@@ -24,7 +24,7 @@ AOS.init();
 export default function CarouselSwiperHome() {
   return (
     <>
-    <h2 data-aos="fade-right" data-aos-duration="1000" className="findYourPerfect">Find your perfect model.</h2>
+    <h2 data-aos="fade-right" data-aos-duration="1000" className="findYourPerfect">Find your perfect <span className="spancito88">model</span></h2>
 
 
 <Swiper
