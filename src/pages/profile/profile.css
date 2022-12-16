@@ -75,6 +75,7 @@
     padding: 10px;
     border-radius: 50%;
     transition: 100ms ease-in-out;
+    cursor: pointer;
 }
 
 .edit-img-user-btn:hover {
