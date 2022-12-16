@@ -157,3 +157,7 @@
         bottom: 180px;
     }
 }
+
+.custom-btn-modal {
+    background: #b0cc11 !important;
+}

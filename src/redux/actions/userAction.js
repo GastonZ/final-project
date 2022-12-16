@@ -92,11 +92,37 @@ const logOut = createAsyncThunk('logOut', async (token)=> {
     }
 })
 
+const editUserInfo = createAsyncThunk('editUserInfo', async ({id,data,token})=>{
+    let url = `${BASE_URL}me/${id}`
+    let headers = {headers: {'Authorization':` Bearer ${token}`}}
+    try {
+        let res = await axios.patch(url,data,headers)
+        if(res.data.success){
+            return {
+                responseId: res.data.id,
+                success: true,
+                response: data
+            }
+        } else {
+            return {
+                success: false,
+                response: res.data.message
+            }
+        }
+    } catch (error) {
+        console.log(error);
+        return {
+          success: false, response:"error"
+        }
+    }
+})
+
 const usersActions = {
     newUser,
     logIn,
     enterAgain,
-    logOut
+    logOut,
+    editUserInfo
 }
 
 export default usersActions

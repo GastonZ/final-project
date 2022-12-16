@@ -103,43 +103,43 @@ function Profile(props) {
                     </Modal.Footer>
                 </Modal>
                 <Modal show={show1} onHide={handleClose1}>
-                    <Modal.Header closeButton>
+                    <Modal.Header className='modal-background-profile-img' closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>Edit profile image</Modal.Body>
-                    <Modal.Footer>
+                    <Modal.Body className='modal-background-profile-img'>Edit profile image</Modal.Body>
+                    <Modal.Footer className='modal-background-profile-img'>
                     <Button variant="secondary" onClick={handleClose1}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose1}>
+                    <Button className='custom-btn-modal' variant="primary" onClick={handleClose1}>
                         Save Changes
                     </Button>
                     </Modal.Footer>
                 </Modal>
                 <Modal show={show2} onHide={handleClose2}>
-                    <Modal.Header closeButton>
+                    <Modal.Header className='modal-background-profile-img' closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>Edit profile</Modal.Body>
-                    <Modal.Footer>
+                    <Modal.Body className='modal-background-profile-img'>Edit profile</Modal.Body>
+                    <Modal.Footer className='modal-background-profile-img'>
                     <Button variant="secondary" onClick={handleClose2}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose2}>
+                    <Button className='custom-btn-modal' variant="primary" onClick={handleClose2}>
                         Save Changes
                     </Button>
                     </Modal.Footer>
                 </Modal>
                 <Modal show={show3} onHide={handleClose3}>
-                    <Modal.Header closeButton>
+                    <Modal.Header className='modal-background-profile-img' closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>Edit banner</Modal.Body>
-                    <Modal.Footer>
+                    <Modal.Body className='modal-background-profile-img'>Edit banner</Modal.Body>
+                    <Modal.Footer className='modal-background-profile-img'>
                     <Button variant="secondary" onClick={handleClose3}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose3}>
+                    <Button className='custom-btn-modal' variant="primary" onClick={handleClose3}>
                         Save Changes
                     </Button>
                     </Modal.Footer>
