@@ -209,3 +209,11 @@
     content: 'Upload image';
     cursor: pointer;
   }
+
+  .centered {
+    text-align: center;
+  }
+
+  .m-10 {
+    margin: 10px;
+  }

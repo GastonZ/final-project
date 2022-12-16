@@ -1,4 +1,3 @@
-
 import React, {useState, useEffect} from 'react'
 import { motion } from 'framer-motion'
 import './profile.css'
@@ -8,9 +7,9 @@ import Modal from 'react-bootstrap/Modal'
 import usersActions from "../../redux/actions/userAction";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { uploadProfileImage } from '../../firebase/config'
 import { TextField, ThemeProvider } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
+import { uploadFile } from '../../firebase/config'
 
 function Profile(props) {
 
@@ -26,7 +25,7 @@ function Profile(props) {
         },
       });
 
-    let { nameProfile, photo, banner, token, id } = useSelector(store => store.usuario)
+    let { nameProfile, photoProfile, banner, token, id } = useSelector(store => store.usuario)
     let { getOneUser ,logOut, editUserInfo } = usersActions
 
     let dispatch = useDispatch()
@@ -74,9 +73,35 @@ function Profile(props) {
 
     /* Update profile photo */
 
-    function updateProfileImage(){
+    const [file, setFile] = useState(null)
+
+    const [photo, setNewPhoto] = useState('')
+
+    const handleNewPhoto = async (e) => {
+        const res = await uploadFile(file)
+        console.log(res);
+        setNewPhoto(res)
+    }
+
+    async function editPhoto() {
+
+        try {
+            let photoEdit = {photo}
+    
+            await dispatch(editUserInfo({id : id, data: photoEdit, token: token}))
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+                )
+            dispatch(getOneUser({id: id, token: token}))
+        } catch (error) {
+            console.log(error);
+        }
         
     }
+
+    console.log(photo);
 
     /* Update Name */
 
@@ -107,12 +132,12 @@ function Profile(props) {
                     <img className='banner-img' src={banner} alt="banner" />
                     <button onClick={handleShow3} className='edit-banner-btn'> <img className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053024594048589844/icons8-compact-camera-24.png" alt="edit" />
                      Edit banner image</button>
-                     <button className='edit-banner-btn-small'> <img className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053024594048589844/icons8-compact-camera-24.png" alt="edit" />
+                     <button onClick={handleShow3} className='edit-banner-btn-small'> <img className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053024594048589844/icons8-compact-camera-24.png" alt="edit" />
                      </button>
                     <div className='profile-info'>
                         <div className='profile-section profile-img-container'>
                             <div className='edit-img-user'>
-                                <img onClick={handleShow} className='user-profile-img' src={photo} alt="profile-img" />
+                                <img onClick={handleShow} className='user-profile-img' src={photoProfile} alt="profile-img" />
                                 <img onClick={handleShow1} className='edit-img-user-btn' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053024594048589844/icons8-compact-camera-24.png" alt="edit" />
                             </div>
                         </div>
@@ -151,10 +176,12 @@ function Profile(props) {
                         </div>
                     </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body className='modal-background-profile-img'>
+                    <Modal.Body className='modal-background-profile-img centered'>
                         <div className='file-select' id='src-file1'>
-                            <input onChange={e => uploadProfileImage(e.target.files[0])} type="file" name="src-file1"/>
+                            <input onChange={e => setFile(e.target.files[0])} type="file" name="src-file1"/>
                         </div>
+                        <Button onClick={handleNewPhoto} variant='outline-secondary' className='bg-dark m-10'>send photo</Button>
+                        <Button onClick={editPhoto} variant='outline-secondary' className='bg-dark m-10'>save photo</Button>
                     </Modal.Body>
                     <Modal.Footer className='modal-background-profile-img'>
                         <Button className='custom-btn-modal' variant="secondary" onClick={handleClose1}>

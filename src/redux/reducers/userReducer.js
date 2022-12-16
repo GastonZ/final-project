@@ -5,7 +5,7 @@ const { newUser, logIn, enterAgain, logOut, getOneUser } = usersActions
 const initialState ={
     profiles : [],
     nameProfile: "",
-    photo: "",
+    photoProfile: "",
     banner: "",
     logged: false,
     token: "",
@@ -35,7 +35,7 @@ const userReducer = createReducer (initialState,
                 let newState = {
                     ...state,
                     nameProfile: userToken.name,
-                    photo: userToken.photo,
+                    photoProfile: userToken.photo,
                     banner: userToken.banner,
                     role: userToken.role,
                     logged: true,
@@ -61,7 +61,7 @@ const userReducer = createReducer (initialState,
                 let newState = {
                     ...state,
                     nameProfile: user.name,
-                    photo: user.photo,
+                    photoProfile: user.photo,
                     banner: user.banner,
                     logged: true,
                     token: token,
@@ -84,7 +84,7 @@ const userReducer = createReducer (initialState,
                 let newState = {
                     ...state,
                     nameProfile: "",
-                    photo: "",
+                    photoProfile: "",
                     banner: "",
                     logged: false,
                     token: "",
@@ -101,6 +101,7 @@ const userReducer = createReducer (initialState,
             return{
                 ...state,
             nameProfile: action.payload.user.name,
+            photoProfile: action.payload.user.photo
             }
         })
 
