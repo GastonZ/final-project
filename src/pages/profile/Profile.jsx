@@ -160,7 +160,7 @@ function Profile(props) {
                     <Modal.Header className='modal-background-profile-img'>
                     </Modal.Header>
                     <Modal.Body className='modal-background-profile-img'>
-                        <img className='show-modal-profile-img' src={photo} alt="tufoto" />
+                        <img className='show-modal-profile-img' src={photoProfile} alt="tufoto" />
                     </Modal.Body>
                     <Modal.Footer className='modal-background-profile-img'>
                     <Button variant="secondary" onClick={handleClose}>
