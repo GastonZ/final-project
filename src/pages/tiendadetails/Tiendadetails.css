@@ -8,7 +8,7 @@
 .headerTiendaDetails010 {
   height: 7vh;
   width: 100%;
-  /* background-color: #2c2b2b;  */
+  background-color: #1c1c1b; 
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
@@ -26,9 +26,6 @@
   margin-bottom: 10px;
 }
 
-
-
-
 .mainTiendaDetails010 {
   min-height: 80vh;
   width: 100%;
@@ -41,7 +38,7 @@
   flex-wrap: wrap;
   padding-top: 40px;
   gap: 80px;
-  background: rgb(255,255,255);
+  background: rgb(255, 255, 255);
 }
 
 /* 
@@ -59,11 +56,7 @@
   /* width: 520px;
   height: 520px; */
   border-top: 1px solid #adabab;
- 
- 
-  
 }
-
 
 .card089 img {
   width: 100%;
@@ -141,19 +134,22 @@
   transition-duration: 300ms;
 }
 
-.banner{width: 57%;
-height: 50vh;
-background: rgb(206,241,10);
-background: linear-gradient(180deg, rgba(206,241,10,1) 45%, rgba(255,255,255,1) 45%);
-display: flex;
-justify-content: center;
-/* border-radius: 4px; */
-flex-direction: column;
-
+.banner {
+  width: 57%;
+  height: 50vh;
+  background: rgb(206, 241, 10);
+  background: linear-gradient(
+    180deg,
+    rgba(206, 241, 10, 1) 45%,
+    rgba(255, 255, 255, 1) 45%
+  );
+  display: flex;
+  justify-content: center;
+  /* border-radius: 4px; */
+  flex-direction: column;
 }
 
-
-.banner h1{
+.banner h1 {
   color: #222121;
   font-weight: 300;
   font-family: monospace !;
@@ -165,5 +161,73 @@ flex-direction: column;
   color: #222121;
   font-weight: 800;
   text-align: center;
+}
 
+.divSlidersCont {
+  width: 87%;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  gap: 20px;
+  /* border: 1px solid rgb(231, 232, 226); */
+}
+
+.divSliders {
+  width: 40%;
+  margin-top: 10px;
+}
+
+.divSlidersCont p {
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 12px;
+  color: #313131;
+}
+
+.contenedorSlidersx {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 0px;
+  height: 56px;
+  /* background-color: rgb(237, 238, 234); */
+ 
+  border-radius: 4px;
+}
+
+
+.divSlidersCont{display: flex;}
+
+
+
+@media (max-width: 800px) {
+  .contenedorSlidersx {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0px;
+    height: 56px;
+    /* background-color: rgb(197, 255, 61); */
+    border: 0px solid rgb(196, 196, 196);
+    border-radius: 4px;
+  }
+  
+  
+  .divSlidersCont{display: flex;
+  flex-direction: column;
+margin-top: 25px;}
+  
+}
+
+
+.primary{
+
+  color: bisque !important;
+  background-color: #313131 !important;
 }

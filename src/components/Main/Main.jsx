@@ -8,7 +8,11 @@ function Main() {
     <>
     <div className='main'>
 
-    <video src={videoBg} autoPlay loop muted/>
+    <video src={videoBg} autoPlay muted loop/>
+
+
+
+    
     
     </div>
 
