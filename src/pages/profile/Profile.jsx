@@ -68,7 +68,7 @@ function Profile(props) {
         <motion.div>
             <main className='main-profile-container'>
                 <div className='profile-banner'>
-                    <img className='banner-img' src={photo} alt="banner" />
+                    <img className='banner-img' src={banner} alt="banner" />
                     <button onClick={handleShow3} className='edit-banner-btn'> <img className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053024594048589844/icons8-compact-camera-24.png" alt="edit" />
                      Edit banner image</button>
                      <button className='edit-banner-btn-small'> <img className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053024594048589844/icons8-compact-camera-24.png" alt="edit" />
