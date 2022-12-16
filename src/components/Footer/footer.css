@@ -56,7 +56,9 @@ body {
 .footer-title span {
   margin-left: 0.5rem;
 }
-
+footer{
+  border-top: 1px solid rgba(26, 26, 26, 0.124);
+}
 .footer-tagline {
   color: var(--gray-500);
   font-size: 0.875rem;

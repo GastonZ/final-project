@@ -17,7 +17,7 @@
     object-fit: cover;
     position: absolute;
     z-index: -1;
-    filter: brightness(0.6);
+    filter: brightness(0.8);
 }
 .moreInfoButton{
     background-color: rgb(236, 236, 236);
