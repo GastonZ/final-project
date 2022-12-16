@@ -100,7 +100,7 @@ const userReducer = createReducer (initialState,
             console.log(action.payload);
             return{
                 ...state,
-            profile: action.payload.user
+            nameProfile: action.payload.user.name,
             }
         })
 

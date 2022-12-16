@@ -9,12 +9,26 @@ import usersActions from "../../redux/actions/userAction";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { uploadProfileImage } from '../../firebase/config'
-import { TextField } from "@mui/material";
+import { TextField, ThemeProvider } from "@mui/material";
+import { createTheme } from '@mui/material/styles';
 
 function Profile(props) {
 
+    const theme = createTheme({
+        palette: {
+          primary: {
+            light: '#cef10a',
+            main: '#cef10a',
+            dark: '#cef10a',
+            contrastText: '#fff',
+          },
+         
+        },
+      });
+
     let { nameProfile, photo, banner, token, id } = useSelector(store => store.usuario)
-    let { logOut, editUserInfo, getOneUser } = usersActions
+    let { getOneUser ,logOut, editUserInfo } = usersActions
+
     let dispatch = useDispatch()
     let history = useNavigate()
 
@@ -66,8 +80,6 @@ function Profile(props) {
 
     /* Update Name */
 
- 
-
     const [ name, setEName ] = useState('')
     
     async function editName() {
@@ -75,7 +87,7 @@ function Profile(props) {
         try {
             let nameEdit = {name}
     
-            let res = await dispatch(editUserInfo({id : id, data: nameEdit, token: token}))
+            await dispatch(editUserInfo({id : id, data: nameEdit, token: token}))
             Swal.fire(
                 'Good job!',
                 'You clicked the button!',
@@ -87,17 +99,6 @@ function Profile(props) {
         }
         
     }
-
-    async function getUsers(){
-  
-        await dispatch(getOneUser({id: id, token: token}))
-      }
-      
-      
-      useEffect(()=>{  
-        getUsers()
-      },[])
-
     
     return (
         <motion.div>
@@ -146,7 +147,7 @@ function Profile(props) {
                     <Modal.Header className='update-modal-header modal-background-profile-img' closeButton>
                     <Modal.Title >
                         <div /* className='update-modal-header' */>
-                            <p className='white'>Update profile image</p>
+                            <p className='black'>Update profile image</p>
                         </div>
                     </Modal.Title>
                     </Modal.Header>
@@ -156,46 +157,50 @@ function Profile(props) {
                         </div>
                     </Modal.Body>
                     <Modal.Footer className='modal-background-profile-img'>
-                    <Button variant="secondary" onClick={handleClose1}>
-                        Close
-                    </Button>
-                    <Button className='custom-btn-modal' variant="primary" onClick={handleClose1}>
-                        Save Changes
-                    </Button>
+                        <Button className='custom-btn-modal' variant="secondary" onClick={handleClose1}>
+                            Close
+                        </Button>
                     </Modal.Footer>
                 </Modal>
                 <Modal show={show2} onHide={handleClose2}>
-                    <Modal.Header className='modal-background-profile-img' closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Header className='update-modal-header modal-background-profile-img' closeButton>
+                    <Modal.Title>
+                        <div /* className='update-modal-header' */>
+                            <p className='black'>Update profile information</p>
+                        </div>
+                    </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body className='modal-background-profile-img'>Edit profile
-                        <TextField onChange={(e) => setEName(e.target.value)}
-                            hiddenLabel
-                            id="filled-hidden-label-small"
-                            defaultValue= {nameProfile}
-                            variant="filled"
-                            size="small"
-                            />
-                        <Button onClick={editName} className='bg-dark mx-3'>Send</Button> 
+                    <Modal.Body className='modal-background-profile-img'>
+                        <ThemeProvider theme={theme}>
+                            <TextField onChange={(e) => setEName(e.target.value)}
+                                    hiddenLabel
+                                    id="filled-hidden-label-small"
+                                    defaultValue= {nameProfile}
+                                    variant="filled"
+                                    size="small"
+                                    />
+                        </ThemeProvider>
+                        <Button onClick={editName} variant='outline-secondary' className='bg-dark mx-3'>Send</Button> 
                     </Modal.Body>
                     <Modal.Footer className='modal-background-profile-img'>
-                    <Button className='custom-btn-modal' variant="secondary" onClick={handleClose2}>
+                    <Button className='custom-btn-modal' variant="secondary"  onClick={handleClose2}>
                         Close
                     </Button>
                     </Modal.Footer>
                 </Modal>
                 <Modal show={show3} onHide={handleClose3}>
-                    <Modal.Header className='modal-background-profile-img' closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Header className='update-modal-header modal-background-profile-img' closeButton>
+                        <Modal.Title>
+                        <div /* className='update-modal-header' */>
+                            <p className='black'>Update banner image</p>
+                        </div>
+                        </Modal.Title>
                     </Modal.Header>
                     <Modal.Body className='modal-background-profile-img'>Edit banner</Modal.Body>
                     <Modal.Footer className='modal-background-profile-img'>
-                    <Button variant="secondary" onClick={handleClose3}>
-                        Close
-                    </Button>
-                    <Button className='custom-btn-modal' variant="primary" onClick={handleClose3}>
-                        Save Changes
-                    </Button>
+                        <Button className='custom-btn-modal' variant="secondary" onClick={handleClose3}>
+                            Close
+                        </Button>
                     </Modal.Footer>
                 </Modal>        
     
