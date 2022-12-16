@@ -4,6 +4,7 @@ import React from 'react'
 import marca1 from "./pirelli.png"
 import marca2 from "./red.png"
 
+
 import './testi.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
@@ -35,6 +36,8 @@ function Testimonials() {
 <img  className='marca-img' src="" alt="" />
 
     </div>
+ 
+
     </>
   )
 }
