@@ -1,11 +1,11 @@
 import { createReducer } from "@reduxjs/toolkit";
 import usersActions from "../actions/userAction";
-const { newUser, logIn, enterAgain, logOut } = usersActions
+const { newUser, logIn, enterAgain, logOut, getOneUser } = usersActions
 
 const initialState ={
     profiles : [],
-    name: "",
-    photo: "",
+    nameProfile: "",
+    photoProfile: "",
     banner: "",
     logged: false,
     token: "",
@@ -34,8 +34,8 @@ const userReducer = createReducer (initialState,
                 console.log(userToken);
                 let newState = {
                     ...state,
-                    name: userToken.name,
-                    photo: userToken.photo,
+                    nameProfile: userToken.name,
+                    photoProfile: userToken.photo,
                     banner: userToken.banner,
                     role: userToken.role,
                     logged: true,
@@ -60,8 +60,8 @@ const userReducer = createReducer (initialState,
               
                 let newState = {
                     ...state,
-                    name: user.name,
-                    photo: user.photo,
+                    nameProfile: user.name,
+                    photoProfile: user.photo,
                     banner: user.banner,
                     logged: true,
                     token: token,
@@ -83,8 +83,8 @@ const userReducer = createReducer (initialState,
                 localStorage.removeItem('token')
                 let newState = {
                     ...state,
-                    name: "",
-                    photo: "",
+                    nameProfile: "",
+                    photoProfile: "",
                     banner: "",
                     logged: false,
                     token: "",
@@ -96,6 +96,15 @@ const userReducer = createReducer (initialState,
                 return console.log(response);
             }
         })
+        .addCase(getOneUser.fulfilled,(state,action)=> {
+            console.log(action.payload);
+            return{
+                ...state,
+            nameProfile: action.payload.user.name,
+            photoProfile: action.payload.user.photo
+            }
+        })
+
     })
 
 

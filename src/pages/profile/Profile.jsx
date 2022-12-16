@@ -1,4 +1,3 @@
-
 import React, {useState, useEffect} from 'react'
 import { motion } from 'framer-motion'
 import './profile.css'
@@ -8,15 +7,29 @@ import Modal from 'react-bootstrap/Modal'
 import usersActions from "../../redux/actions/userAction";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { uploadProfileImage } from '../../firebase/config'
+import { TextField, ThemeProvider } from "@mui/material";
+import { createTheme } from '@mui/material/styles';
+import { uploadFile } from '../../firebase/config'
 
 function Profile(props) {
 
-    let { name, photo, banner, token } = useSelector(store => store.usuario)
-    let { logOut } = usersActions
+    const theme = createTheme({
+        palette: {
+          primary: {
+            light: '#cef10a',
+            main: '#cef10a',
+            dark: '#cef10a',
+            contrastText: '#fff',
+          },
+         
+        },
+      });
+
+    let { nameProfile, photoProfile, banner, token, id } = useSelector(store => store.usuario)
+    let { getOneUser ,logOut, editUserInfo } = usersActions
+
     let dispatch = useDispatch()
     let history = useNavigate()
-
 
     async function handleLogOut(e){
         e.preventDefault()
@@ -60,11 +73,55 @@ function Profile(props) {
 
     /* Update profile photo */
 
-    function updateProfileImage(){
-        
+    const [file, setFile] = useState(null)
+
+    const [photo, setNewPhoto] = useState('')
+
+    const handleNewPhoto = async (e) => {
+        const res = await uploadFile(file)
+        console.log(res);
+        setNewPhoto(res)
     }
 
-/*     console.log(banner); */
+    async function editPhoto() {
+
+        try {
+            let photoEdit = {photo}
+    
+            await dispatch(editUserInfo({id : id, data: photoEdit, token: token}))
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+                )
+            dispatch(getOneUser({id: id, token: token}))
+        } catch (error) {
+            console.log(error);
+        }
+        
+    }
+    /* Update Name */
+
+    const [ name, setEName ] = useState('')
+    
+    async function editName() {
+
+        try {
+            let nameEdit = {name}
+    
+            await dispatch(editUserInfo({id : id, data: nameEdit, token: token}))
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+                )
+            dispatch(getOneUser({id: id, token: token}))
+        } catch (error) {
+            console.log(error);
+        }
+        
+    }
+    
     return (
         <motion.div>
             <main className='main-profile-container'>
@@ -72,17 +129,17 @@ function Profile(props) {
                     <img className='banner-img' src={banner} alt="banner" />
                     <button onClick={handleShow3} className='edit-banner-btn'> <img className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053024594048589844/icons8-compact-camera-24.png" alt="edit" />
                      Edit banner image</button>
-                     <button className='edit-banner-btn-small'> <img className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053024594048589844/icons8-compact-camera-24.png" alt="edit" />
+                     <button onClick={handleShow3} className='edit-banner-btn-small'> <img className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053024594048589844/icons8-compact-camera-24.png" alt="edit" />
                      </button>
                     <div className='profile-info'>
                         <div className='profile-section profile-img-container'>
                             <div className='edit-img-user'>
-                                <img onClick={handleShow} className='user-profile-img' src={photo} alt="profile-img" />
+                                <img onClick={handleShow} className='user-profile-img' src={photoProfile} alt="profile-img" />
                                 <img onClick={handleShow1} className='edit-img-user-btn' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053024594048589844/icons8-compact-camera-24.png" alt="edit" />
                             </div>
                         </div>
                         <section className='profile-section profile-username'>
-                            <h2 className='user-profile-name'>{name}</h2>
+                            <h2 className='user-profile-name'>{nameProfile}</h2>
                             <div className='btn-profile-container'>
                                 <button onClick={handleShow2} className='edit-profile-btn'>
                                     <img  className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053031104380149760/icons8-edit-24.png" alt="edit" />
@@ -100,7 +157,7 @@ function Profile(props) {
                     <Modal.Header className='modal-background-profile-img'>
                     </Modal.Header>
                     <Modal.Body className='modal-background-profile-img'>
-                        <img className='show-modal-profile-img' src={photo} alt="tufoto" />
+                        <img className='show-modal-profile-img' src={photoProfile} alt="tufoto" />
                     </Modal.Body>
                     <Modal.Footer className='modal-background-profile-img'>
                     <Button variant="secondary" onClick={handleClose}>
@@ -112,50 +169,66 @@ function Profile(props) {
                     <Modal.Header className='update-modal-header modal-background-profile-img' closeButton>
                     <Modal.Title >
                         <div /* className='update-modal-header' */>
-                            <p className='white'>Update profile image</p>
+                            <p className='black'>Update profile image</p>
+                        </div>
+                    </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body className='modal-background-profile-img centered'>
+                        <div className='file-select' id='src-file1'>
+                            <input onChange={e => setFile(e.target.files[0])} type="file" name="src-file1"/>
+                        </div>
+                        {
+                            file === null || photo !== '' ? <></> : <Button onClick={handleNewPhoto} variant='outline-secondary' className='bg-dark m-10 white'>Upload Photo</Button>
+                        }
+                        {
+                            photo === '' ? <></> : <Button onClick={editPhoto} variant='outline-secondary' className='bg-dark m-10 white'>Save Changes</Button>
+                        }
+                    </Modal.Body>
+                    <Modal.Footer className='modal-background-profile-img'>
+                        <Button className='custom-btn-modal' variant="secondary" onClick={handleClose1}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+                <Modal show={show2} onHide={handleClose2}>
+                    <Modal.Header className='update-modal-header modal-background-profile-img' closeButton>
+                    <Modal.Title>
+                        <div /* className='update-modal-header' */>
+                            <p className='black'>Update profile information</p>
                         </div>
                     </Modal.Title>
                     </Modal.Header>
                     <Modal.Body className='modal-background-profile-img'>
-                        <div className='file-select' id='src-file1'>
-                            <input onChange={e => uploadProfileImage(e.target.files[0])} type="file" name="src-file1"/>
-                        </div>
+                        <ThemeProvider theme={theme}>
+                            <TextField onChange={(e) => setEName(e.target.value)}
+                                    hiddenLabel
+                                    id="filled-hidden-label-small"
+                                    defaultValue= {nameProfile}
+                                    variant="filled"
+                                    size="small"
+                                    />
+                        </ThemeProvider>
+                        <Button onClick={editName} variant='outline-secondary' className='bg-dark mx-3'>Send</Button> 
                     </Modal.Body>
                     <Modal.Footer className='modal-background-profile-img'>
-                    <Button variant="secondary" onClick={handleClose1}>
+                    <Button className='custom-btn-modal' variant="secondary"  onClick={handleClose2}>
                         Close
-                    </Button>
-                    <Button className='custom-btn-modal' variant="primary" onClick={handleClose1}>
-                        Save Changes
-                    </Button>
-                    </Modal.Footer>
-                </Modal>
-                <Modal show={show2} onHide={handleClose2}>
-                    <Modal.Header className='modal-background-profile-img' closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body className='modal-background-profile-img'>Edit profile</Modal.Body>
-                    <Modal.Footer className='modal-background-profile-img'>
-                    <Button variant="secondary" onClick={handleClose2}>
-                        Close
-                    </Button>
-                    <Button className='custom-btn-modal' variant="primary" onClick={handleClose2}>
-                        Save Changes
                     </Button>
                     </Modal.Footer>
                 </Modal>
                 <Modal show={show3} onHide={handleClose3}>
-                    <Modal.Header className='modal-background-profile-img' closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Header className='update-modal-header modal-background-profile-img' closeButton>
+                        <Modal.Title>
+                        <div /* className='update-modal-header' */>
+                            <p className='black'>Update banner image</p>
+                        </div>
+                        </Modal.Title>
                     </Modal.Header>
                     <Modal.Body className='modal-background-profile-img'>Edit banner</Modal.Body>
                     <Modal.Footer className='modal-background-profile-img'>
-                    <Button variant="secondary" onClick={handleClose3}>
-                        Close
-                    </Button>
-                    <Button className='custom-btn-modal' variant="primary" onClick={handleClose3}>
-                        Save Changes
-                    </Button>
+                        <Button className='custom-btn-modal' variant="secondary" onClick={handleClose3}>
+                            Close
+                        </Button>
                     </Modal.Footer>
                 </Modal>        
     

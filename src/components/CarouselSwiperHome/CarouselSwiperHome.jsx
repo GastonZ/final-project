@@ -10,7 +10,7 @@ import car1 from "./bugatti1.png"
 import car2 from "./bugatti2.png"
 import car3 from "./bugatti3.png"
 import car4 from "./bugatti4.png"
-import car5 from "./car4.png"
+
 import "./styles.css";
 
 // import required modules

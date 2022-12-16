@@ -2,7 +2,9 @@ import React from 'react'
 import "./footer.css"
 function Footer ()  {
   return (
-    <footer>
+    <> 
+
+    <footer >
     <div className="footer-container">
       <div className="footer-info">
         <a href="#" className="footer-title">
@@ -100,6 +102,7 @@ function Footer ()  {
       </div>
     </div>
   </footer>
+  </>
   )
 }
 export default Footer

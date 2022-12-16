@@ -118,9 +118,9 @@ background: hsla(0, 0%, 100%, 1);
  }
 .bugattono{
 height: 60vh;
-    background: linear-gradient(180deg, rgb(39, 39, 39) 0%, rgb(20, 20, 20) 80%);
+   
     width: 100%;
-    background-image: url("./nosebackground.png");
+    background-image: url("./doubleline.png");
 
 }
 .bugattii{
@@ -141,7 +141,7 @@ height: 60vh;
   
     }
     .bugattono{
-        background-image: url("./Sin_titulo-2.png");
+        background-image: url("./line.png");
     }
 }
 @media only screen and (max-width: 611px){
@@ -164,6 +164,22 @@ height: 60vh;
         height:40vh;
     }
     .bugattono{
-        background-image: url("./dsadassda.png");
+        background-image: url("./line.png");
+    }
+}
+@media only screen and (max-width: 418px){
+    .bugattii{
+        height:35vh;
+    }
+    .bugattono{
+       height: 30vh;
+    }
+}
+@media only screen and (max-width: 357px){
+    .bugattii{
+        height:30vh;
+    }
+    .bugattono{
+       height: 30vh;
     }
 }

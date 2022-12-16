@@ -15,7 +15,7 @@ function NavbarResponsive() {
   let { getCars } = carsActions
 
   let dispatch = useDispatch()
-  let { logged, photo } = useSelector(store => store.usuario)
+  let { logged, photoProfile } = useSelector(store => store.usuario)
   const { cars } = useSelector((state)=> state.cars)
   
   useEffect(()=>{
@@ -71,7 +71,7 @@ function NavbarResponsive() {
                   {
                     logged ?
                      <section className='navbar-section'>
-                      <Link to='/profile'><img className='navbar-section-profileImg' src={photo} alt=""/></Link>
+                      <Link to='/profile'><img className='navbar-section-profileImg' src={photoProfile} alt=""/></Link>
                      </section>
                       :
                      <section className='navbar-section'>
