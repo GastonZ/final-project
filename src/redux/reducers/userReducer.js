@@ -54,9 +54,9 @@ const userReducer = createReducer (initialState,
             
             const { success, response} = action.payload
             console.log(response);
+            console.log(state);
             if(success) {
                 let { user, token } = response
-                console.log(user);
               
                 let newState = {
                     ...state,

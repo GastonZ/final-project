@@ -32,7 +32,7 @@ function CarHome(props) {
 {cars.map((x)=>{
 
   return(
-<main className='car-details-container' data-aos="fade-right" >
+<main className='car-details-container' >
         <img className='car-details-img' src={x.image} alt="Model S" />
         <section className='car-details-title'>
           <h1 className='text-title-car'>{x.title}</h1>

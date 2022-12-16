@@ -91,6 +91,9 @@ justify-content: center;
 margin-top: 20px;
 height: 50vh;
 overflow: hidden;
+background: hsla(0, 0%, 100%, 1);
+
+
 }
 
  @media only screen and (max-width: 725px){
@@ -113,3 +116,15 @@ overflow: hidden;
  .marca-img{
     height: 100px;
  }
+.bugattono{
+    min-height: 40vh;
+    background: linear-gradient(180deg, rgb(39, 39, 39) 0%, rgb(20, 20, 20) 80%);
+    width: 100%;
+    background-image: url("./nosebackground.png");
+
+}
+.bugattii{
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+}
