@@ -39,13 +39,35 @@
 
    }
    .findYourPerfect{
+    font-family: 'Bebas Neue', cursive !important;
     text-align: center;
-    font-size: 4rem;
-    font-weight: bold;
+    font-size: 5rem;
+    /* font-weight: bold; */
     margin-right: 10px;
-    margin-top: 25px;
-
+    margin-top: 80px;
+    margin-bottom: -18px;
+    letter-spacing: 5px;
    }
+
+.spancito88{
+  font-family: 'Bebas Neue', cursive !important;
+  text-align: center;
+  font-size: 5rem;
+  /* font-weight: bold; */
+  margin-right: 10px;
+  margin-top: 80px;
+  margin-bottom: -18px;
+  color: brown;
+  letter-spacing: 5x;
+
+
+
+
+}
+
+
+
+
    .flecha{
     color: white;
     font-size: 3rem;
