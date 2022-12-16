@@ -97,6 +97,7 @@ const editUserInfo = createAsyncThunk('editUserInfo', async ({id,data,token})=>{
     let headers = {headers: {'Authorization':` Bearer ${token}`}}
     try {
         let res = await axios.patch(url,data,headers)
+        console.log(res);
         if(res.data.success){
             return {
                 responseId: res.data.id,
@@ -117,12 +118,33 @@ const editUserInfo = createAsyncThunk('editUserInfo', async ({id,data,token})=>{
     }
 })
 
+const getOneUser = createAsyncThunk("getOneUser", async ({id, token}) => {
+
+    let headers = {headers: {'Authorization':` Bearer ${token}`}}
+    let url = `${BASE_URL}me/${id}`
+    try {
+        const res = await axios.get(url , headers);
+        console.log(res);
+        return {
+            id:id,
+            user: res.data.response};
+      } catch (error) {
+        console.log(error);
+        return {
+          payload: "Error",
+        };
+      }
+
+      
+})
+
 const usersActions = {
     newUser,
     logIn,
     enterAgain,
     logOut,
-    editUserInfo
+    editUserInfo,
+    getOneUser
 }
 
 export default usersActions

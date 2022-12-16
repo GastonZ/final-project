@@ -8,14 +8,14 @@ import usersActions from "../../redux/actions/userAction";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { uploadProfileImage } from '../../firebase/config'
+import { TextField } from "@mui/material";
 
 function Profile(props) {
 
-    let { name, photo, banner, token } = useSelector(store => store.usuario)
-    let { logOut } = usersActions
+    let { nameProfile, photo, banner, token, id } = useSelector(store => store.usuario)
+    let { logOut, editUserInfo, getOneUser } = usersActions
     let dispatch = useDispatch()
     let history = useNavigate()
-
 
     async function handleLogOut(e){
         e.preventDefault()
@@ -63,7 +63,41 @@ function Profile(props) {
         
     }
 
-/*     console.log(banner); */
+    /* Update Name */
+
+ 
+
+    const [ name, setEName ] = useState('')
+    
+    async function editName() {
+
+        try {
+            let nameEdit = {name}
+    
+            let res = await dispatch(editUserInfo({id : id, data: nameEdit, token: token}))
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+                )
+            dispatch(getOneUser({id: id, token: token}))
+        } catch (error) {
+            console.log(error);
+        }
+        
+    }
+
+    async function getUsers(){
+  
+        await dispatch(getOneUser({id: id, token: token}))
+      }
+      
+      
+      useEffect(()=>{  
+        getUsers()
+      },[])
+
+    
     return (
         <motion.div>
             <main className='main-profile-container'>
@@ -81,7 +115,7 @@ function Profile(props) {
                             </div>
                         </div>
                         <section className='profile-section profile-username'>
-                            <h2 className='user-profile-name'>{name}</h2>
+                            <h2 className='user-profile-name'>{nameProfile}</h2>
                             <div className='btn-profile-container'>
                                 <button onClick={handleShow2} className='edit-profile-btn'>
                                     <img  className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053031104380149760/icons8-edit-24.png" alt="edit" />
@@ -133,13 +167,19 @@ function Profile(props) {
                     <Modal.Header className='modal-background-profile-img' closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body className='modal-background-profile-img'>Edit profile</Modal.Body>
+                    <Modal.Body className='modal-background-profile-img'>Edit profile
+                        <TextField onChange={(e) => setEName(e.target.value)}
+                            hiddenLabel
+                            id="filled-hidden-label-small"
+                            defaultValue= {nameProfile}
+                            variant="filled"
+                            size="small"
+                            />
+                        <Button onClick={editName} className='bg-dark mx-3'>Send</Button> 
+                    </Modal.Body>
                     <Modal.Footer className='modal-background-profile-img'>
-                    <Button variant="secondary" onClick={handleClose2}>
+                    <Button className='custom-btn-modal' variant="secondary" onClick={handleClose2}>
                         Close
-                    </Button>
-                    <Button className='custom-btn-modal' variant="primary" onClick={handleClose2}>
-                        Save Changes
                     </Button>
                     </Modal.Footer>
                 </Modal>
