@@ -100,9 +100,6 @@ function Profile(props) {
         }
         
     }
-
-    console.log(photo);
-
     /* Update Name */
 
     const [ name, setEName ] = useState('')
@@ -180,8 +177,12 @@ function Profile(props) {
                         <div className='file-select' id='src-file1'>
                             <input onChange={e => setFile(e.target.files[0])} type="file" name="src-file1"/>
                         </div>
-                        <Button onClick={handleNewPhoto} variant='outline-secondary' className='bg-dark m-10'>send photo</Button>
-                        <Button onClick={editPhoto} variant='outline-secondary' className='bg-dark m-10'>save photo</Button>
+                        {
+                            file === null || photo !== '' ? <></> : <Button onClick={handleNewPhoto} variant='outline-secondary' className='bg-dark m-10 white'>Upload Photo</Button>
+                        }
+                        {
+                            photo === '' ? <></> : <Button onClick={editPhoto} variant='outline-secondary' className='bg-dark m-10 white'>Save Changes</Button>
+                        }
                     </Modal.Body>
                     <Modal.Footer className='modal-background-profile-img'>
                         <Button className='custom-btn-modal' variant="secondary" onClick={handleClose1}>

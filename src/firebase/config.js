@@ -17,7 +17,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app)
 
+
 export async function uploadFile(file) {
+  
   try {
     const storageRef = ref(storage, v4())
     await uploadBytes(storageRef, file)
