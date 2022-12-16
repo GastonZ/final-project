@@ -75,10 +75,54 @@ const enterAgain = createAsyncThunk('enterAgain', async (token) =>{
     }
 })
 
+const logOut = createAsyncThunk('logOut', async (token)=> {
+    let url = `${BASE_URL}signout`
+    let headers = {headers: {'Authorization': `Bearer ${token}`}}
+    try {
+        let user = await axios.put(url, null, headers)
+        return {
+            success: true,
+            response: user.data.message
+        }
+    } catch (error) {
+        return {
+            success: false,
+            response: error.response.data.message
+        }
+    }
+})
+
+const editUserInfo = createAsyncThunk('editUserInfo', async ({id,data,token})=>{
+    let url = `${BASE_URL}me/${id}`
+    let headers = {headers: {'Authorization':` Bearer ${token}`}}
+    try {
+        let res = await axios.patch(url,data,headers)
+        if(res.data.success){
+            return {
+                responseId: res.data.id,
+                success: true,
+                response: data
+            }
+        } else {
+            return {
+                success: false,
+                response: res.data.message
+            }
+        }
+    } catch (error) {
+        console.log(error);
+        return {
+          success: false, response:"error"
+        }
+    }
+})
+
 const usersActions = {
     newUser,
     logIn,
-    enterAgain
+    enterAgain,
+    logOut,
+    editUserInfo
 }
 
 export default usersActions
