@@ -15,7 +15,7 @@
     animation: rotation 2s infinite linear;
 }
 
-@keyframes rotation {
+/* @keyframes rotation {
     from {
       transform: rotate(0deg);
     }
@@ -23,7 +23,7 @@
       transform: rotate(359deg);
     }
   }
-
+ */
 .bg-almost-solid {
     background-color: rgba(17, 25, 40, 0.25);
 }
