@@ -7,6 +7,7 @@ import Modal from 'react-bootstrap/Modal'
 import usersActions from "../../redux/actions/userAction";
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { uploadProfileImage } from '../../firebase/config'
 
 function Profile(props) {
 
@@ -56,9 +57,13 @@ function Profile(props) {
     const handleClose3 = () => setShow3(false);
     const handleShow3 = () => setShow3(true);
 
+    /* Update profile photo */
 
+    function updateProfileImage(){
+        
+    }
 
-    console.log(banner);
+/*     console.log(banner); */
     return (
         <motion.div>
             <main className='main-profile-container'>
@@ -103,10 +108,18 @@ function Profile(props) {
                     </Modal.Footer>
                 </Modal>
                 <Modal show={show1} onHide={handleClose1}>
-                    <Modal.Header className='modal-background-profile-img' closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Header className='update-modal-header modal-background-profile-img' closeButton>
+                    <Modal.Title >
+                        <div /* className='update-modal-header' */>
+                            <p className='white'>Update profile image</p>
+                        </div>
+                    </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body className='modal-background-profile-img'>Edit profile image</Modal.Body>
+                    <Modal.Body className='modal-background-profile-img'>
+                        <div className='file-select' id='src-file1'>
+                            <input onChange={e => uploadProfileImage(e.target.files[0])} type="file" name="src-file1"/>
+                        </div>
+                    </Modal.Body>
                     <Modal.Footer className='modal-background-profile-img'>
                     <Button variant="secondary" onClick={handleClose1}>
                         Close
