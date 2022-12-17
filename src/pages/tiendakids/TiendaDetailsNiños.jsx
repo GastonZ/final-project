@@ -2,9 +2,12 @@ import React from "react";
 import CarrouselBestSellers from "../../components/CarrouselBestSellers";
 import CarrouselTienda from "../../components/CarrouselTienda08";
 import "../tiendadetails/Tiendadetails.css";
-import { Slider, TextField, ThemeProvider } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
+import { Slider, TextField, ThemeProvider } from "@mui/material";
+import itemsActions from "../../redux/actions/itemsActions";
 
+import { useEffect } from "react";
+import { useDispatch,useSelector } from "react-redux";
 const theme = createTheme({
   palette: {
     primary: {
@@ -17,7 +20,21 @@ const theme = createTheme({
   },
 });
 
+
+
 export default function TiendaDetailsKids() {
+  let { getItems } = itemsActions
+  const dispatch = useDispatch()
+  
+  const { items } = useSelector((state)=> state.items)
+  let itemsFiltered = items.filter(items=>items.gender.includes("kid"))
+  console.log(itemsFiltered);
+  useEffect(()=>{
+    dispatch(getItems())
+  },[])
+  console.log(items); 
+
+
   return (
     <>
       <header className="headerTiendaDetails010"></header>
@@ -74,18 +91,20 @@ export default function TiendaDetailsKids() {
 
         
         
-        {/* //empieza card */}
-        <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
+        {itemsFiltered.map((x)=>{
+return(
+
+        <div key={x.name} class="card089"  data-aos="fade-up" data-aos-duration="2000">
           <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/LIFESTYLE/KIDS/TOPS/1753970-00-A_1_2000.jpg"
+            src={x.image}
             alt=""
             srcset=""
           />
 
           <div className="cardTiendaContainer">
             <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
+              <h6>{x.name}</h6>
+              <h6>${x.price}</h6>
             </div>
 
             <div className="cardTiendaButton">
@@ -94,48 +113,12 @@ export default function TiendaDetailsKids() {
             </div>
           </div>
         </div>
+)
+        })}
+
          {/* //termina card */}
            {/* //empieza card */}
-        <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
-          <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/KIDS/HATS/1740410-00-A_0_2000.jpg"
-            alt=""
-            srcset=""
-          />
-
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
-            </div>
-
-            <div className="cardTiendaButton">
-              <button className="chango"></button>
-              <button className="lupa"></button>
-            </div>
-          </div>
-        </div>
-         {/* //termina card */}
-           {/* //empieza card */}
-        <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
-          <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/KIDS/TOPS/1742694-00-A_1_2000.jpg"
-            alt=""
-            srcset=""
-          />
-
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
-            </div>
-
-            <div className="cardTiendaButton">
-              <button className="chango"></button>
-              <button className="lupa"></button>
-            </div>
-          </div>
-        </div>
+       
          {/* //termina card */}
 
       

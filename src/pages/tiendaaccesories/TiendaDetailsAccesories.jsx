@@ -2,10 +2,11 @@ import React from "react";
 import CarrouselBestSellers from "../../components/CarrouselBestSellers";
 import CarrouselTienda from "../../components/CarrouselTienda08";
 import "../tiendadetails/Tiendadetails.css";
-
+import itemsActions from "../../redux/actions/itemsActions";
+import { useDispatch,useSelector } from "react-redux";
 import { Slider, TextField, ThemeProvider } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
-
+import { useEffect } from "react";
 const theme = createTheme({
   palette: {
     primary: {
@@ -19,7 +20,20 @@ const theme = createTheme({
 });
 
 
+
+
+
 export default function TiendaDetailsAccesories() {
+   let { getItems } = itemsActions
+  const dispatch = useDispatch()
+  
+  const { items } = useSelector((state)=> state.items)
+  let itemsFiltered = items.filter(items=>items.gender.includes("none"))
+  console.log(itemsFiltered);
+  useEffect(()=>{
+    dispatch(getItems())
+  },[])
+  console.log(items); 
   return (
     <>
       <header className="headerTiendaDetails010"></header>
@@ -70,17 +84,20 @@ export default function TiendaDetailsAccesories() {
          <h1 data-aos="fade-up" data-aos-duration="2000">#HighQualityClothes</h1>
         </div>  */}
         {/* //empieza card */}
-        <div class="card089" data-aos="fade-up" data-aos-duration="2000">
+        {itemsFiltered.map((x)=>{
+return(
+
+        <div key={x.name} class="card089" data-aos="fade-up" data-aos-duration="2000">
           <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/CAR_ACCESSORIES/MODEL_S/CHARGING_ADAPTERS/1457768-01-F_2_2000.jpg"
+            src={x.image}
             alt=""
             srcset=""
           />
 
           <div className="cardTiendaContainer">
             <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
+              <h6>{x.name}</h6>
+              <h6>${x.price}</h6>
             </div>
 
             <div className="cardTiendaButton">
@@ -89,91 +106,11 @@ export default function TiendaDetailsAccesories() {
             </div>
           </div>
         </div>
+)
+        })}
         {/* //termina card */}
         {/* //empieza card */}
-        <div class="card089" data-aos="fade-up" data-aos-duration="2000">
-          <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/CAR_ACCESSORIES/MODEL_S/CHARGING_ADAPTERS/1509549-02-B_2_2000.jpg"
-            alt=""
-            srcset=""
-          />
-
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
-            </div>
-
-            <div className="cardTiendaButton">
-              <button className="chango"></button>
-              <button className="lupa"></button>
-            </div>
-          </div>
-        </div>
-        {/* //termina card */}
-        {/* //empieza card */}
-        <div class="card089" data-aos="fade-up" data-aos-duration="2000">
-          <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/CAR_ACCESSORIES/MODEL_3/CHARGING_ADAPTERS/1067348-00-B_0_2000.jpg"
-            alt=""
-            srcset=""
-          />
-
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
-            </div>
-
-            <div className="cardTiendaButton">
-              <button className="chango"></button>
-              <button className="lupa"></button>
-            </div>
-          </div>
-        </div>
-        {/* //termina card */}
-
-        {/* //empieza card */}
-        <div class="card089" data-aos="fade-up" data-aos-duration="2000">
-          <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/CAR_ACCESSORIES/MODEL_Y/INTERIOR/1713539-00-A_0_2000.jpg"
-            alt=""
-            srcset=""
-          />
-
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
-            </div>
-
-            <div className="cardTiendaButton">
-              <button className="chango"></button>
-              <button className="lupa"></button>
-            </div>
-          </div>
-        </div>
-        {/* //termina card */}
-        {/* //empieza card */}
-        <div class="card089" data-aos="fade-up" data-aos-duration="2000">
-          <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/CAR_ACCESSORIES/MODEL_3/INTERIOR/1634268-00-A_0_2000.jpg"
-            alt=""
-            srcset=""
-          />
-
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
-            </div>
-
-            <div className="cardTiendaButton">
-              <button className="chango"></button>
-              <button className="lupa"></button>
-            </div>
-          </div>
-        </div>
+       
         {/* //termina card */}
       </main>
     </>

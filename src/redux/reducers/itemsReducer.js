@@ -14,7 +14,7 @@ const itemsReducer = createReducer(initialState,
             console.log(action.payload);
             return {
                 ...state,
-                items: action.payload.response
+                items: action.payload.items
             }
         })
     })

@@ -33,10 +33,10 @@ function App() {
 
 
   const { items } = useSelector((state)=> state.items)
-  
   useEffect(()=>{
     dispatch(getItems())
   },[])
+  console.log(items);
 
   let { enterAgain } = usersActions
   let dispatch = useDispatch()
