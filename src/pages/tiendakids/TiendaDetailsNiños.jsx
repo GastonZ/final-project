@@ -6,7 +6,7 @@ import { createTheme } from '@mui/material/styles';
 import { Slider, TextField, ThemeProvider } from "@mui/material";
 import itemsActions from "../../redux/actions/itemsActions";
 
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
 const theme = createTheme({
   palette: {
@@ -25,15 +25,19 @@ const theme = createTheme({
 export default function TiendaDetailsKids() {
   let { getItems } = itemsActions
   const dispatch = useDispatch()
-  
+  let [filtered,setFiltered]=useState('')
   const { items } = useSelector((state)=> state.items)
   let itemsFiltered = items.filter(items=>items.gender.includes("kid"))
-  console.log(itemsFiltered);
-  useEffect(()=>{
-    dispatch(getItems())
-  },[])
-  console.log(items); 
 
+  useEffect(()=>{
+    dispatch(getItems({filtered:filtered}))
+  },[filtered])
+
+  function listen(value){
+    if(value.target.type==="text"){
+      setFiltered(value.target.value)
+    }
+  }
 
   return (
     <>
@@ -52,6 +56,7 @@ export default function TiendaDetailsKids() {
             variant="outlined"
             color="primary"
             fullWidth="1"
+            onChange={listen}
           />
           </ThemeProvider>
      

@@ -33,7 +33,7 @@ export default function TiendaDetailsAccesories() {
   useEffect(()=>{
     dispatch(getItems({filtered:filtered}))
   },[filtered])
-  console.log(items); 
+
   function listen(value){
     
 
@@ -41,7 +41,7 @@ export default function TiendaDetailsAccesories() {
     setFiltered(value.target.value)
   }
 }
-console.log(filtered);
+
   return (
     <>
       <header className="headerTiendaDetails010"></header>
