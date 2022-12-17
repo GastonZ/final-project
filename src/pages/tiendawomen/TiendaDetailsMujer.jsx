@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import CarrouselBestSellers from "../../components/CarrouselBestSellers";
 import CarrouselTienda from "../../components/CarrouselTienda08";
 import "../tiendadetails/Tiendadetails.css";
 import { Slider, TextField, ThemeProvider } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
+import itemsActions from "../../redux/actions/itemsActions";
+import { useSelector, useDispatch } from 'react-redux'
 
 const theme = createTheme({
   palette: {
@@ -22,6 +24,23 @@ const theme = createTheme({
 
 
 export default function TiendaDetailsWomen() {
+
+
+  let dispatch = useDispatch()
+
+  let { getItems } = itemsActions
+  
+  useEffect(()=>{
+    dispatch(getItems())
+  },[])
+  const { items } = useSelector((state)=> state.items)
+
+  let femaleFiltered = items.filter((x)=> x.gender === 'female')
+
+  console.log(femaleFiltered);
+
+
+
   return (
     <>
       <header className="headerTiendaDetails010"></header>
@@ -75,135 +94,37 @@ export default function TiendaDetailsWomen() {
       
          <h1 data-aos="fade-up" data-aos-duration="2000">#HighQualityClothes</h1>
         </div> */}
+
         {/* //empieza card */}
-        <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
-          <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/TOPS/TSHIRTS/8765105-00-A_0_2000.jpg"
-            alt=""
-            srcset=""
-          />
 
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
-            </div>
+        {
+          femaleFiltered.map((x)=>{
 
-            <div className="cardTiendaButton">
-              <button className="chango"></button>
-              <button className="lupa"></button>
-            </div>
-          </div>
-        </div>
-         {/* //termina card */}
-           {/* //empieza card */}
-        <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
-          <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/TOPS/TSHIRTS/1741441-00-A_0_2000.jpg"
-            alt=""
-            srcset=""
-          />
+          return(
+          <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
+            <img
+              src={x.image}
+              alt=""
+              srcset=""
+            />
 
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
-            </div>
+            <div className="cardTiendaContainer">
+              <div className="cardTiendaText">
+                <h6>{x.name}</h6>
+                <h6>Price: ${x.price}</h6>
+              </div>
 
-            <div className="cardTiendaButton">
-              <button className="chango"></button>
-              <button className="lupa"></button>
+             <div className="cardTiendaButton">
+                <button className="chango"></button>
+                <button className="lupa"></button>
+              </div>
             </div>
           </div>
-        </div>
-         {/* //termina card */}
-           {/* //empieza card */}
-        <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
-          <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/OUTERWEAR/JACKETS/1740535-00-A_0_2000.jpg"
-            alt=""
-            srcset=""
-          />
-
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
-            </div>
-
-            <div className="cardTiendaButton">
-              <button className="chango"></button>
-              <button className="lupa"></button>
-            </div>
-          </div>
-        </div>
-         {/* //termina card */}
-
-             {/* //empieza card */}
-        <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
-          <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/TOPS/HOODIES_SWEATSHIRTS/1740231-00-A_0_2000.jpg"
-            alt=""
-            srcset=""
-          />
-
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
-            </div>
-
-            <div className="cardTiendaButton">
-              <button className="chango"></button>
-              <button className="lupa"></button>
-            </div>
-          </div>
-        </div>
-         {/* //termina card */}
-                {/* //empieza card */}
-        <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
-          <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/TOPS/HOODIES_SWEATSHIRTS/8529100-00-A_0_2000.jpg"
-            alt=""
-            srcset=""
-          />
-
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
-            </div>
-
-            <div className="cardTiendaButton">
-              <button className="chango"></button>
-              <button className="lupa"></button>
-            </div>
-          </div>
-        </div>
-         {/* //termina card */}
-                   {/* //empieza card */}
-        <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
-          <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/LIFESTYLE/TOPS/HOODIES_SWEATSHIRTS/8764613-00-A_0_2000.jpg"
-            alt=""
-            srcset=""
-          />
-
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>Grey-B Sockets</h6>
-              <h6>Price: $10</h6>
-            </div>
-
-            <div className="cardTiendaButton">
-              <button className="chango"></button>
-              <button className="lupa"></button>
-            </div>
-          </div>
-        </div>
-         {/* //termina card */}
-
+            )
+          })
+        }
         
+         {/* //termina card */}
       </main>
     </>
   );

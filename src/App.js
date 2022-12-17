@@ -29,19 +29,11 @@ AOS.init();
 function App() {
 
 
-  let { getItems } = itemsActions
-
-
-  const { items } = useSelector((state)=> state.items)
-  useEffect(()=>{
-    dispatch(getItems())
-  },[])
-  console.log(items);
-
+  
   let { enterAgain } = usersActions
   let dispatch = useDispatch()
 
- 
+
   let { role, logged } = useSelector(store => store.usuario)
   console.log(role);
   console.log(logged);
