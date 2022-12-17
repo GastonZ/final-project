@@ -22,9 +22,21 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/profile/Profile";
 import React, {useEffect} from "react"
 
+import itemsActions from "./redux/actions/itemsActions";
+
 AOS.init();
 
 function App() {
+
+
+  let { getItems } = itemsActions
+
+
+  const { items } = useSelector((state)=> state.items)
+  
+  useEffect(()=>{
+    dispatch(getItems())
+  },[])
 
   let { enterAgain } = usersActions
   let dispatch = useDispatch()
