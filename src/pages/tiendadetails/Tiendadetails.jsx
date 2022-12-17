@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import CarrouselBestSellers from "../../components/CarrouselBestSellers";
 import CarrouselTienda from "../../components/CarrouselTienda08";
 import "../tiendadetails/Tiendadetails.css";
@@ -22,18 +22,23 @@ const theme = createTheme({
 export default function TiendaDetails() {
 
   let dispatch = useDispatch()
-
+  let [filtered,setFiltered]=useState('')
   let { getItems } = itemsActions
   
-  useEffect(()=>{
-    dispatch(getItems())
-  },[])
   const { items } = useSelector((state)=> state.items)
-
   let maleFiltered = items.filter((x)=> x.gender === 'male')
 
-  console.log(maleFiltered);
-  
+  useEffect(()=>{
+    dispatch(getItems({filtered:filtered}))
+  },[filtered])
+
+  function listen(value){
+    
+
+    if(value.target.type==="text"){
+      setFiltered(value.target.value)
+    }
+  }
 
 
   return (
@@ -53,6 +58,7 @@ export default function TiendaDetails() {
             variant="outlined"
             color="primary"
             fullWidth="1"
+            onChange={listen}
           />
           </ThemeProvider>
      
