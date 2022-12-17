@@ -25,7 +25,7 @@ function Profile(props) {
         },
       });
 
-    let { nameProfile, photoProfile, banner, token, id } = useSelector(store => store.usuario)
+    let { nameProfile, photoProfile, bannerProfile, token, id } = useSelector(store => store.usuario)
     let { getOneUser ,logOut, editUserInfo } = usersActions
 
     let dispatch = useDispatch()
@@ -100,6 +100,34 @@ function Profile(props) {
         }
         
     }
+
+    /* Update profile Banner */
+
+    const [fileBanner, setFileBanner] = useState(null)
+
+    const [banner, setNewBanner] = useState('')
+
+    const handleNewBanner = async (e) => {
+        const res = await uploadFile(fileBanner)
+        setNewBanner(res)
+    }
+
+    async function editBanner() {
+        try {
+            let bannerEdit = {banner}
+
+            await dispatch(editUserInfo({id: id, data: bannerEdit, token: token}))
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+                )
+            dispatch(getOneUser({id: id, token: token}))
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     /* Update Name */
 
     const [ name, setEName ] = useState('')
@@ -126,7 +154,7 @@ function Profile(props) {
         <motion.div>
             <main className='main-profile-container'>
                 <div className='profile-banner'>
-                    <img className='banner-img' src={banner} alt="banner" />
+                    <img className='banner-img' src={bannerProfile} alt="banner" />
                     <button onClick={handleShow3} className='edit-banner-btn'> <img className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053024594048589844/icons8-compact-camera-24.png" alt="edit" />
                      Edit banner image</button>
                      <button onClick={handleShow3} className='edit-banner-btn-small'> <img className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053024594048589844/icons8-compact-camera-24.png" alt="edit" />
@@ -220,11 +248,21 @@ function Profile(props) {
                     <Modal.Header className='update-modal-header modal-background-profile-img' closeButton>
                         <Modal.Title>
                         <div /* className='update-modal-header' */>
-                            <p className='black'>Update banner image</p>
+                            <p className='black'>Update banner Image</p>
                         </div>
                         </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body className='modal-background-profile-img'>Edit banner</Modal.Body>
+                    <Modal.Body className='modal-background-profile-img'>
+                    <div className='file-select' id='src-file1'>
+                        <input onChange={e => setFileBanner(e.target.files[0])} type="file" name="src-file1"/>
+                    </div>
+                        {
+                            fileBanner === null || banner !== '' ? <></> : <Button onClick={handleNewBanner} variant='outline-secondary' className='bg-dark m-10 white'>Upload Photo</Button>
+                        }
+                        {
+                            banner === '' ? <></> : <Button onClick={editBanner} variant='outline-secondary' className='bg-dark m-10 white'>Save Changes</Button>
+                        }
+                    </Modal.Body>
                     <Modal.Footer className='modal-background-profile-img'>
                         <Button className='custom-btn-modal' variant="secondary" onClick={handleClose3}>
                             Close
