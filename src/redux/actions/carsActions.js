@@ -3,15 +3,15 @@ import axios from 'axios'
 
 import { BASE_URL } from '../../api/url'
 
-const getCars = createAsyncThunk('getCars', async ({filtered}) => {
+const getCars = createAsyncThunk('getCars', async () => {
     try {
         const res = await axios.get(
-            `${BASE_URL}cars?name=${filtered}`
+            `${BASE_URL}cars`
         )
         console.log(res.data.response);
         return {
             cars : res.data.response,
-            filtered: filtered
+            
 
         }
     } catch (error) {

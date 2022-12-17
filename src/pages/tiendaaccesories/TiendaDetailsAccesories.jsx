@@ -3,6 +3,7 @@ import CarrouselBestSellers from "../../components/CarrouselBestSellers";
 import CarrouselTienda from "../../components/CarrouselTienda08";
 import "../tiendadetails/Tiendadetails.css";
 import itemsActions from "../../redux/actions/itemsActions";
+import { Link } from 'react-router-dom';
 import { useDispatch,useSelector } from "react-redux";
 import { Slider, TextField, ThemeProvider } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
@@ -111,7 +112,7 @@ return(
 
             <div className="cardTiendaButton">
               <button className="chango"></button>
-              <button className="lupa"></button>
+              <Link to={`/detailsItem/:${x._id}`}><button  className="lupa"></button></Link>
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ import { Slider, TextField, ThemeProvider } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
 import itemsActions from "../../redux/actions/itemsActions";
 import { useSelector, useDispatch } from 'react-redux'
-
+import { Link } from 'react-router-dom';
 const theme = createTheme({
   palette: {
     primary: {
@@ -111,7 +111,7 @@ export default function TiendaDetails() {
     
                 <div className="cardTiendaButton">
                   <button className="chango"></button>
-                  <button className="lupa"></button>
+                  <Link to={`/detailsItem/:${x._id}`}><button  className="lupa"></button></Link>
                 </div>
               </div>
             </div>

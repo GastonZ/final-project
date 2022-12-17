@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import CarrouselBestSellers from "../../components/CarrouselBestSellers";
 import CarrouselTienda from "../../components/CarrouselTienda08";
 import "../tiendadetails/Tiendadetails.css";
@@ -114,7 +115,7 @@ return(
 
             <div className="cardTiendaButton">
               <button className="chango"></button>
-              <button className="lupa"></button>
+              <Link to={`/detailsItem/:${x._id}`}><button  className="lupa"></button></Link>
             </div>
           </div>
         </div>
