@@ -203,7 +203,7 @@ function Profile(props) {
                     </Modal.Header>
                     <Modal.Body className='modal-background-profile-img centered'>
                         <div className='file-select' id='src-file1'>
-                            <input onChange={e => setFile(e.target.files[0])} type="file" name="src-file1"/>
+                            <input className='upload-image' onChange={e => setFile(e.target.files[0])} type="file" name="src-file1"/>
                         </div>
                         {
                             file === null || photo !== '' ? <></> : <Button onClick={handleNewPhoto} variant='outline-secondary' className='bg-dark m-10 white'>Upload Photo</Button>
@@ -254,7 +254,7 @@ function Profile(props) {
                     </Modal.Header>
                     <Modal.Body className='modal-background-profile-img'>
                     <div className='file-select' id='src-file1'>
-                        <input onChange={e => setFileBanner(e.target.files[0])} type="file" name="src-file1"/>
+                        <input className='upload-image' onChange={e => setFileBanner(e.target.files[0])} type="file" name="src-file1"/>
                     </div>
                         {
                             fileBanner === null || banner !== '' ? <></> : <Button onClick={handleNewBanner} variant='outline-secondary' className='bg-dark m-10 white'>Upload Photo</Button>
