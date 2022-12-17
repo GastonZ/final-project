@@ -21,7 +21,7 @@ import usersActions from "./redux/actions/userAction";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/profile/Profile";
 import React, {useEffect} from "react"
-
+import EachItemsItems from "./pages/EachItemDetail/EachItemDetail";
 import itemsActions from "./redux/actions/itemsActions";
 
 AOS.init();
@@ -57,6 +57,7 @@ function App() {
       <Routes>
        
         <Route path='details/:id' element={<CarDetails/>}  />
+        <Route path="detailsItem/:id" element={<EachItemsItems/>}/>
         <Route path="/"  element={<Home/>}></Route>
         <Route path='shop' element={<Tienda/>} />
         <Route path="signup" element={ logged? <Home/>:<SignUp/>}></Route>
