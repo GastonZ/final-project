@@ -30,7 +30,7 @@ export default function CarrouselTienda() {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide>
+{/*         <SwiperSlide>
           <div className="contenedorTienda08">
 
             <h1 className="titulo1shop" href="#" >
@@ -45,7 +45,7 @@ export default function CarrouselTienda() {
             alt="carrouselImg01"
             className="imagenCarrousel"
           />
-        </SwiperSlide>
+        </SwiperSlide> */}
         <SwiperSlide>
           <div className="contenedorTienda08" >
             <h1 className="titulo1shop" href="#" >
@@ -55,7 +55,7 @@ export default function CarrouselTienda() {
             <button className="buttonshop08" onClick={toShopMen}>Shop Now</button>
           </div>
           <img
-            src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/teslaweb/homepage/Chill_banner_web.jpg"
+            src="https://cdn.discordapp.com/attachments/1019371264860770376/1053764450852806727/Chill_banner_web.jpg"
             alt="carrouselImg02"
             className="imagenCarrousel"
           />

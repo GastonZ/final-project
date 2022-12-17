@@ -59,7 +59,7 @@ export default function CarrouselBestSellers() {
         data-aos-duration="2000"
       >
         <img
-          src="https://media.discordapp.net/attachments/1019730194984091739/1051980429479137350/image.png?width=1440&height=625"
+          src="https://media.discordapp.net/attachments/1019371264860770376/1053736372265033820/kid.jpg?width=428&height=428"
           alt=""
           srcset=""
         />
@@ -75,7 +75,7 @@ export default function CarrouselBestSellers() {
         data-aos-duration="2000"
       >
         <img
-          src="https://media.discordapp.net/attachments/1019730194984091739/1051986508472651878/Sin_titulo-1.png?width=583&height=671"
+          src="https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/studio/CAR_ACCESSORIES/MODEL_S/WHEELS_TIRES/1538901-00-A_1_2000.jpg"
           alt=""
           srcset=""
         />
