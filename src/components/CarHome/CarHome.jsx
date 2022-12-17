@@ -8,6 +8,7 @@ import "./carhome.css"
 import AOS from 'aos';
 import carsActions from '../../redux/actions/carsActions';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
+
 // ..
 AOS.init();
 function CarHome(props) {
@@ -16,7 +17,9 @@ function CarHome(props) {
 
   let { getCars } = carsActions
 
+
   let dispatch = useDispatch()
+
 
   const { cars } = useSelector((state)=> state.cars)
   
