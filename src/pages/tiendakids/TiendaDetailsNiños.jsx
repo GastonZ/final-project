@@ -28,11 +28,11 @@ export default function TiendaDetailsKids() {
   let [filtered,setFiltered]=useState('')
   const { items } = useSelector((state)=> state.items)
   let itemsFiltered = items.filter(items=>items.gender.includes("kid"))
-  console.log(itemsFiltered);
+
   useEffect(()=>{
     dispatch(getItems({filtered:filtered}))
   },[filtered])
-  console.log(items); 
+
   function listen(value){
     if(value.target.type==="text"){
       setFiltered(value.target.value)
