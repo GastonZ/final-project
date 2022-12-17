@@ -3,7 +3,7 @@ import React from 'react'
 
 import marca1 from "./pirelli.png"
 
-
+import { Link } from 'react-router-dom';
 
 import './testi.css'
 import AOS from 'aos';
@@ -13,7 +13,7 @@ AOS.init();
 function Testimonials() {
   return (
     <>
-
+<Link to="/shop" className='texctito'>
       <div data-aos="fade-right" data-aos-duration="1000"
 
 
@@ -31,6 +31,8 @@ function Testimonials() {
           </div>
         </div>
       </div>
+
+</Link>
       <div className='marcaContainer'>
         <img className='marca-img' src={marca1} alt="" />
         <img className='marca-img' src="" alt="" />
