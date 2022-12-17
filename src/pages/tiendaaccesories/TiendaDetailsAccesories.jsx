@@ -6,7 +6,7 @@ import itemsActions from "../../redux/actions/itemsActions";
 import { useDispatch,useSelector } from "react-redux";
 import { Slider, TextField, ThemeProvider } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 const theme = createTheme({
   palette: {
     primary: {
@@ -24,16 +24,24 @@ const theme = createTheme({
 
 
 export default function TiendaDetailsAccesories() {
+  let [filtered,setFiltered]=useState('')
    let { getItems } = itemsActions
   const dispatch = useDispatch()
   
   const { items } = useSelector((state)=> state.items)
   let itemsFiltered = items.filter(items=>items.gender.includes("none"))
-  console.log(itemsFiltered);
   useEffect(()=>{
-    dispatch(getItems())
-  },[])
+    dispatch(getItems({filtered:filtered}))
+  },[filtered])
   console.log(items); 
+  function listen(value){
+    
+
+  if(value.target.type==="text"){
+    setFiltered(value.target.value)
+  }
+}
+console.log(filtered);
   return (
     <>
       <header className="headerTiendaDetails010"></header>
@@ -47,6 +55,7 @@ export default function TiendaDetailsAccesories() {
             variant="outlined"
             color="primary"
             fullWidth="1"
+            onChange={listen}
           />
           </ThemeProvider>
      
@@ -87,7 +96,7 @@ export default function TiendaDetailsAccesories() {
         {itemsFiltered.map((x)=>{
 return(
 
-        <div key={x.name} class="card089" data-aos="fade-up" data-aos-duration="2000">
+        <div key={x._id} class="card089" data-aos="fade-up" data-aos-duration="2000">
           <img
             src={x.image}
             alt=""

@@ -3,14 +3,15 @@ import axios from 'axios'
 
 import { BASE_URL } from '../../api/url'
 
-const getItems = createAsyncThunk('getItems', async()=> {
+const getItems = createAsyncThunk('getItems', async({filtered})=> {
     try { 
         const res = await axios.get(
-            `${BASE_URL}items`
+            `${BASE_URL}items?name=${filtered}`
         )
         console.log(res);
         return {
-            items : res.data.response
+            items : res.data.response,
+            filtered:filtered
         }
     } catch (error) {
         console.log(error);

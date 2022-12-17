@@ -4,7 +4,8 @@ import itemsActions from "../actions/itemsActions";
 const { getItems } = itemsActions
 
 const initialState={
-    items : []
+    items : [],
+    filtered:""
 }
 
 const itemsReducer = createReducer(initialState,
@@ -14,7 +15,9 @@ const itemsReducer = createReducer(initialState,
             console.log(action.payload);
             return {
                 ...state,
-                items: action.payload.items
+                items: action.payload.items,
+                filtered:action.payload.filtered
+
             }
         })
     })
