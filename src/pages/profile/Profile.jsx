@@ -260,7 +260,7 @@ function Profile(props) {
                             fileBanner === null || banner !== '' ? <></> : <Button onClick={handleNewBanner} variant='outline-secondary' className='bg-dark m-10 white'>Upload Photo</Button>
                         }
                         {
-                            banner === '' ? <></> : <Button onClick={editBanner} variant='outline-secondary' className='bg-danger m-10 white'>Save Changes</Button>
+                            banner === '' ? <></> : <Button onClick={editBanner} variant='outline-secondary' className='bg-motorX m-10 white'>Save Changes</Button>
                         }
                     </Modal.Body>
                     <Modal.Footer className='modal-background-profile-img'>

@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import './signin.css'
 import usersActions from '../../redux/actions/userAction'
 import { motion } from 'framer-motion'
+import Swal from 'sweetalert2'
 
 
 function SignIn() {
@@ -24,10 +25,13 @@ function SignIn() {
       console.log(res);
 
       if(res.payload.success) {
-        alert('loggeado')
         history('/')
       } else {
-        alert('que paso u_u')
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong, check if email is verified or if the password is correct',
+        })
       }
 
 

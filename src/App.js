@@ -23,6 +23,7 @@ import Profile from "./pages/profile/Profile";
 import React, {useEffect} from "react"
 import EachItemsItems from "./pages/EachItemDetail/EachItemDetail";
 import itemsActions from "./redux/actions/itemsActions";
+import Cart from './pages/Cart/Cart'
 
 AOS.init();
 
@@ -68,6 +69,7 @@ function App() {
         <Route path='shop/accesories' element={<TiendaDetailsAccesories/>} />
         <Route path='signin' element={ logged? <Home/>:<SignIn/>} />
         <Route path='profile' element={<Profile/>} />
+        <Route path='cart' element={<Cart/>} />
       </Routes>
  
 <Footer/>

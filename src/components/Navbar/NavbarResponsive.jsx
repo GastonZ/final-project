@@ -9,6 +9,7 @@ import carsActions from '../../redux/actions/carsActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { BASE_URL } from '../../api/url'
 import { useParams } from 'react-router-dom'
+import CartBtn from '../CartBtn/CartBtn';
 
 function NavbarResponsive() {
   
@@ -67,6 +68,7 @@ function NavbarResponsive() {
                   }
                 </section>
                 <section className='navbar-section'>
+                  <Link to='/cart'><CartBtn/></Link> 
                   <h2><Link className='section-shop' to='/shop'> Shop</Link></h2>
                   {
                     logged ?

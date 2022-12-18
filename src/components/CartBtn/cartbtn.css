@@ -1,0 +1,16 @@
+.cart-btn-container {
+    height: auto;
+}
+
+.cart-btn-logo {
+    height: 40px;
+    padding: 7px;
+    margin-top: 5px;
+    object-fit: cover;
+}
+
+.cart-quantity-icon {
+    position: relative;
+    float: right;
+    color: #fff;
+}
