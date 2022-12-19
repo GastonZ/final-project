@@ -8,6 +8,8 @@ import { useDispatch,useSelector } from "react-redux";
 import { Slider, TextField, ThemeProvider } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
 import { useEffect,useState } from "react";
+import AddToCartBtn from "../../components/AddToCartBtn/AddToCartBtn";
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -113,7 +115,7 @@ return(
             </div>
 
             <div className="cardTiendaButton">
-              <button className="chango"></button>
+              <AddToCartBtn name={x.name} price={x.price} image={x.image} />
               <Link to={`/detailsItem/:${x._id}`}><button  className="lupa"></button></Link>
             </div>
           </div>
