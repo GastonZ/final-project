@@ -11,7 +11,10 @@ const cartReducer = createReducer(initialState,
     (builder)=> {
         builder
         .addCase(addToCart.fulfilled,(state,action)=>{
-            console.log(action.payload);
+            if(action.payload.success){
+        
+                state.itemsInCart.push(action.payload.response)
+            }
         })
     })
 

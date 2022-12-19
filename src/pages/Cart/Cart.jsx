@@ -1,8 +1,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import './cart.css'
-
+import { useSelector } from 'react-redux'
 function Cart() {
+  let { itemsInCart } = useSelector(store => store.cart)
   return (
     <motion.div>
       <main className='cart-main-container'>
@@ -15,14 +16,17 @@ function Cart() {
               <div className='cart-line-section'>
                 <div className='cart-items-container'>
                 {/* Comienzo card de producto */}
+{
+  itemsInCart.map((x)=>{
+    return(
 
                   <div className='cart-line-section-2'>
                     <div className='cart-line-image'>
-                      <img height='120' src="https://64.media.tumblr.com/946b397393e78e4cdf984d69936dd811/3bf8e8f705e1bbf0-1b/s1280x1920/e14ac57f9ee39a250a9d933e2cc5218dba3700fa.png" alt="" />
+                      <img height='120' src={x.image} alt="" />
                     </div>
                     <div className='cart-line-container'>
                       <div className='cart-line-info'>
-                        <h4 className='m-0 p-0'>Nombre del item</h4>
+                        <h4 className='m-0 p-0'>{x.name}</h4>
                       </div>
                       <div className='cart-line-quantity'>
                         <p className='m-0 p-0'>Quantity : </p>
@@ -32,8 +36,11 @@ function Cart() {
                         <p className='remove-cart-btn'>Remove</p>
                       </div>
                     </div>
-                  <span className='cart-line-price'>$450</span>
+                  <span className='cart-line-price'>${x.price}</span>
                   </div>
+    )
+  })
+}
 
                 {/* Fin card de producto */}
                 </div>
