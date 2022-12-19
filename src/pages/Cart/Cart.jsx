@@ -9,8 +9,7 @@ function Cart() {
   let dispatch = useDispatch()
 
   async function getItemsInCartMap(){
-    let res= await dispatch(getItemsInCart())
-    console.log(res);
+    await dispatch(getItemsInCart())
   }
 
   useEffect(() => {
