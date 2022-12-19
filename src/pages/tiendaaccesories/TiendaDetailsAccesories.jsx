@@ -3,7 +3,7 @@ import CarrouselBestSellers from "../../components/CarrouselBestSellers";
 import CarrouselTienda from "../../components/CarrouselTienda08";
 import "../tiendadetails/Tiendadetails.css";
 import itemsActions from "../../redux/actions/itemsActions";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useDispatch,useSelector } from "react-redux";
 import { Slider, TextField, ThemeProvider } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
@@ -100,7 +100,7 @@ export default function TiendaDetailsAccesories() {
         {/* //empieza card */}
         {itemsFiltered.map((x)=>{
 return(
-
+  <Link className="eachpdetailpress" to={`/detailsItem/:${x._id}`}>
         <div key={x._id} class="card089" data-aos="fade-up" data-aos-duration="2000">
           <img
             src={x.image}
@@ -116,10 +116,10 @@ return(
 
             <div className="cardTiendaButton">
               <AddToCartBtn name={x.name} price={x.price} image={x.image} />
-              <Link to={`/detailsItem/:${x._id}`}><button  className="lupa"></button></Link>
+  <button  className="lupa"></button>
             </div>
           </div>
-        </div>
+        </div></Link>
 )
         })}
         {/* //termina card */}

@@ -3,12 +3,41 @@
     width: 100%;
 
 }
+.button-empty{
+    background-color: #cef10a;;
+    width: 100%;
+    padding: 5px;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    color: #F8F8F8!important;
+    margin-bottom: 10px;
+    text-align: center;
+   
+}
 
+.buttonCartEmpty{
+    width: 100%;
+}
 .div-container {
     padding: 100px;
 }
+.textEmptyCart{
+    font-size: 22px;
+}
+.cartEmptyContainer{
+  
+  display: flex;
+flex-direction: column;
+  gap: 1rem;
+    width: 500px;
 
 
+}
+
+.buttonCartEmpty{
+    display: flex;
+    gap: 3rem;
+}
 .cart-header {
     color: black;
 }

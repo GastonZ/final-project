@@ -110,6 +110,8 @@ export default function TiendaDetailsWomen() {
           femaleFiltered.map((x)=>{
 
           return(
+            <Link className="eachpdetailpress" to={`/detailsItem/:${x._id}`}>
+
           <div class="card089"  data-aos="fade-up" data-aos-duration="2000">
             <img
               src={x.image}
@@ -129,6 +131,7 @@ export default function TiendaDetailsWomen() {
               </div>
             </div>
           </div>
+            </Link>
             )
           })
         }
