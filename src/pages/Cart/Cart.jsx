@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import './cart.css'
 import { useSelector, useDispatch } from 'react-redux'
 import cartActions from '../../redux/actions/cartActions'
+import { Link } from 'react-router-dom'
 import less from "./less.png"
 import plus from "./plus.png"
 
