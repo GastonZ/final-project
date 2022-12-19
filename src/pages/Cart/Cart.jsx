@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import cartActions from '../../redux/actions/cartActions'
 import less from "./less.png"
 import plus from "./plus.png"
+import { Link } from 'react-router-dom'
 
 function Cart() {
 
