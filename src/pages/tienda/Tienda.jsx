@@ -4,7 +4,7 @@ import CarrouselTienda from "../../components/CarrouselTienda08";
 import "../tienda/Tienda.css";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router";
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 
 export default function Tienda() {
   return (
@@ -31,16 +31,16 @@ export default function Tienda() {
           <CarrouselBestSellers></CarrouselBestSellers>
         </article>
 
+          <Link to="/shop/women">
         <div className="sectionTienda09">
           <h3 data-aos="fade-right" data-aos-duration="1500">
             {" "}
             <span className="bolder">#</span>Lifestyle
           </h3>
 
-          <NavLink to="/shop/women">
             <button className="buttonshop08">Shop Now</button>
-          </NavLink>
         </div>
+          </Link>
       </motion.div>
     </>
   );
