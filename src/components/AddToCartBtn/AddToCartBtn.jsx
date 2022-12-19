@@ -1,15 +1,19 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import cartActions from '../../redux/actions/cartActions'
 
 function AddToCartBtn(props) {
 
+    let { addToCart } = cartActions
+
     let { id } = useSelector(store => store.usuario)
+    let dispatch = useDispatch()
 
     let userId = id
 
     let { name, price, image } = props
 
-    function addToCartBtn() {
+    async function addToCartBtn() {
         let data = {
             name,
             price,
@@ -17,6 +21,12 @@ function AddToCartBtn(props) {
             userId
         }
 
+        try {
+          await dispatch(addToCart(data))
+          alert('si ?')
+        } catch (error) {
+          alert('no ?')
+        }
 
         console.log(data);
     }
