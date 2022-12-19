@@ -26,6 +26,7 @@ gap: 1rem;
     color: #F8F8F8;
     margin-bottom: 10px;
 }
+
 .description-tittle{
     color: black;
     font-weight: 600;
@@ -54,4 +55,12 @@ gap: 1rem;
     .image-eachitem{
         height: 60vh;
     }
+}
+.eachpdetailpress{
+text-decoration: solid;
+color: rgb(43, 43, 43);
+transition: 500ms ease-in-out;
+}
+.eachpdetailpress:hover{
+    color: rgb(43, 43, 43);
 }

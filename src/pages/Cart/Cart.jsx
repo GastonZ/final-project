@@ -8,7 +8,7 @@ import plus from "./plus.png"
 
 function Cart() {
 
-  let {id } = useSelector(store => store.usuario)
+  let {id,logged } = useSelector(store => store.usuario)
   let dispatch = useDispatch()
   
   async function getItemsInCartMap(){
@@ -58,7 +58,18 @@ async function handleDelete(idDelete){
               <div className='cart-line-section'>
                 <div className='cart-items-container'>
                 {/* Comienzo card de producto */}
-              {
+              {itemsFiltered.length == 0 ?(
+                <div className='cartEmptyContainer'>
+             
+                  <p className='textEmptyCart'>Your cart is empty.</p>
+                  <div className='buttonCartEmpty'>
+
+                <Link to="/shop" className="button-empty"> <button className='color-whitee'  > Continue Shopping</button>  </Link>
+                  {logged== true?(""):
+                  <button  className="button-eachitem-signin"> Sign in</button>}
+                  </div>
+                </div>
+              ):
                 itemsFiltered.map((x)=>{
                   return(
                   <div className='cart-line-section-2'>
@@ -89,6 +100,9 @@ async function handleDelete(idDelete){
                 {/* Fin card de producto */}
                 </div>
               </div>
+              {itemsFiltered.length == 0 ?(
+               ""
+              ):
               <div className='cart-section'>
                 <div className='cart-sum-section'>
                   <div>
@@ -110,7 +124,7 @@ async function handleDelete(idDelete){
                     <button className='checkout-btn'>Checkout</button>
                   </div>
                 </div>
-              </div>
+              </div>}
             </div>
 
           </div>
