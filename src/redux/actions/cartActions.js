@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import { Action } from '@remix-run/router'
 import axios from 'axios'
 
 import { BASE_URL } from '../../api/url'
@@ -43,11 +44,26 @@ const getItemsInCart = createAsyncThunk('getItemsInCart', async ()=>{
     }
 }
 })
+const deleteItems=createAsyncThunk("deleteItems",async(id)=>{
+ let url=`${BASE_URL}cart/items-cart/${id}`
+  try {
+    const res = await axios.delete(
+      url
+       )
+    console.log(res);
+  } catch (error) {
+    console.log(error);
+    return{
+      payload:"error"
+    }
+  }
+})
 
 
 
 const cartActions = {
     addToCart,
+    deleteItems,
     getItemsInCart
 }
 
