@@ -100,13 +100,14 @@ export default function TiendaDetailsAccesories() {
         {/* //empieza card */}
         {itemsFiltered.map((x)=>{
 return(
-  <Link className="eachpdetailpress" to={`/detailsItem/:${x._id}`}>
+  <> 
         <div key={x._id} class="card089" data-aos="fade-up" data-aos-duration="2000">
+  <Link className="eachpdetailpress" to={`/detailsItem/:${x._id}`}>
           <img
             src={x.image}
             alt=""
             srcset=""
-          />
+          /></Link>
 
           <div className="cardTiendaContainer">
             <div className="cardTiendaText">
@@ -119,7 +120,8 @@ return(
   <button  className="lupa"></button>
             </div>
           </div>
-        </div></Link>
+        </div>
+        </>
 )
         })}
         {/* //termina card */}

@@ -6,6 +6,7 @@ import cartActions from '../../redux/actions/cartActions'
 import { Link } from 'react-router-dom'
 import less from "./less.png"
 import plus from "./plus.png"
+import { Link } from 'react-router-dom'
 
 function Cart() {
 
