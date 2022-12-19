@@ -3,14 +3,20 @@ import { useSelector } from 'react-redux'
 
 function AddToCartBtn(props) {
 
+    let { id } = useSelector(store => store.usuario)
+
+    let userId = id
+
     let { name, price, image } = props
 
     function addToCartBtn() {
         let data = {
             name,
             price,
-            image
+            image,
+            userId
         }
+
 
         console.log(data);
     }
