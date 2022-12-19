@@ -194,3 +194,8 @@
 .bg-motorX {
     background: #b0cc11;
 }
+
+.giga-container {
+    display: flex;
+    align-items: center;
+}

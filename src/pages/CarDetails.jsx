@@ -67,7 +67,7 @@ function CarDetails() {
         <article className='specifications-card'>
           <div data-aos="zoom-in" data-aos-duration="2000" className='specification-article'>
             <h3>Sound</h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus reiciendis ea accusamus odit, quasi fugiat necessitatibus dolores minima, fuga excepturi recusandae illum pariatur saepe nisi ipsa non nesciunt hic ad.</p>
+            <p>Each car offers a 22-speaker, 960-watt audio system with Active Road Noise Reduction offers immersive listening and studio-grade sound quality.</p>
           </div>
           <img data-aos="fade-up" data-aos-duration="3000" className='specification-image' src="https://sm.pcmag.com/pcmag_me/news/t/toyota-rol/toyota-rolls-out-next-gen-plug-in-prius_jfcv.jpg" alt="" />
         </article>
@@ -76,7 +76,7 @@ function CarDetails() {
         <article className='specifications-card specifications-card-reverse'>
           <div data-aos="zoom-in" data-aos-duration="2000" className='specification-article'>
             <h3>Wheels</h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus reiciendis ea accusamus odit, quasi fugiat necessitatibus dolores minima, fuga excepturi recusandae illum pariatur saepe nisi ipsa non nesciunt hic ad.</p>
+            <p>In the rear, the tires are 14.4 inches (36.6 cm) wide. Specifically, the tires measure 245/690 R 520 A front and 365/710 R 540 A rear, where 245 and 365 are the width in millimeters (9.5 and 14.4 inches respectively). The rims are 520 mm and 540 mm in diameter (approximately 20 inches)</p>
           </div>
           <img data-aos="fade-up" data-aos-duration="3000" className='specification-image' src="https://www.motorbiscuit.com/wp-content/uploads/2021/09/GettyImages-1339287127-1024x683.jpg" alt="" />
         </article>
@@ -85,7 +85,7 @@ function CarDetails() {
         <article className='specifications-card'>
           <div data-aos="zoom-in" data-aos-duration="2000" className='specification-article'>
             <h3>Engine</h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus reiciendis ea accusamus odit, quasi fugiat necessitatibus dolores minima, fuga excepturi recusandae illum pariatur saepe nisi ipsa non nesciunt hic ad.</p>
+            <p>All models are motivated by an 8.0-liter 16-cylinder powerplant. This beast of an engine employs four turbochargers to generate a mighty 1500 horsepower and 1180 pound-feet of torque. MotorX claims that any model makes the dash from zero to 60 mph in a mere 2.3 seconds, and it has a top speed of 261 mph.</p>
           </div>
           <img data-aos="fade-up" data-aos-duration="3000" className='specification-image' src="https://fondosmil.com/fondo/89061.jpg" alt="" />
         </article>
