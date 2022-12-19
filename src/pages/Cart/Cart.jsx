@@ -4,6 +4,7 @@ import './cart.css'
 import { useSelector } from 'react-redux'
 function Cart() {
   let { itemsInCart } = useSelector(store => store.cart)
+
   return (
     <motion.div>
       <main className='cart-main-container'>
@@ -16,10 +17,9 @@ function Cart() {
               <div className='cart-line-section'>
                 <div className='cart-items-container'>
                 {/* Comienzo card de producto */}
-{
-  itemsInCart.map((x)=>{
-    return(
-
+              {
+                itemsInCart.map((x)=>{
+                  return(
                   <div className='cart-line-section-2'>
                     <div className='cart-line-image'>
                       <img height='120' src={x.image} alt="" />
@@ -36,12 +36,11 @@ function Cart() {
                         <p className='remove-cart-btn'>Remove</p>
                       </div>
                     </div>
-                  <span className='cart-line-price'>${x.price}</span>
+                    <span className='cart-line-price'>${x.price}</span>
                   </div>
-    )
-  })
-}
-
+                    )
+                  })
+                }
                 {/* Fin card de producto */}
                 </div>
               </div>
@@ -60,7 +59,11 @@ function Cart() {
                   </div>
                   <div className='cart-sum'>
                     <p className='negrita'>Subtotal</p>
-                    <p className='negrita'>$450</p>
+                    {
+                      itemsInCart.map((x)=>{
+                        <p className='negrita'>{x.price}</p>
+                      })
+                    }
                   </div>
                   <div>
                     <button>Checkout</button>

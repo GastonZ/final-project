@@ -6,7 +6,7 @@ import "../tiendadetails/Tiendadetails.css";
 import { createTheme } from '@mui/material/styles';
 import { Slider, TextField, ThemeProvider } from "@mui/material";
 import itemsActions from "../../redux/actions/itemsActions";
-
+import AddToCartBtn from "../../components/AddToCartBtn/AddToCartBtn";
 import { useEffect,useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
 const theme = createTheme({
@@ -116,7 +116,7 @@ return(
             </div>
 
             <div className="cardTiendaButton">
-              <button className="chango"></button>
+              <AddToCartBtn name={x.name} price={x.price} image={x.image} />
               <Link to={`/detailsItem/:${x._id}`}><button  className="lupa"></button></Link>
             </div>
           </div>

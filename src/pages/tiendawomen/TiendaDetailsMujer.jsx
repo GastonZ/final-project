@@ -7,6 +7,7 @@ import { createTheme } from '@mui/material/styles';
 import itemsActions from "../../redux/actions/itemsActions";
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
+import AddToCartBtn from "../../components/AddToCartBtn/AddToCartBtn";
 
 const theme = createTheme({
   palette: {
@@ -123,7 +124,7 @@ export default function TiendaDetailsWomen() {
               </div>
 
              <div className="cardTiendaButton">
-                <button className="chango"></button>
+                <AddToCartBtn name={x.name} price={x.price} image={x.image} />
                 <Link to={`/detailsItem/:${x._id}`}><button  className="lupa"></button></Link>
               </div>
             </div>
