@@ -4,8 +4,12 @@
     background-color: #24262B;
 }
 
+.user-admin-panel {
+    min-width: 100vh;
+}
+
 .profile-banner {
-    height: 40vh;
+    min-height: 40vh;
     width: 100%;
 }
 

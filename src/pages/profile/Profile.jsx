@@ -186,6 +186,30 @@ function Profile(props) {
                             </div>
                         </section>
                     </div>
+                    <div className='user-admin-panel'>
+                                {/* User Panel Profile */}
+                    {
+                        role === 'user' ?
+                        <div>
+                            Soy User
+                        </div>
+                        : 
+                        <></>
+                    }
+
+                                {/* Admin Panel Profile */}
+                    {
+                        role === 'admin' ?
+                        <div>
+
+                        </div>
+                        :
+                        <></>
+                    }
+                    </div>
+
+
+
                 </div>
                 <Modal  size="lg" show={show} onHide={handleClose}>
                     <Modal.Header className='modal-background-profile-img'>
