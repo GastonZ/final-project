@@ -7,6 +7,8 @@ import { createTheme } from '@mui/material/styles';
 import itemsActions from "../../redux/actions/itemsActions";
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
+import AddToCartBtn from "../../components/AddToCartBtn/AddToCartBtn";
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -19,7 +21,10 @@ const theme = createTheme({
   },
 });
 
+/* Esta es la tienda de ropa de hombres */
+
 export default function TiendaDetails() {
+
 
   let dispatch = useDispatch()
   let [filtered,setFiltered]=useState('')
@@ -38,6 +43,10 @@ export default function TiendaDetails() {
     if(value.target.type==="text"){
       setFiltered(value.target.value)
     }
+  }
+
+  function addItemToCartBtn(e){
+    console.log(e);
   }
 
 
@@ -110,7 +119,8 @@ export default function TiendaDetails() {
                 </div>
     
                 <div className="cardTiendaButton">
-                  <button className="chango"></button>
+{/*                   <button className="chango"></button> */}
+                  <AddToCartBtn name={x.name} price={x.price} image={x.image} />
                   <Link to={`/detailsItem/:${x._id}`}><button  className="lupa"></button></Link>
                 </div>
               </div>

@@ -22,7 +22,7 @@ const theme = createTheme({
 
 
 
-
+/* Esta es la tienda de accesorios */
 
 export default function TiendaDetailsAccesories() {
   let [filtered,setFiltered]=useState('')
@@ -42,6 +42,8 @@ export default function TiendaDetailsAccesories() {
     setFiltered(value.target.value)
   }
 }
+
+
 
   return (
     <>

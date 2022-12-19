@@ -22,6 +22,8 @@ const theme = createTheme({
 });
 
 
+/* Esta es la tienda de ropa de niños */
+
 
 export default function TiendaDetailsKids() {
   let { getItems } = itemsActions

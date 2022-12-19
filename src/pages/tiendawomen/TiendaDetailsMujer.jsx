@@ -22,7 +22,7 @@ const theme = createTheme({
 
 
 
-
+/* Esta es la tienda de ropa de mujeres */
 
 export default function TiendaDetailsWomen() {
 
