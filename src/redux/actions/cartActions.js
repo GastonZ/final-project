@@ -27,10 +27,28 @@ const addToCart = createAsyncThunk('addToCart', async (data) => {
     }
   })
 
+const getItemsInCart = createAsyncThunk('getItemsInCart', async ()=>{
+  try {
+    const res = await axios.get(
+        `${BASE_URL}cart/items-cart`
+    )
+    console.log(res);
+    return {
+        cartItems : res.data.itemsCart,
+    }
+} catch (error) {
+    console.log(error);
+    return {
+        payload: "Error"
+    }
+}
+})
+
 
 
 const cartActions = {
-    addToCart
+    addToCart,
+    getItemsInCart
 }
 
 export default cartActions
