@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom'
 import CartBtn from '../CartBtn/CartBtn';
 
 function NavbarResponsive() {
-  
+  let { itemsInCart } = useSelector(store => store.cart)
   let { getCars } = carsActions
 
   let dispatch = useDispatch()
