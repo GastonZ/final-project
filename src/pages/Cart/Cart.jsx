@@ -5,25 +5,26 @@ import { useSelector, useDispatch } from 'react-redux'
 import cartActions from '../../redux/actions/cartActions'
 
 function Cart() {
-
+  let {id } = useSelector(store => store.usuario)
   let dispatch = useDispatch()
-
+  
   async function getItemsInCartMap(){
     let res= await dispatch(getItemsInCart())
     console.log(res);
   }
-
+  
   useEffect(() => {
     getItemsInCartMap()
   },[])
   
-
+  
   let { getItemsInCart } = cartActions
-
+  
   let { itemsInCart } = useSelector(store => store.cart)
+  let itemsFiltered = itemsInCart.filter(items=>items.userId === id)
   let precio = []
 
-  itemsInCart.map((x)=>{
+  itemsFiltered.map((x)=>{
     precio.push(x.price)
   })  
   let total = precio.reduce(
@@ -32,7 +33,6 @@ function Cart() {
   )
 
   console.log(total);
-
   return (
     <motion.div>
       <main className='cart-main-container'>
@@ -46,7 +46,7 @@ function Cart() {
                 <div className='cart-items-container'>
                 {/* Comienzo card de producto */}
               {
-                itemsInCart.map((x)=>{
+                itemsFiltered.map((x)=>{
                   return(
                   <div className='cart-line-section-2'>
                     <div className='cart-line-image'>
