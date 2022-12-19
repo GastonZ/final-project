@@ -25,7 +25,7 @@ function Profile(props) {
         },
       });
 
-    let { nameProfile, photoProfile, bannerProfile, token, id } = useSelector(store => store.usuario)
+    let { nameProfile, photoProfile, bannerProfile, token, id, role } = useSelector(store => store.usuario)
     let { getOneUser ,logOut, editUserInfo } = usersActions
 
     let dispatch = useDispatch()
@@ -167,7 +167,13 @@ function Profile(props) {
                             </div>
                         </div>
                         <section className='profile-section profile-username'>
-                            <h2 className='user-profile-name'>{nameProfile}</h2>
+                            <div className='giga-container'>
+                                {
+                                    role === "admin" ? <img height='50' src="https://firebasestorage.googleapis.com/v0/b/motorx-firebase.appspot.com/o/617466274d5c8.png?alt=media&token=fe6447cb-8035-4eb4-813b-4eb25c58c6c3" alt=" eres Giga-admin" /> : <></>
+                                }
+                                
+                                <h2 className='user-profile-name'>{nameProfile}</h2>
+                            </div>
                             <div className='btn-profile-container'>
                                 <button onClick={handleShow2} className='edit-profile-btn'>
                                     <img  className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053031104380149760/icons8-edit-24.png" alt="edit" />

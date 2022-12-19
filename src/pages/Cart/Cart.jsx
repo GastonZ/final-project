@@ -1,18 +1,18 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import './cart.css'
 import { useSelector, useDispatch } from 'react-redux'
 import cartActions from '../../redux/actions/cartActions'
-import { useState } from 'react'
-import { Link } from 'react-router-dom';
+import less from "./less.png"
+import plus from "./plus.png"
+
 function Cart() {
 
   let {id,logged } = useSelector(store => store.usuario)
   let dispatch = useDispatch()
   
   async function getItemsInCartMap(){
-    let res= await dispatch(getItemsInCart())
-    console.log(res);
+    await dispatch(getItemsInCart())
   }
   
   useEffect(() => {
@@ -27,12 +27,14 @@ function Cart() {
   let precio = []
 
   itemsFiltered.map((x)=>{
-    precio.push(x.price)
+    precio.push(x.price * x.amount)
   })  
   let total = precio.reduce(
     (sum, item) => sum + item,
     0
   )
+
+  console.log(itemsFiltered);
 async function handleDelete(idDelete){
   
   try {
@@ -79,8 +81,12 @@ async function handleDelete(idDelete){
                         <h4 className='m-0 p-0'>{x.name}</h4>
                       </div>
                       <div className='cart-line-quantity'>
-                        <p className='m-0 p-0'>Quantity : </p>
-                        <input className='number-input' min='1' type="number"/>
+                        <p className='m-0 p-0'>Quantity </p>
+                        <div className="quantity-container">
+                          <img className="quantyti-items" src={less} alt="" />
+                          <p className="description-tittle">{x.amount}</p>
+                          <img className="quantyti-itemss" src={plus} alt="" />
+                        </div>
                       </div>
                       <div className='cart-line-remove'>
                         <p className='remove-cart-btn'  onClick={() => handleDelete(x._id)}>Remove</p>
@@ -115,7 +121,7 @@ async function handleDelete(idDelete){
                     <p className='negrita'>${total}</p>
                   </div>
                   <div>
-                    <button>Checkout</button>
+                    <button className='checkout-btn'>Checkout</button>
                   </div>
                 </div>
               </div>}
