@@ -4,8 +4,7 @@ import axios from "axios";
 import "./eachitemdetail.css"
 import { useParams } from 'react-router-dom';
 import { BASE_URL } from "../../api/url";
-import less from "./less.png"
-import plus from "./plus.png"
+
 function EachItemsItems (){
     let item = useParams()
     let [filter, setFilter] = useState([])
@@ -28,13 +27,6 @@ function EachItemsItems (){
             <h2>{name}</h2>
             <h3>${price}</h3>
             <div>
-
-            <p className="description-tittle">Quantity</p>
-            <div className="quantity-container">
-                <img className="quantyti-items" src={less} alt="" />
-                <p className="description-tittle">1</p>
-                <img className="quantyti-itemss" src={plus} alt="" />
-            </div>
             </div>
             <AddToCartBtnDetail name={name} image={image} price={price} />
             <p className="description-tittle">Description</p>

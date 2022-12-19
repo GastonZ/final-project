@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import './cart.css'
 import { useSelector, useDispatch } from 'react-redux'
 import cartActions from '../../redux/actions/cartActions'
+import less from "./less.png"
+import plus from "./plus.png"
 
 function Cart() {
   let {id } = useSelector(store => store.usuario)
@@ -56,8 +58,12 @@ function Cart() {
                         <h4 className='m-0 p-0'>{x.name}</h4>
                       </div>
                       <div className='cart-line-quantity'>
-                        <p className='m-0 p-0'>Quantity : </p>
-                        <input className='number-input' min='1' type="number"/>
+                        <p className='m-0 p-0'>Quantity </p>
+                        <div className="quantity-container">
+                          <img className="quantyti-items" src={less} alt="" />
+                          <p className="description-tittle">1</p>
+                          <img className="quantyti-itemss" src={plus} alt="" />
+                        </div>
                       </div>
                       <div className='cart-line-remove'>
                         <p className='remove-cart-btn'>Remove</p>

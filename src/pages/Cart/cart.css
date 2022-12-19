@@ -60,6 +60,7 @@
     display: flex;
     padding: 3px;
     color: black;
+    flex-direction: column;
 }
 
 .cart-items-container {
