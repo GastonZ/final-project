@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from "react";
-
+import AddToCartBtnDetail from "../../components/AddToCartBtnDetail/AddToCartBtnDetail";
 import axios from "axios";
 import "./eachitemdetail.css"
 import { useParams } from 'react-router-dom';
@@ -36,9 +36,9 @@ function EachItemsItems (){
                 <img className="quantyti-itemss" src={plus} alt="" />
             </div>
             </div>
-            <button className="button-eachitem-cart"> Add to cart</button>
+            <AddToCartBtnDetail name={name} image={image} price={price} />
             <p className="description-tittle">Description</p>
-<p>{description}</p>
+            <p>{description}</p>
             </div>
         </div>
     )
