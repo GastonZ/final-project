@@ -3,8 +3,9 @@ import { motion } from 'framer-motion'
 import './cart.css'
 import { useSelector, useDispatch } from 'react-redux'
 import cartActions from '../../redux/actions/cartActions'
-
+import { useState } from 'react'
 function Cart() {
+
   let {id } = useSelector(store => store.usuario)
   let dispatch = useDispatch()
   
@@ -18,7 +19,7 @@ function Cart() {
   },[])
   
   
-  let { getItemsInCart } = cartActions
+  let { getItemsInCart ,deleteItems} = cartActions
   
   let { itemsInCart } = useSelector(store => store.cart)
   let itemsFiltered = itemsInCart.filter(items=>items.userId === id)
@@ -31,7 +32,16 @@ function Cart() {
     (sum, item) => sum + item,
     0
   )
-
+async function handleDelete(idDelete){
+  
+  try {
+    await dispatch(deleteItems(idDelete))
+    dispatch(getItemsInCart())
+    
+  } catch (error) {
+    console.log(error);
+  }
+}
   console.log(total);
   return (
     <motion.div>
@@ -61,7 +71,7 @@ function Cart() {
                         <input className='number-input' min='1' type="number"/>
                       </div>
                       <div className='cart-line-remove'>
-                        <p className='remove-cart-btn'>Remove</p>
+                        <p className='remove-cart-btn'  onClick={() => handleDelete(x._id)}>Remove</p>
                       </div>
                     </div>
                   <span className='cart-line-price'>${x.price}</span>
