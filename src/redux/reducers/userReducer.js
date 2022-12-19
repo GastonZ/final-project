@@ -34,6 +34,7 @@ const userReducer = createReducer (initialState,
                 console.log(userToken);
                 let newState = {
                     ...state,
+                    id: userToken.id ,
                     nameProfile: userToken.name,
                     photoProfile: userToken.photo,
                     bannerProfile: userToken.banner,
