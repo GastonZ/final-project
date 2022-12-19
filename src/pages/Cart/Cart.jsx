@@ -27,12 +27,14 @@ function Cart() {
   let precio = []
 
   itemsFiltered.map((x)=>{
-    precio.push(x.price)
+    precio.push(x.price * x.amount)
   })  
   let total = precio.reduce(
     (sum, item) => sum + item,
     0
   )
+
+  console.log(itemsFiltered);
 async function handleDelete(idDelete){
   
   try {
@@ -71,7 +73,7 @@ async function handleDelete(idDelete){
                         <p className='m-0 p-0'>Quantity </p>
                         <div className="quantity-container">
                           <img className="quantyti-items" src={less} alt="" />
-                          <p className="description-tittle">1</p>
+                          <p className="description-tittle">{x.amount}</p>
                           <img className="quantyti-itemss" src={plus} alt="" />
                         </div>
                       </div>
@@ -105,7 +107,7 @@ async function handleDelete(idDelete){
                     <p className='negrita'>${total}</p>
                   </div>
                   <div>
-                    <button>Checkout</button>
+                    <button className='checkout-btn'>Checkout</button>
                   </div>
                 </div>
               </div>
