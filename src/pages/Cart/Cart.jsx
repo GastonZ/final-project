@@ -1,9 +1,37 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { motion } from 'framer-motion'
 import './cart.css'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import cartActions from '../../redux/actions/cartActions'
+
 function Cart() {
+
+  let dispatch = useDispatch()
+
+  async function getItemsInCartMap(){
+    let res= await dispatch(getItemsInCart())
+    console.log(res);
+  }
+
+  useEffect(() => {
+    getItemsInCartMap()
+  },[])
+  
+
+  let { getItemsInCart } = cartActions
+
   let { itemsInCart } = useSelector(store => store.cart)
+  let precio = []
+
+  itemsInCart.map((x)=>{
+    precio.push(x.price)
+  })  
+  let total = precio.reduce(
+    (sum, item) => sum + item,
+    0
+  )
+
+  console.log(total);
 
   return (
     <motion.div>
@@ -36,7 +64,7 @@ function Cart() {
                         <p className='remove-cart-btn'>Remove</p>
                       </div>
                     </div>
-                    <span className='cart-line-price'>${x.price}</span>
+                  <span className='cart-line-price'>${x.price}</span>
                   </div>
                     )
                   })
@@ -59,11 +87,7 @@ function Cart() {
                   </div>
                   <div className='cart-sum'>
                     <p className='negrita'>Subtotal</p>
-                    {
-                      itemsInCart.map((x)=>{
-                        <p className='negrita'>{x.price}</p>
-                      })
-                    }
+                    <p className='negrita'>${total}</p>
                   </div>
                   <div>
                     <button>Checkout</button>

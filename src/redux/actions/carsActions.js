@@ -11,8 +11,6 @@ const getCars = createAsyncThunk('getCars', async () => {
         console.log(res.data.response);
         return {
             cars : res.data.response,
-            
-
         }
     } catch (error) {
         console.log(error);
