@@ -19,7 +19,7 @@ const cartReducer = createReducer(initialState,
         .addCase(getItemsInCart.fulfilled,(state,action)=>{
             console.log(action.payload);
             return {
-                ...state,
+/*                 ...state, */
                 itemsInCart: action.payload.cartItems
             }
         })

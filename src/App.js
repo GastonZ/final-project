@@ -26,13 +26,14 @@ import itemsActions from "./redux/actions/itemsActions";
 import Cart from './pages/Cart/Cart'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 AOS.init();
 
 function App() {
 
 <ToastContainer
-position="top-right"
-autoClose={3000}
+position="bottom-right"
+autoClose={5000}
 hideProgressBar={false}
 newestOnTop={false}
 closeOnClick
@@ -83,7 +84,7 @@ theme="dark"
         <Route path='profile' element={<Profile/>} />
         <Route path='cart' element={<Cart/>} />
       </Routes>
- 
+    <ToastContainer/>
 <Footer/>
     </>
   );
