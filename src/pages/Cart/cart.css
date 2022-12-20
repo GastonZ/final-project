@@ -202,3 +202,8 @@ flex-direction: column;
         width: 320px;
     }
 }
+
+
+.modal-bg-loading {
+    background-color: rgba(17, 25, 40, 0.5) !important;
+}
