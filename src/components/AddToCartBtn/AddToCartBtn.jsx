@@ -30,9 +30,9 @@ function AddToCartBtn(props) {
           if(res.payload.response==="The new Item has been added to the cart"){
             alert("added")
           }else if(res.payload.response="The item is already in the cart"){
-            alert("item is already in the cart bro")
-          }else{
             alert("added")
+          }else{
+            alert("The item is already in the cart")
           }
         } catch (error) {
           alert('no ?')
