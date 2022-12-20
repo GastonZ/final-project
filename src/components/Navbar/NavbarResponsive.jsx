@@ -68,7 +68,10 @@ function NavbarResponsive() {
                   }
                 </section>
                 <section className='navbar-section'>
-                  <Link to='/cart'><CartBtn/></Link> 
+                  {logged ? 
+                  
+                  <Link to='/cart'><CartBtn/></Link> :<></>
+                }
                   <h2><Link className='section-shop' to='/shop'> Shop</Link></h2>
                   {
                     logged ?
