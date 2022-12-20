@@ -98,7 +98,8 @@ export default function TiendaDetailsAccesories() {
          <h1 data-aos="fade-up" data-aos-duration="2000">#HighQualityClothes</h1>
         </div>  */}
         {/* //empieza card */}
-        {itemsFiltered.map((x)=>{
+        {itemsFiltered.length== 0 ? (<h2>?</h2>):
+        itemsFiltered.map((x)=>{
 return(
   <> 
         <div key={x._id} class="card089" data-aos="fade-up" data-aos-duration="2000">
