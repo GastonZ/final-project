@@ -27,18 +27,21 @@
 }
 
 .mainTiendaDetails010 {
-  min-height: 80vh;
+  min-height:40vh;
   width: 100%;
 
   padding-top: 5px;
-  padding-bottom: 45px;
+  padding-bottom: 10px !important;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
   padding-top: 40px;
+  display: flex;
   gap: 80px;
   background: rgb(255, 255, 255);
+margin-bottom: 50px; 
+
 }
 
 /* 
@@ -50,6 +53,7 @@
 
   border-radius: 2px;
   margin-bottom: 5px;
+ 
 }
 
 .card089:hover {
@@ -64,6 +68,7 @@
   object-fit: cover;
   border-radius: 5px;
   cursor: pointer;
+
 }
 
 .cardTiendaText {
@@ -74,12 +79,14 @@
   padding-top: 8px;
 
   height: 100%;
+
 }
 
 .cardTiendaText h6 {
   font-size: 13px;
   margin-left: 2px;
   font-weight: 700;
+
 }
 
 .cardTiendaContainer {
@@ -87,6 +94,16 @@
 
   height: 60px;
   display: flex;
+
+
+}
+
+.sectiontitle { 
+  margin-left: 100px;
+  color: rgb(54, 54, 54);
+  font-weight: 600;
+  font-size: 25px;
+ 
 }
 
 .cardTiendaButton {
@@ -164,15 +181,20 @@
 }
 
 .divSlidersCont {
-  width: 87%;
-  height: 8vh;
+  width:94.5%;
+  height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  gap: 20px;
-  /* border: 1px solid rgb(231, 232, 226); */
+
+  gap: 5px;
+  
+
+ margin-bottom: 10px;
+
 }
+
+.div
 
 .divSliders {
   width: 40%;
