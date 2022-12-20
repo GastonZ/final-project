@@ -128,7 +128,7 @@ export default function TiendaDetails() {
     
               <div className="cardTiendaContainer">
                 <div className="cardTiendaText">
-                  <h6>{x.name}</h6>
+                  <h6>{x.title}</h6>
                   <h6>Price: ${x.unit_price}</h6>
                 </div>
     
