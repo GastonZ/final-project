@@ -44,6 +44,30 @@ const getItemsInCart = createAsyncThunk('getItemsInCart', async ()=>{
     }
 }
 })
+
+const increaseDecreaseQuantity = createAsyncThunk('increaseDecreaseQuantity', async ({itemId, amount})=> {
+  let url = `${BASE_URL}cart/items-cart/increase/${itemId}`
+  try {
+    let res = await axios.put(url, itemId, amount)
+    console.log(res);
+    if(res.data.success){
+      return {
+          newAmount: res.data.item.amount,
+          success: true,
+          response: amount,
+          mensaje: res.data.mensaje
+      }
+  } else {
+      return {
+          success: false,
+          response: res.data.mensaje
+      }
+  }
+  } catch (error) {
+    console.log(error);
+  }
+})
+
 const deleteItems=createAsyncThunk("deleteItems",async(id)=>{
  let url=`${BASE_URL}cart/items-cart/${id}`
   try {
@@ -64,7 +88,8 @@ const deleteItems=createAsyncThunk("deleteItems",async(id)=>{
 const cartActions = {
     addToCart,
     deleteItems,
-    getItemsInCart
+    getItemsInCart,
+    increaseDecreaseQuantity
 }
 
 export default cartActions

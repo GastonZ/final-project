@@ -85,6 +85,7 @@ flex-direction: column;
 
 .cart-line-quantity {
     display: flex;
+    width: 40px;
     padding: 3px;
     color: black;
     flex-direction: column;
@@ -203,7 +204,20 @@ flex-direction: column;
     }
 }
 
-
 .modal-bg-loading {
     background-color: rgba(17, 25, 40, 0.5) !important;
+}
+
+.cart-line-quantity {
+    display: flex;
+    flex-direction: row;
+}
+
+.cart-select{
+    width: 60px;
+    border: none;
+    margin-left: 30px;
+/*     border: 0.5px solid #cef10a; */
+    border-radius: 5px;
+    outline: #cef10a;
 }

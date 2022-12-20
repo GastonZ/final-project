@@ -4,13 +4,10 @@ import './cart.css'
 import { useSelector, useDispatch } from 'react-redux'
 import cartActions from '../../redux/actions/cartActions'
 import { Link } from 'react-router-dom'
-import less from "./less.png"
-import plus from "./plus.png"
 import Loading from '../../components/Loading/Loading'
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import SelectAmount from '../../components/SelectAmount/SelectAmount'
 
 const style = {
   position: 'absolute',
@@ -67,7 +64,6 @@ function Cart() {
 
 const handleClose = () => setShow(false);
 
-  console.log(total);
   return (
     <motion.div>
               {
@@ -118,12 +114,13 @@ const handleClose = () => setShow(false);
                         <h4 className='m-0 p-0'>{x.name}</h4>
                       </div>
                       <div className='cart-line-quantity'>
-                        <p className='m-0 p-0'>Quantity </p>
-                        <div className="quantity-container">
-                          <img className="quantyti-items" src={less} alt="" />
-                          <p className="description-tittle">{x.amount}</p>
-                          <img className="quantyti-itemss" src={plus} alt="" />
+                        <div>
+                        <p>Quantity:</p>
                         </div>
+                        <div>
+                          <SelectAmount itemId={x._id}  />
+                        </div>
+
                       </div>
                       <div className='cart-line-remove'>
                         <p className='remove-cart-btn'  onClick={() => handleDelete(x._id)}>Remove</p>

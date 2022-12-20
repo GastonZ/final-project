@@ -43,7 +43,7 @@ function AddToCartBtn(props) {
           if(res.payload.response==="The new Item has been added to the cart"){
             toast.success('Added to the cart', {
               position: "bottom-right",
-              autoClose: 5000,
+              autoClose: 2000,
               hideProgressBar: false,
               closeOnClick: true,
               pauseOnHover: true,
@@ -55,7 +55,7 @@ function AddToCartBtn(props) {
           }else if(res.payload.response="The item is already in the cart" && res.payload.success === true){
             toast.success('Added to the cart', {
               position: "bottom-right",
-              autoClose: 5000,
+              autoClose: 2000,
               hideProgressBar: false,
               closeOnClick: true,
               pauseOnHover: true,
@@ -66,7 +66,7 @@ function AddToCartBtn(props) {
           }else if(res.payload.response="The item is already in the cart" && res.payload.success === false) {
             toast.success('Item already in cart', {
               position: "bottom-right",
-              autoClose: 5000,
+              autoClose: 2000,
               hideProgressBar: false,
               closeOnClick: true,
               pauseOnHover: true,
@@ -77,7 +77,7 @@ function AddToCartBtn(props) {
           } else{
             toast.success('Added to the cart', {
               position: "bottom-right",
-              autoClose: 5000,
+              autoClose: 2000,
               hideProgressBar: false,
               closeOnClick: true,
               pauseOnHover: true,
