@@ -14,3 +14,15 @@
     float: right;
     color: #fff;
 }
+
+@media screen and (max-width: 992px) {
+    .cart-quantity-lg{
+        display: none ;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .cart-quantity-md{
+        display: none ;
+    }
+}
