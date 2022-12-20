@@ -2,13 +2,14 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import cartActions from '../../redux/actions/cartActions'
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 function AddToCartBtn(props) {
 
     let { addToCart } = cartActions
   
     let { itemsInCart } = useSelector(store => store.cart)
-    let { id } = useSelector(store => store.usuario)
+    let { id , logged } = useSelector(store => store.usuario)
     let itemsFiltered = itemsInCart.filter(items=>items.userId === id)
     console.log(itemsFiltered);
     let dispatch = useDispatch()
@@ -18,6 +19,17 @@ function AddToCartBtn(props) {
     let { name, price, image } = props
 
     async function addToCartBtn() {
+
+      if(!logged) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href="/signin">You must sign in to continue shopping !</a>'
+        })
+        return
+      }
+
         let data = {
             name,
             price,

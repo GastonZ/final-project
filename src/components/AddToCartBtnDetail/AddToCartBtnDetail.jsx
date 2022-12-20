@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import cartActions from '../../redux/actions/cartActions'
-
+import Swal from 'sweetalert2'
 
 function AddToCartBtnDetail(props) {
 
@@ -11,13 +11,21 @@ function AddToCartBtnDetail(props) {
     let dispatch = useDispatch()
 
     let userId = id
-    console.log(id);
-    console.log(role);
-    console.log(logged);
 
     let { name, price, image } = props
 
     async function addToCartBtn() {
+
+      if(!logged) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href="/signin">You must sign in to continue shopping !</a>'
+        })
+        return
+      }
+
         let data = {
             name,
             price,
