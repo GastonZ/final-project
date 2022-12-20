@@ -24,12 +24,24 @@ import React, {useEffect} from "react"
 import EachItemsItems from "./pages/EachItemDetail/EachItemDetail";
 import itemsActions from "./redux/actions/itemsActions";
 import Cart from './pages/Cart/Cart'
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 AOS.init();
 
 function App() {
 
-
+<ToastContainer
+position="top-right"
+autoClose={3000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="dark"
+/>
   
   let { enterAgain } = usersActions
   let dispatch = useDispatch()

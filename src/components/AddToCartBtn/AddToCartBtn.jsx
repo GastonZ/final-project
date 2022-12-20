@@ -6,13 +6,10 @@ function AddToCartBtn(props) {
 
     let { addToCart } = cartActions
 
-    let { id, role, logged } = useSelector(store => store.usuario)
+    let { id } = useSelector(store => store.usuario)
     let dispatch = useDispatch()
 
     let userId = id
-    console.log(id);
-    console.log(role);
-    console.log(logged);
 
     let { name, price, image } = props
 
@@ -28,9 +25,9 @@ function AddToCartBtn(props) {
           let res = await dispatch(addToCart(data))
           console.log(res);
           if (res.payload.success) {
-            alert('si ?')
+            alert('se agrego')
           } else {
-            alert('ya esta en el carrito')
+            alert('se agrego tambien')
           }
         } catch (error) {
           alert('no ?')
