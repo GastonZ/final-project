@@ -31,16 +31,16 @@ export default function Tienda() {
           <CarrouselBestSellers></CarrouselBestSellers>
         </article>
 
-          <Link to="/shop/women">
-        <div className="sectionTienda09">
-          <h3 data-aos="fade-right" data-aos-duration="1500">
-            {" "}
-            <span className="bolder">#</span>Lifestyle
-          </h3>
+            <div className="sectionTienda09">
+              <h3 data-aos="fade-right" data-aos-duration="1500">
+                {" "}
+                <span className="bolder">#</span>Lifestyle
+              </h3>
 
-            <button className="buttonshop08">Shop Now</button>
-        </div>
+          <Link className="link-shop-women" to="/shop/women">
+                <button className="buttonshop08">Shop Now</button>
           </Link>
+            </div>
       </motion.div>
     </>
   );
