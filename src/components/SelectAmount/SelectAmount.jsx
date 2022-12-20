@@ -18,11 +18,11 @@ function SelectAmount(props) {
 
 
     async function amountFx(e){
-        setAmount(e.target.value)
+        await setAmount(e.target.value)
 
         try {
-            await dispatch(increaseDecreaseQuantity({ itemId, amount}))
-            
+            let res = await dispatch(increaseDecreaseQuantity({itemId: itemId, amount: parseInt(amount)}))
+            console.log(res);
         } catch (error) {
             console.log(error);
         }

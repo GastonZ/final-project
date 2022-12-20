@@ -117,11 +117,11 @@ export default function TiendaDetails() {
           maleFiltered.map((x)=>{
 
             return(
-              <div key={x.name} class="card089"  data-aos="fade-up" data-aos-duration="2000">
+              <div key={x.title} class="card089"  data-aos="fade-up" data-aos-duration="2000">
                 <Link className="eachpdetailpress" to={`/detailsItem/:${x._id}`}>
               <img
-                src={x.image}
-                alt={x.name}
+                src={x.picture_url}
+                alt={x.title}
                 srcset=""
               />
               </Link>
@@ -129,12 +129,12 @@ export default function TiendaDetails() {
               <div className="cardTiendaContainer">
                 <div className="cardTiendaText">
                   <h6>{x.name}</h6>
-                  <h6>Price: ${x.price}</h6>
+                  <h6>Price: ${x.unit_price}</h6>
                 </div>
     
                 <div className="cardTiendaButton">
 {/*                   <button className="chango"></button> */}
-                  <AddToCartBtn name={x.name} price={x.price} image={x.image} />
+                  <AddToCartBtn name={x.title} price={x.unit_price} image={x.picture_url} />
                   <Link to={`/detailsItem/:${x._id}`}><button  className="lupa"></button></Link>
                 </div>
               </div>

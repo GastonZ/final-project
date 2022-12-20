@@ -38,7 +38,7 @@ function Cart() {
   let precio = []
 
   itemsFiltered.map((x)=>{
-    precio.push(x.price * x.amount)
+    precio.push(x.unit_price * x.quantity)
   })  
   let total = precio.reduce(
     (sum, item) => sum + item,
@@ -107,11 +107,11 @@ const handleClose = () => setShow(false);
                   return(
                   <div className='cart-line-section-2'>
                     <div className='cart-line-image'>
-                      <img height='120' src={x.image} alt="" />
+                      <img height='120' src={x.picture_url} alt="" />
                     </div>
                     <div className='cart-line-container'>
                       <div className='cart-line-info'>
-                        <h4 className='m-0 p-0'>{x.name}</h4>
+                        <h4 className='m-0 p-0'>{x.title}</h4>
                       </div>
                       <div className='cart-line-quantity'>
                         <div>
@@ -126,7 +126,7 @@ const handleClose = () => setShow(false);
                         <p className='remove-cart-btn'  onClick={() => handleDelete(x._id)}>Remove</p>
                       </div>
                     </div>
-                  <span className='cart-line-price'>${x.price}</span>
+                  <span className='cart-line-price'>${x.unit_price}</span>
                   </div>
                     )
                   })
