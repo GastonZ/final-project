@@ -5,8 +5,11 @@ import cartActions from '../../redux/actions/cartActions'
 function AddToCartBtn(props) {
 
     let { addToCart } = cartActions
-
+  
+    let { itemsInCart } = useSelector(store => store.cart)
     let { id, role, logged } = useSelector(store => store.usuario)
+    let itemsFiltered = itemsInCart.filter(items=>items.userId === id)
+    console.log(itemsFiltered);
     let dispatch = useDispatch()
 
     let userId = id
@@ -26,11 +29,13 @@ function AddToCartBtn(props) {
 
         try {
           let res = await dispatch(addToCart(data))
-          console.log(res);
-          if (res.payload.success) {
-            alert('si ?')
-          } else {
-            alert('ya esta en el carrito')
+          console.log(res.payload);
+          if(res.payload.response==="The new Item has been added to the cart"){
+            alert("added")
+          }else if(res.payload.response="The item is already in the cart"){
+            alert("item is already in the cart bro")
+          }else{
+            alert("added")
           }
         } catch (error) {
           alert('no ?')
@@ -40,6 +45,7 @@ function AddToCartBtn(props) {
     }
 
   return (
+
     <button onClick={addToCartBtn} className="chango"></button>
   )
 }
