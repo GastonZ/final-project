@@ -41,7 +41,7 @@ function AddToCartBtn(props) {
               });
           
           }else if(res.payload.response="The item is already in the cart" && res.payload.success === true){
-            toast.success('Item added to the cart', {
+            toast.success('Added to the cart', {
               position: "bottom-right",
               autoClose: 5000,
               hideProgressBar: false,
