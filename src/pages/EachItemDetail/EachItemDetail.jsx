@@ -19,16 +19,16 @@ function EachItemsItems (){
         detailItem()
       },[item])
  
-      let {name, image, description, price}= filter
+      let {title, picture_url, description, unit_price}= filter
     return(
         <div className="container-eachitem">
-            <img className="image-eachitem" src={image} alt="" />
+            <img className="image-eachitem" src={picture_url} alt="" />
             <div className="item-description-containerr">
-            <h2>{name}</h2>
-            <h3>${price}</h3>
+            <h2>{title}</h2>
+            <h3>${unit_price}</h3>
             <div>
             </div>
-            <AddToCartBtnDetail name={name} image={image} price={price} />
+            <AddToCartBtnDetail name={title} image={picture_url} price={unit_price} />
             <p className="description-tittle">Description</p>
             <p>{description}</p>
             </div>

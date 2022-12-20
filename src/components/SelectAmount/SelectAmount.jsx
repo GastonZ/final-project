@@ -10,7 +10,7 @@ function SelectAmount(props) {
 
     let { itemId } = props
 
-    let [ amount , setAmount ] = useState(1)
+    let [ amount , setAmount ] = useState(0)
 
 /*     let data = {
         "amount" : (parseInt(amount))
