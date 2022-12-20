@@ -16,7 +16,7 @@ function AddToCartBtn(props) {
 
     let userId = id
 
-    let { name, price, image } = props
+    let { title, unit_price, picture_url } = props
 
     async function addToCartBtn() {
 
@@ -31,9 +31,9 @@ function AddToCartBtn(props) {
       }
 
         let data = {
-            name,
-            price,
-            image,
+            title,
+            unit_price,
+            picture_url,
             userId
         }
 

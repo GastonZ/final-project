@@ -117,7 +117,7 @@ return(
             </div>
 
             <div className="cardTiendaButton">
-              <AddToCartBtn name={x.title} price={x.unit_price} image={x.picture_url} />
+            <AddToCartBtn title={x.title} unit_price={x.unit_price} picture_url={x.picture_url} />
   <button  className="lupa"></button>
             </div>
           </div>

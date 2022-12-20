@@ -127,7 +127,7 @@ export default function TiendaDetailsWomen() {
               </div>
 
              <div className="cardTiendaButton">
-                <AddToCartBtn name={x.title} price={x.unit_price} image={x.picture_url} />
+             <AddToCartBtn title={x.title} unit_price={x.unit_price} picture_url={x.picture_url} />
                 <Link to={`/detailsItem/:${x._id}`}><button  className="lupa"></button></Link>
               </div>
             </div>
