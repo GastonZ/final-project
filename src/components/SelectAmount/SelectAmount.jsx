@@ -10,7 +10,7 @@ function SelectAmount(props) {
 
     let { itemId } = props
 
-    let [ amount , setAmount ] = useState(1)
+    let [ amount , setAmount ] = useState(0)
 
 /*     let data = {
         "amount" : (parseInt(amount))
@@ -21,7 +21,7 @@ function SelectAmount(props) {
         setAmount(e.target.value)
 
         try {
-            await dispatch(increaseDecreaseQuantity({itemId: itemId, amount: amount}))
+            await dispatch(increaseDecreaseQuantity({ itemId, amount}))
             
         } catch (error) {
             console.log(error);
