@@ -10,12 +10,10 @@ function AddToCartBtn(props) {
     let { id, role, logged } = useSelector(store => store.usuario)
     let itemsFiltered = itemsInCart.filter(items=>items.userId === id)
     console.log(itemsFiltered);
+
     let dispatch = useDispatch()
 
     let userId = id
-    console.log(id);
-    console.log(role);
-    console.log(logged);
 
     let { name, price, image } = props
 
