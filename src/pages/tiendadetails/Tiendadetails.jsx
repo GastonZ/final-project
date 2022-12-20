@@ -8,6 +8,7 @@ import itemsActions from "../../redux/actions/itemsActions";
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
 import AddToCartBtn from "../../components/AddToCartBtn/AddToCartBtn";
+import cartActions from "../../redux/actions/cartActions";
 
 const theme = createTheme({
   palette: {
@@ -24,6 +25,16 @@ const theme = createTheme({
 /* Esta es la tienda de ropa de hombres */
 
 export default function TiendaDetails() {
+
+  async function getItemsInCartMap(){
+    await dispatch(getItemsInCart())
+  }
+  
+  useEffect(() => {
+    getItemsInCartMap()
+  },[])
+
+  let { getItemsInCart } = cartActions
 
 
   let dispatch = useDispatch()
@@ -48,6 +59,7 @@ export default function TiendaDetails() {
   function addItemToCartBtn(e){
     console.log(e);
   }
+
 
 
   return (
