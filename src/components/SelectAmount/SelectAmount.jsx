@@ -10,7 +10,7 @@ function SelectAmount(props) {
 
     let { itemId } = props
 
-    let [ amount , setAmount ] = useState(0)
+    let [ quantity , setAmount ] = useState()
 
 /*     let data = {
         "amount" : (parseInt(amount))
@@ -18,10 +18,13 @@ function SelectAmount(props) {
 
 
     async function amountFx(e){
-        await setAmount(e.target.value)
-
+        setAmount(e.target.value)
+        let data = {
+            "quantity" : (parseInt(quantity))
+        } 
+        console.log(data);
         try {
-            let res = await dispatch(increaseDecreaseQuantity({itemId: itemId, amount: parseInt(amount)}))
+            let res = await dispatch(increaseDecreaseQuantity({itemId: itemId, data}))
             console.log(res);
         } catch (error) {
             console.log(error);
@@ -29,7 +32,7 @@ function SelectAmount(props) {
 
     }
 
-    console.log(amount);
+
 
     return (
     <select onChange={amountFx} className='cart-select'>

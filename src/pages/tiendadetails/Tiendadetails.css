@@ -56,11 +56,6 @@ margin-bottom: 50px;
  
 }
 
-.card089:hover {
-  /* width: 520px;
-  height: 520px; */
-  border-top: 1px solid #adabab;
-}
 
 .card089 img {
   width: 100%;
@@ -250,7 +245,8 @@ font-weight: 400;
   
   .divSlidersCont{display: flex;
   flex-direction: column;
-margin-top: 25px;}
+margin-top: 55px;
+margin-bottom: 50px;}
   
 }
 
