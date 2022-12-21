@@ -28,7 +28,7 @@ function EachItemsItems (){
             <h3>${unit_price}</h3>
             <div>
             </div>
-            <AddToCartBtnDetail name={title} image={picture_url} price={unit_price} />
+            <AddToCartBtnDetail title={title} picture_url={picture_url} unit_price={unit_price} />
             <p className="description-tittle">Description</p>
             <p>{description}</p>
             </div>
