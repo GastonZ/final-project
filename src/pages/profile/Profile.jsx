@@ -184,22 +184,9 @@ function Profile(props) {
                                 <img src="https://cdn.discordapp.com/attachments/1019371264860770376/1053128783776981112/icons8-log-out-25.png" alt="logout" />
                                 LogOut </button>
                             </div>
+                        </section>
                           <NewComment/>
-                        </section>
-                        <section className='profile-section profile-review'>
-                            <div>
-                                <h2 className='review-title'>What do you think about the page ? <br/> Leave a review !</h2>
-                            </div>
-                            <div class="form">
-                                <input class="input" placeholder="Give us a comment" required="" type="text"/>
-                                <span class="input-border"></span>
-                            </div>
-                            <div class="wrap">
-                                <button class="btn-rueda">
-                                    <span class="text">Send</span>
-                                </button>
-                            </div>
-                        </section>
+                      
                     </div>
                     <div className='user-admin-panel'>
                                 {/* User Panel Profile */}
