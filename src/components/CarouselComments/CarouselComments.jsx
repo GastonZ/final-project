@@ -14,7 +14,15 @@ import { Pagination, Navigation,Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
+
+
  function CarouselComments() {
+
+  let width = window.innerWidth
+
+  console.log('el width es de ' + width);
+
     let {getAllComments}= commentAction
     const dispatch = useDispatch()
     useEffect(  ()=>{
