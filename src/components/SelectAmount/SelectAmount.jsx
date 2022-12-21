@@ -1,35 +1,16 @@
 import React, {useState} from 'react'
-import { useDispatch } from 'react-redux'
-import cartActions from '../../redux/actions/cartActions'
 
 function SelectAmount(props) {
 
-    let dispatch = useDispatch()
-
-    let { increaseDecreaseQuantity } = cartActions
-
-    let { itemId } = props
-
-    let [ quantity , setAmount ] = useState()
+    let [ amount , setAmount ] = useState(0)
 
 /*     let data = {
         "amount" : (parseInt(amount))
     } */
 
 
-    async function amountFx(e){
+    function amountFx(e){
         setAmount(e.target.value)
-        let data = {
-            "quantity" : (parseInt(quantity))
-        } 
-        console.log(data);
-        try {
-            let res = await dispatch(increaseDecreaseQuantity({itemId: itemId, data}))
-            console.log(res);
-        } catch (error) {
-            console.log(error);
-        }
-
     }
 
 

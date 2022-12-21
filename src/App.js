@@ -26,6 +26,7 @@ import itemsActions from "./redux/actions/itemsActions";
 import Cart from './pages/Cart/Cart'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Integrantes from "./pages/Integrantes/Integrantes";
 
 AOS.init();
 
@@ -83,6 +84,7 @@ theme="dark"
         <Route path='signin' element={ logged? <Home/>:<SignIn/>} />
         <Route path='profile' element={<Profile/>} />
         <Route path='cart' element={<Cart/>} />
+        <Route path='integrantes' element={<Integrantes/>} />
       </Routes>
     <ToastContainer/>
 <Footer/>
