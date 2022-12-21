@@ -13,7 +13,7 @@ function SelectAmount(props) {
         setAmount(e.target.value)
     }
 
-    console.log(amount);
+
 
     return (
     <select onChange={amountFx} className='cart-select'>

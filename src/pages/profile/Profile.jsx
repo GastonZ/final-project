@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 import { TextField, ThemeProvider } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
 import { uploadFile } from '../../firebase/config'
-
+import NewComment from '../../components/NewComment/NewComment';
 function Profile(props) {
 
     const theme = createTheme({
@@ -184,6 +184,7 @@ function Profile(props) {
                                 <img src="https://cdn.discordapp.com/attachments/1019371264860770376/1053128783776981112/icons8-log-out-25.png" alt="logout" />
                                 LogOut </button>
                             </div>
+                          <NewComment/>
                         </section>
                         <section className='profile-section profile-review'>
                             <div>
