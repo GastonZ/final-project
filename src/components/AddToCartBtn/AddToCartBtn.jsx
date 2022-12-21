@@ -52,7 +52,7 @@ function AddToCartBtn(props) {
               theme: "dark",
               });
           
-          }else if(res.payload.response="The item is already in the cart" && res.payload.success === true){
+          }else if( res.payload.success === true){
             toast.success('Added to the cart', {
               position: "bottom-right",
               autoClose: 2000,
@@ -63,7 +63,18 @@ function AddToCartBtn(props) {
               progress: undefined,
               theme: "dark",
               });
-          }else if(res.payload.response="The item is already in the cart" && res.payload.success === false) {
+          }else if( res.payload.success === undefined) {
+            toast.success('Item already in cart', {
+              position: "bottom-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              });
+          }else if( res.payload.success === false) {
             toast.success('Item already in cart', {
               position: "bottom-right",
               autoClose: 2000,
