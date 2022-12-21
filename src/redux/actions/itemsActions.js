@@ -6,7 +6,7 @@ import { BASE_URL } from '../../api/url'
 const getItems = createAsyncThunk('getItems', async({filtered})=> {
     try { 
         const res = await axios.get(
-            `${BASE_URL}items?name=${filtered}`
+            `${BASE_URL}items?title=${filtered}`
         )
         console.log(res);
         return {

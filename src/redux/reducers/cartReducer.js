@@ -12,7 +12,7 @@ const cartReducer = createReducer(initialState,
         builder
         .addCase(addToCart.fulfilled,(state,action)=>{
             console.log(action);
-            if(action.meta.arg.name){
+            if(action.meta.arg.title){
                 state.itemsInCart.push(action.payload.response)
             }
         })

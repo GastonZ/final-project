@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { Action } from '@remix-run/router'
 import axios from 'axios'
 
 import { BASE_URL } from '../../api/url'
@@ -17,7 +16,7 @@ const addToCart = createAsyncThunk('addToCart', async (data) => {
       } else {
         return {
           success: false,
-          response: res.data.mensaje
+          response: res.data.message
         }
       }
     } catch(error) {
@@ -55,12 +54,12 @@ const increaseDecreaseQuantity = createAsyncThunk('increaseDecreaseQuantity', as
           newAmount: res.data.item.amount,
           success: true,
           response: amount,
-          mensaje: res.data.mensaje
+          mensaje: res.data.message
       }
   } else {
       return {
           success: false,
-          response: res.data.mensaje
+          response: res.data.message
       }
   }
   } catch (error) {
