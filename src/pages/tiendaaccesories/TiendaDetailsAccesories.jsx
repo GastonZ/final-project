@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import CarrouselBestSellers from "../../components/CarrouselBestSellers";
 import CarrouselTienda from "../../components/CarrouselTienda08";
 import "../tiendadetails/Tiendadetails.css";
@@ -61,16 +61,28 @@ export default function TiendaDetails() {
   }
 
 
+  const sectionRef = useRef(null)
+  function scrollToWheels(){
+    sectionRef.current.scrollIntoView({behavior: "smooth"})
+  }
+
+  const sectionRef1 = useRef(null)
+  function scrollToInterior(){
+    sectionRef1.current.scrollIntoView({behavior: "smooth"})
+  }
+
+
+
   return (
     <>
       <header className="headerTiendaDetails010"></header>
 
       <div className="divSlidersCont">
-        <ul>Wheels</ul>
-        <ul>Interior</ul>
+        <ul onClick={scrollToWheels}>Wheels</ul>
+        <ul onClick={scrollToInterior}>Interior</ul>
              
       </div>
-      <h1 className="sectiontitle">Wheels</h1>
+      <h1 className="sectiontitle" ref={sectionRef}>Wheels</h1>
       <main className="mainTiendaDetails010">
         {femaleShirtFiltered.map((x) => {
           return (
@@ -103,7 +115,7 @@ export default function TiendaDetails() {
         })}
       </main>
      
-      <h1 className="sectiontitle" id="main2">
+      <h1 className="sectiontitle" id="main2"  ref={sectionRef1}>
         Interior Items
       </h1>
       <main className="mainTiendaDetails010">
