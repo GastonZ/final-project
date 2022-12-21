@@ -14,15 +14,7 @@ import { Pagination, Navigation,Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-
-
  function CarouselComments() {
-
-  let width = window.innerWidth
-
-  console.log('el width es de ' + width);
-
     let {getAllComments}= commentAction
     const dispatch = useDispatch()
     useEffect(  ()=>{
@@ -30,18 +22,11 @@ import "swiper/css/navigation";
          },[])
     let { comments} = useSelector(store => store.comments)
  
-  console.log(comments);
+ console.log(comments);
   return (
     <>
-    <>
-    {
-      width < 700 ? <h2>hola</h2> :     <h2>adios</h2>
-    }
-
-
-    <h2>gino</h2></>
       <Swiper
-      slidesPerView={3}
+      slidesPerView={4}
       spaceBetween={20}
       centeredSlides={true}
       autoplay={{
@@ -54,7 +39,6 @@ import "swiper/css/navigation";
       navigation={true}
       modules={[Autoplay, Pagination, Navigation]}
       className="mySwiper"
-
       >
         {
             comments.map((x)=>{
