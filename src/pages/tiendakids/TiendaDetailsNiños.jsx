@@ -1,139 +1,203 @@
-import React from "react";
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState, useRef } from "react";
 import CarrouselBestSellers from "../../components/CarrouselBestSellers";
 import CarrouselTienda from "../../components/CarrouselTienda08";
 import "../tiendadetails/Tiendadetails.css";
-import { createTheme } from '@mui/material/styles';
 import { Slider, TextField, ThemeProvider } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
 import itemsActions from "../../redux/actions/itemsActions";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import AddToCartBtn from "../../components/AddToCartBtn/AddToCartBtn";
-import { useEffect,useState } from "react";
-import { useDispatch,useSelector } from "react-redux";
+import cartActions from "../../redux/actions/cartActions";
+
 const theme = createTheme({
   palette: {
     primary: {
-      light: '#cef10a',
-      main: '#cef10a',
-      dark: '#cef10a',
-      contrastText: '#fff',
+      light: "#cef10a",
+      main: "#cef10a",
+      dark: "#cef10a",
+      contrastText: "#fff",
     },
-   
   },
 });
 
+/* Esta es la tienda de ropa de hombres */
 
-/* Esta es la tienda de ropa de niños */
+export default function TiendaDetails() {
+  async function getItemsInCartMap() {
+    await dispatch(getItemsInCart());
+  }
 
+  useEffect(() => {
+    getItemsInCartMap();
+  }, []);
 
-export default function TiendaDetailsKids() {
-  let { getItems } = itemsActions
-  const dispatch = useDispatch()
-  let [filtered,setFiltered]=useState('')
-  const { items } = useSelector((state)=> state.items)
-  let itemsFiltered = items.filter(items=>items.gender.includes("kid"))
+  let { getItemsInCart } = cartActions;
 
-  useEffect(()=>{
-    dispatch(getItems({filtered:filtered}))
-  },[filtered])
+  let dispatch = useDispatch();
+  let [filtered, setFiltered] = useState("");
+  let { getItems } = itemsActions;
 
-  function listen(value){
-    if(value.target.type==="text"){
-      setFiltered(value.target.value)
+  const { items } = useSelector((state) => state.items);
+  let femaleFiltered = items.filter((x) => x.gender === "kid");
+  let kidshatsFiltered = femaleFiltered.filter((x) => x.category_id === "hats");
+  let femaleJacketFiltered = femaleFiltered.filter(
+    (x) => x.category_id === "jacket"
+  );
+  let femaleShirtFiltered = femaleFiltered.filter(
+    (x) => x.category_id === "shirt"
+  );
+
+  useEffect(() => {
+    dispatch(getItems({ filtered: filtered }));
+  }, [filtered]);
+
+  function listen(value) {
+    if (value.target.type === "text") {
+      setFiltered(value.target.value);
     }
+  }
+
+  function addItemToCartBtn(e) {
+    console.log(e);
+  }
+
+  const sectionRef = useRef(null);
+  function scrollToShirts() {
+    sectionRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+
+  const sectionRef1 = useRef(null);
+  function scrollToJackets() {
+    sectionRef1.current.scrollIntoView({ behavior: "smooth" });
+  }
+
+  const sectionRef2 = useRef(null);
+  function scrollToHats() {
+    sectionRef2.current.scrollIntoView({ behavior: "smooth" });
   }
 
   return (
     <>
       <header className="headerTiendaDetails010"></header>
 
-      <article className="titular010TiendaDetails">
-    
-      </article>
-
+      <div className="divSlidersCont">
+        <ul onClick={scrollToShirts}>Shirts</ul>
+        <ul onClick={scrollToJackets}>Jackets</ul>
+        <ul onClick={scrollToHats}>Hats</ul>
+      </div>
+      <h1 className="sectiontitle" ref={sectionRef}>Shirts</h1>
       <main className="mainTiendaDetails010">
-      <div className="divSlidersCont" >
-        <ThemeProvider theme={theme}>
-          <TextField
-            id="outlined-basic"
-            label="Search your product"
-            variant="outlined"
-            color="primary"
-            fullWidth="1"
-            onChange={listen}
-          />
-          </ThemeProvider>
-     
-          <div className="contenedorSlidersx">
-          <p>Min: </p>
-          <div className="divSliders">
-          <ThemeProvider theme={theme}>
-            <Slider
-              defaultValue={5}
-              aria-label="Default"
-              valueLabelDisplay="auto"
-              color="primary"
-            />
-              </ThemeProvider>
-             
-          </div>
-          <p>Max: </p>
-          <div className="divSliders">
-          <ThemeProvider theme={theme}>
-            <Slider
-              defaultValue={90}
-              aria-label="Default"
-              valueLabelDisplay="auto"
-              color="primary"
-            />
-              </ThemeProvider>
-          </div>
-          </div>
-        </div>
+        {femaleShirtFiltered.map((x) => {
+          return (
+            <div
+              key={x.title}
+              class="card089"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
+              <Link className="eachpdetailpress" to={`/detailsItem/:${x._id}`}>
+                <img src={x.picture_url} alt={x.title} srcset="" />
+              </Link>
 
+              <div className="cardTiendaContainer">
+                <div className="cardTiendaText">
+                  <h6>{x.title}</h6>
+                  <h6>Price: ${x.unit_price}</h6>
+                </div>
 
-
-
-
-
-
-
-        
-        
-        {itemsFiltered.map((x)=>{
-return(
-
-        <div key={x.title} class="card089"  data-aos="fade-up" data-aos-duration="2000">
-<Link className="eachpdetailpress" to={`/detailsItem/:${x._id}`}>
-          <img
-            src={x.picture_url}
-            alt=""
-            srcset=""
-          />
-
-</Link>
-          <div className="cardTiendaContainer">
-            <div className="cardTiendaText">
-              <h6>{x.title}</h6>
-              <h6>${x.unit_price}</h6>
+                <div className="cardTiendaButton">
+                  {/*                   <button className="chango"></button> */}
+                  <AddToCartBtn
+                    title={x.title}
+                    unit_price={x.unit_price}
+                    picture_url={x.picture_url}
+                  />
+                  <Link to={`/detailsItem/:${x._id}`}>
+                    <button className="lupa"></button>
+                  </Link>
+                </div>
+              </div>
             </div>
-
-            <div className="cardTiendaButton">
-            <AddToCartBtn title={x.title} unit_price={x.unit_price} picture_url={x.picture_url} />
-              <Link to={`/detailsItem/:${x._id}`}><button  className="lupa"></button></Link>
-            </div>
-          </div>
-        </div>
-)
+          );
         })}
+      </main>
 
-         {/* //termina card */}
-           {/* //empieza card */}
-       
-         {/* //termina card */}
+      <h1 className="sectiontitle" id="main2" ref={sectionRef1}>
+        Jackets
+      </h1>
+      <main className="mainTiendaDetails010">
+        {femaleJacketFiltered.map((x) => {
+          return (
+            <div
+              key={x.title}
+              class="card089"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
+              <Link className="eachpdetailpress" to={`/detailsItem/:${x._id}`}>
+                <img src={x.picture_url} alt={x.title} srcset="" />
+              </Link>
 
-      
-        
-        
+              <div className="cardTiendaContainer">
+                <div className="cardTiendaText">
+                  <h6>{x.title}</h6>
+                  <h6>Price: ${x.unit_price}</h6>
+                </div>
+
+                <div className="cardTiendaButton">
+                  {/*                   <button className="chango"></button> */}
+                  <AddToCartBtn
+                    title={x.title}
+                    unit_price={x.unit_price}
+                    picture_url={x.picture_url}
+                  />
+                  <Link to={`/detailsItem/:${x._id}`}>
+                    <button className="lupa"></button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </main>
+      <h1 className="sectiontitle" id="main2" ref={sectionRef2}>
+        Hats
+      </h1>
+      <main className="mainTiendaDetails010">
+        {kidshatsFiltered.map((x) => {
+          return (
+            <div
+              key={x.title}
+              class="card089"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
+              <Link className="eachpdetailpress" to={`/detailsItem/:${x._id}`}>
+                <img src={x.picture_url} alt={x.title} srcset="" />
+              </Link>
+
+              <div className="cardTiendaContainer">
+                <div className="cardTiendaText">
+                  <h6>{x.title}</h6>
+                  <h6>Price: ${x.unit_price}</h6>
+                </div>
+
+                <div className="cardTiendaButton">
+                  {/*                   <button className="chango"></button> */}
+                  <AddToCartBtn
+                    title={x.title}
+                    unit_price={x.unit_price}
+                    picture_url={x.picture_url}
+                  />
+                  <Link to={`/detailsItem/:${x._id}`}>
+                    <button className="lupa"></button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </main>
     </>
   );

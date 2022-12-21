@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import CarrouselBestSellers from "../../components/CarrouselBestSellers";
 import CarrouselTienda from "../../components/CarrouselTienda08";
 import "../tiendadetails/Tiendadetails.css";
@@ -43,8 +43,12 @@ export default function TiendaDetails() {
   let maleSweatshirtFiltered = maleFiltered.filter(
     (x) => x.category_id === "sweatshirt"
   );
-  let maleJacketFiltered = maleFiltered.filter((x) => x.category_id === "jacket");
+  let maleJacketFiltered = maleFiltered.filter(
+    (x) => x.category_id === "jacket"
+  );
   let maleShirtFiltered = maleFiltered.filter((x) => x.category_id === "shirt");
+
+  let maleHatFiltered = maleFiltered.filter((x) => x.category_id === "hats");
 
   useEffect(() => {
     dispatch(getItems({ filtered: filtered }));
@@ -60,19 +64,38 @@ export default function TiendaDetails() {
     console.log(e);
   }
 
+  const sectionRef = useRef(null);
+  function scrollToSection() {
+    sectionRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+
+  const sectionRef2 = useRef(null);
+  function scrollToJacket() {
+    sectionRef2.current.scrollIntoView({ behavior: "smooth" });
+  }
+
+  const sectionRef3 = useRef(null);
+  function scrollToHats() {
+    sectionRef3.current.scrollIntoView({ behavior: "smooth" });
+  }
+
+  const sectionRef4 = useRef(null);
+  function scrollToSweatshirts() {
+    sectionRef4.current.scrollIntoView({ behavior: "smooth" });
+  }
 
   return (
     <>
       <header className="headerTiendaDetails010"></header>
 
       <div className="divSlidersCont">
-        <ul>Shirts</ul>
-        <ul>Jackets</ul>
-        <ul>Sweatshirts</ul>
-        <ul>Hats</ul>
+        <ul onClick={scrollToSection}>Shirts</ul>
+        <ul onClick={scrollToJacket}>Jackets</ul>
+        <ul onClick={scrollToSweatshirts}>Sweatshirts</ul>
+        <ul onClick={scrollToHats}>Hats</ul>
       </div>
 
-      <h1 className="sectiontitle" id="main1">
+      <h1 className="sectiontitle" id="main1"  ref={sectionRef4}>
         Sweatshirts
       </h1>
       <main className="mainTiendaDetails010">
@@ -96,8 +119,12 @@ export default function TiendaDetails() {
 
                 <div className="cardTiendaButton">
                   {/*                   <button className="chango"></button> */}
-                  <AddToCartBtn title={x.title} unit_price={x.unit_price} picture_url={x.picture_url} />
-                  <Link to={`/detailsItem/:${x._id}`}>
+                  <AddToCartBtn
+                    title={x.title}
+                    unit_price={x.unit_price}
+                    picture_url={x.picture_url}
+                  />
+                  <Link to={`/detailsItem/:${x._id}`} ref={sectionRef2}>
                     <button className="lupa"></button>
                   </Link>
                 </div>
@@ -122,7 +149,7 @@ export default function TiendaDetails() {
                 <img src={x.picture_url} alt={x.title} srcset="" />
               </Link>
 
-              <div className="cardTiendaContainer">
+              <div className="cardTiendaContainer" ref={sectionRef}>
                 <div className="cardTiendaText">
                   <h6>{x.title}</h6>
                   <h6>Price: ${x.unit_price}</h6>
@@ -130,7 +157,11 @@ export default function TiendaDetails() {
 
                 <div className="cardTiendaButton">
                   {/*                   <button className="chango"></button> */}
-                  <AddToCartBtn title={x.title} unit_price={x.unit_price} picture_url={x.picture_url} />
+                  <AddToCartBtn
+                    title={x.title}
+                    unit_price={x.unit_price}
+                    picture_url={x.picture_url}
+                  />
                   <Link to={`/detailsItem/:${x._id}`}>
                     <button className="lupa"></button>
                   </Link>
@@ -141,8 +172,45 @@ export default function TiendaDetails() {
         })}
       </main>
       <h1 className="sectiontitle">Shirts</h1>
-      <main className="mainTiendaDetails010">
+      <main className="mainTiendaDetails010" >
         {maleShirtFiltered.map((x) => {
+          return (
+            <div
+            
+              key={x.title}
+              class="card089"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
+              <Link className="eachpdetailpress"  to={`/detailsItem/:${x._id}`}>
+                <img src={x.picture_url} alt={x.title} srcset="" />
+              </Link>
+
+              <div className="cardTiendaContainer" ref={sectionRef3}>
+                <div className="cardTiendaText">
+                  <h6 >{x.title}</h6>
+                  <h6>Price: ${x.unit_price}</h6>
+                </div>
+
+                <div className="cardTiendaButton">
+                  {/*                   <button className="chango"></button> */}
+                  <AddToCartBtn
+                    title={x.title}
+                    unit_price={x.unit_price}
+                    picture_url={x.picture_url}
+                  />
+                  <Link to={`/detailsItem/:${x._id}`}>
+                    <button className="lupa" ></button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </main>
+      <h1 className="sectiontitle" >Hats</h1 >
+      <main className="mainTiendaDetails010">
+        {maleHatFiltered.map((x) => {
           return (
             <div
               key={x.title}
@@ -162,7 +230,11 @@ export default function TiendaDetails() {
 
                 <div className="cardTiendaButton">
                   {/*                   <button className="chango"></button> */}
-                  <AddToCartBtn title={x.title} unit_price={x.unit_price} picture_url={x.picture_url} />
+                  <AddToCartBtn
+                    title={x.title}
+                    unit_price={x.unit_price}
+                    picture_url={x.picture_url}
+                  />
                   <Link to={`/detailsItem/:${x._id}`}>
                     <button className="lupa"></button>
                   </Link>
