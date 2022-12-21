@@ -8,6 +8,8 @@ import Loading from '../../components/Loading/Loading'
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import SelectAmount from '../../components/SelectAmount/SelectAmount'
+import paymentActions from '../../redux/actions/paymentActions'
+
 
 const style = {
   position: 'absolute',
@@ -18,6 +20,8 @@ const style = {
   p: 4,
 };
 function Cart() {
+
+  let { mpPayment } = paymentActions
 
   let {id,logged } = useSelector(store => store.usuario)
   let dispatch = useDispatch()
@@ -47,20 +51,58 @@ function Cart() {
   
   const [show, setShow] = useState(false);
 
-  console.log(itemsFiltered);
   async function handleDelete(idDelete){
   setShow(true)
   
-  try {
+    try {
 
-    await dispatch(deleteItems(idDelete))
-    dispatch(getItemsInCart())
-    setShow(false)
-  } catch (error) {
-    console.log(error);
-    setShow(false)
+      await dispatch(deleteItems(idDelete))
+      dispatch(getItemsInCart())
+      setShow(false)
+    } catch (error) {
+      console.log(error);
+      setShow(false)
+    }
   }
-}
+
+  let items = []
+
+  items = itemsFiltered.map(item =>( 
+
+    {
+      title: item.title,
+      unit_price: item.unit_price,
+      picture_url: item.picture_url,
+      quantity : item.quantity
+    }
+
+  ))
+
+  let preference = {
+
+    back_urls: {
+      failure: "http://localhost:3000",
+      success: "http://localhost:3000"
+    }
+  }
+  preference.items= items
+
+  const payment = async () => {
+
+    try {
+      let res = await dispatch(mpPayment(preference))
+
+      if(res.payload.success){
+        window.location.assign(res.payload.response.init_point)
+      }
+    } catch (error) {
+      console.log(error.response);
+    }
+
+  }
+
+  console.log(items);
+
 
 const handleClose = () => setShow(false);
 
@@ -155,7 +197,7 @@ const handleClose = () => setShow(false);
                     <p className='negrita'>${total}</p>
                   </div>
                   <div>
-                    <button className='checkout-btn'>Checkout</button>
+                    <button onClick={payment} className='checkout-btn'>Checkout</button>
                   </div>
                 </div>
               </div>}
