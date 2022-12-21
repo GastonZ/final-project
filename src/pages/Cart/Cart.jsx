@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import SelectAmount from '../../components/SelectAmount/SelectAmount'
 import paymentActions from '../../redux/actions/paymentActions'
+import axios from 'axios'
 
 
 const style = {
@@ -40,6 +41,7 @@ function Cart() {
   let { itemsInCart } = useSelector(store => store.cart)
   let itemsFiltered = itemsInCart.filter(items=>items.userId === id)
   let precio = []
+
 
   itemsFiltered.map((x)=>{
     precio.push(x.unit_price * x.quantity)
@@ -91,10 +93,14 @@ function Cart() {
 
     try {
       let res = await dispatch(mpPayment(preference))
+      console.log(res);
 
       if(res.payload.success){
-        window.location.assign(res.payload.response.init_point)
+         window.location.assign(res.payload.response.init_point) 
+          await axios.delete(`http://localhost:8000/api/cart/items-cart/paymentDone/${id}`)
       }
+
+
     } catch (error) {
       console.log(error.response);
     }
@@ -147,7 +153,7 @@ const handleClose = () => setShow(false);
               ):
                 itemsFiltered.map((x)=>{
                   return(
-                  <div className='cart-line-section-2'>
+                  <div className='cart-line-section-2 p-2'>
                     <div className='cart-line-image'>
                       <img height='120' src={x.picture_url} alt="" />
                     </div>
@@ -156,13 +162,13 @@ const handleClose = () => setShow(false);
                         <h4 className='m-0 p-0'>{x.title}</h4>
                       </div>
                       <div className='cart-line-quantity'>
-                        <div>
+{/*                         <div>
                         <p>Quantity:</p>
                         </div>
                         <div>
                           <SelectAmount itemId={x._id}  />
                         </div>
-
+ */}
                       </div>
                       <div className='cart-line-remove'>
                         <p className='remove-cart-btn'  onClick={() => handleDelete(x._id)}>Remove</p>
