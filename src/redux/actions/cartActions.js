@@ -44,17 +44,16 @@ const getItemsInCart = createAsyncThunk('getItemsInCart', async ()=>{
 }
 })
 
-const increaseDecreaseQuantity = createAsyncThunk('increaseDecreaseQuantity', async ({itemId, amount})=> {
+const increaseDecreaseQuantity = createAsyncThunk('increaseDecreaseQuantity', async ({itemId, data})=> {
   let url = `${BASE_URL}cart/items-cart/increase/${itemId}`
   try {
-    let res = await axios.put(url, itemId, amount)
-    console.log(res);
-    if(res.data.success){
+    let res = await axios.put(url, itemId, data)
+    console.log(res );
+    if(res.data.mensaje == "The item: Men’s Chill Crew Neck Sweatshirt was updated"){
       return {
-          newAmount: res.data.item.amount,
+          newAmount: res.data.item.quantity,
           success: true,
-          response: amount,
-          mensaje: res.data.message
+          mensaje: res.data.mensaje
       }
   } else {
       return {

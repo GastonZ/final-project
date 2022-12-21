@@ -192,7 +192,7 @@ const handleClose = () => setShow(false);
                   </div>
                   <div className='cart-sum'>
                     <p>Shipping</p>
-                    <p>Free</p>
+                  <p>Free</p>
                   </div>
                   <div className='cart-sum'>
                     <p>Sales Tax</p>
