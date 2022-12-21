@@ -48,11 +48,24 @@ function NewComment(){
     }
 
     return(
-        <div>
+      <section className='profile-section profile-review'>
+      <div>
+          <h2 className='review-title'>What do you think about the page ? <br/> Leave a review !</h2>
+      </div>
+      <div class="form">
+          <input class="input"  onChange={(e) => setComment(e.target.value)} placeholder="Give us a comment" required="" type="text"/>
+          <span class="input-border"></span>
+      </div>
+      <div class="wrap">
+          <button class="btn-rueda">
+              <span onClick={Submit} class="text">Send</span>
+          </button>
+      </div>
+  </section>
+        
 
-<input   onChange={(e) => setComment(e.target.value)} placeholder="Search" type="search" class="input"/>
-<button  onClick={Submit}>Send</button>
-        </div>
+
+       
 
     )
 }
