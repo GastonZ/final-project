@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import CarrouselBestSellers from "../../components/CarrouselBestSellers";
 import CarrouselTienda from "../../components/CarrouselTienda08";
 import "../tiendadetails/Tiendadetails.css";
@@ -40,11 +40,13 @@ export default function TiendaDetails() {
 
   const { items } = useSelector((state) => state.items);
   let femaleFiltered = items.filter((x) => x.gender === "kid");
-  let kidshatsFiltered = femaleFiltered.filter(
-    (x) => x.category_id === "hats"
+  let kidshatsFiltered = femaleFiltered.filter((x) => x.category_id === "hats");
+  let femaleJacketFiltered = femaleFiltered.filter(
+    (x) => x.category_id === "jacket"
   );
-  let femaleJacketFiltered = femaleFiltered.filter((x) => x.category_id === "jacket");
-  let femaleShirtFiltered = femaleFiltered.filter((x) => x.category_id === "shirt");
+  let femaleShirtFiltered = femaleFiltered.filter(
+    (x) => x.category_id === "shirt"
+  );
 
   useEffect(() => {
     dispatch(getItems({ filtered: filtered }));
@@ -60,17 +62,31 @@ export default function TiendaDetails() {
     console.log(e);
   }
 
+  const sectionRef = useRef(null);
+  function scrollToShirts() {
+    sectionRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+
+  const sectionRef1 = useRef(null);
+  function scrollToJackets() {
+    sectionRef1.current.scrollIntoView({ behavior: "smooth" });
+  }
+
+  const sectionRef2 = useRef(null);
+  function scrollToHats() {
+    sectionRef2.current.scrollIntoView({ behavior: "smooth" });
+  }
 
   return (
     <>
       <header className="headerTiendaDetails010"></header>
 
       <div className="divSlidersCont">
-        <ul>Shirts</ul>
-        <ul>Jackets</ul>
-              <ul>Hats</ul>
+        <ul onClick={scrollToShirts}>Shirts</ul>
+        <ul onClick={scrollToJackets}>Jackets</ul>
+        <ul onClick={scrollToHats}>Hats</ul>
       </div>
-      <h1 className="sectiontitle">Shirts</h1>
+      <h1 className="sectiontitle" ref={sectionRef}>Shirts</h1>
       <main className="mainTiendaDetails010">
         {femaleShirtFiltered.map((x) => {
           return (
@@ -92,7 +108,11 @@ export default function TiendaDetails() {
 
                 <div className="cardTiendaButton">
                   {/*                   <button className="chango"></button> */}
-                  <AddToCartBtn title={x.title} unit_price={x.unit_price} picture_url={x.picture_url} />
+                  <AddToCartBtn
+                    title={x.title}
+                    unit_price={x.unit_price}
+                    picture_url={x.picture_url}
+                  />
                   <Link to={`/detailsItem/:${x._id}`}>
                     <button className="lupa"></button>
                   </Link>
@@ -102,8 +122,8 @@ export default function TiendaDetails() {
           );
         })}
       </main>
-     
-      <h1 className="sectiontitle" id="main2">
+
+      <h1 className="sectiontitle" id="main2" ref={sectionRef1}>
         Jackets
       </h1>
       <main className="mainTiendaDetails010">
@@ -127,7 +147,11 @@ export default function TiendaDetails() {
 
                 <div className="cardTiendaButton">
                   {/*                   <button className="chango"></button> */}
-                  <AddToCartBtn title={x.title} unit_price={x.unit_price} picture_url={x.picture_url} />
+                  <AddToCartBtn
+                    title={x.title}
+                    unit_price={x.unit_price}
+                    picture_url={x.picture_url}
+                  />
                   <Link to={`/detailsItem/:${x._id}`}>
                     <button className="lupa"></button>
                   </Link>
@@ -137,7 +161,7 @@ export default function TiendaDetails() {
           );
         })}
       </main>
-      <h1 className="sectiontitle" id="main2">
+      <h1 className="sectiontitle" id="main2" ref={sectionRef2}>
         Hats
       </h1>
       <main className="mainTiendaDetails010">
@@ -161,7 +185,11 @@ export default function TiendaDetails() {
 
                 <div className="cardTiendaButton">
                   {/*                   <button className="chango"></button> */}
-                  <AddToCartBtn title={x.title} unit_price={x.unit_price} picture_url={x.picture_url} />
+                  <AddToCartBtn
+                    title={x.title}
+                    unit_price={x.unit_price}
+                    picture_url={x.picture_url}
+                  />
                   <Link to={`/detailsItem/:${x._id}`}>
                     <button className="lupa"></button>
                   </Link>
@@ -171,7 +199,6 @@ export default function TiendaDetails() {
           );
         })}
       </main>
-     
     </>
   );
 }
