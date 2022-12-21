@@ -185,14 +185,27 @@ function Profile(props) {
                                 LogOut </button>
                             </div>
                         </section>
+                        <section className='profile-section profile-review'>
+                            <div>
+                                <h2 className='review-title'>What do you think about the page ? <br/> Leave a review !</h2>
+                            </div>
+                            <div class="form">
+                                <input class="input" placeholder="Give us a comment" required="" type="text"/>
+                                <span class="input-border"></span>
+                            </div>
+                            <div class="wrap">
+                                <button class="btn-rueda">
+                                    <span class="text">Send</span>
+                                </button>
+                            </div>
+                        </section>
                     </div>
                     <div className='user-admin-panel'>
                                 {/* User Panel Profile */}
                     {
                         role === 'user' ?
-                        <div>
-                            Soy User
-                        </div>
+                        <>
+                        </>
                         : 
                         <></>
                     }
@@ -200,9 +213,8 @@ function Profile(props) {
                                 {/* Admin Panel Profile */}
                     {
                         role === 'admin' ?
-                        <div>
-                            
-                        </div>
+                        <>
+                        </>
                         :
                         <></>
                     }

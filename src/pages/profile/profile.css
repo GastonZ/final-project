@@ -2,6 +2,8 @@
     min-height: 100vh;
     width: 100%;
     background-color: #24262B;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .user-admin-panel {
@@ -144,16 +146,94 @@
     color: #24262B;
 }
 
-@media screen and (max-width: 992px) {
+.form {
+    --width-of-input: 600px;
+    --border-height: 1px;
+    --border-before-color: rgba(221, 221, 221, 0.39);
+    --border-after-color: #b0cc11;
+    --input-hovered-color: #4985e01f;
+    position: relative;
+    width: var(--width-of-input);
+   }
+
+   .input {
+    color: #fff;
+    font-size: 2rem;
+    background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+    border-bottom: var(--border-height) solid var(--border-before-color);
+   }
+
+   .input-border {
+    position: absolute;
+    background: var(--border-after-color);
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s;
+   }
+
+   .input:hover {
+    background: var(--input-hovered-color);
+   }
+   
+   .input:focus {
+    outline: none;
+   }
+
+   .input:focus ~ .input-border {
+    width: 100%;
+   }
+
+   .wrap {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .btn-rueda {
+    width: 100px;
+    height: 100px;
+    background-image: url('./Wheel-Download-PNG-Image.png');
+    background-size: contain;
+    border-radius: 50%;
+    box-shadow: 0 0px 20px #0005, 0 -0px 20px #fff2;
+    outline: 1px solid #fff;
+    outline-offset: -2px;
+    transition: 1s;
+  }
+  
+  .text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #b0cc11;
+    text-align: center;
+    text-shadow: 1px 1px 1px #fff;
+  }
+  
+  .btn-rueda:hover {
+    transform: rotate(360deg);
+  }
+
+@media screen and (max-width: 1349px) {
+    .main-profile-container {
+        min-height: 140vh;
+
+    }
     .profile-info {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
     }
     .user-profile-img {
         margin: 50px;
         border-radius: 50%;
-        top: 50;
+        top: -10px;
     }
     .edit-banner-btn {
         display: none;
@@ -170,7 +250,14 @@
     }
     .profile-username {
         position: relative;
-        bottom: 180px;
+        bottom: 50px;
+    }
+
+    .edit-img-user-btn {
+        bottom: -80px;
+    }
+    .wrap {
+        margin-bottom: -20px;
     }
 }
 
@@ -203,3 +290,20 @@
     display: flex;
     align-items: center;
 }
+
+.profile-review {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-grow: 1;
+    padding-left: 50px;
+    padding-right: 50px;
+    flex-direction: column;
+}
+
+.review-title {
+    color: seashell;
+}
+
+
