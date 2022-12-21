@@ -186,13 +186,20 @@ margin-bottom: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-
+cursor: pointer;
   gap: 5px;
   
 
  margin-bottom: 10px;
 
 }
+.divSlidersCont ul:hover {
+
+font-weight: 400;
+
+}
+
+
 
 .div
 
