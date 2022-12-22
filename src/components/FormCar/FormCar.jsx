@@ -43,11 +43,12 @@ function FormCar() {
   
     
   return (
-    <div className='car-form-container'>
-      <h3 className='h3-car-form'>
+<>
+<h3 className='h3-car-form'>
           Send a message if you are interesed 
       </h3>
       <form ref={form} onSubmit={sendEmail}>
+          <div className='car-form-container'>
         <div className='form__group field'>
           <input className='form__field' type="text" name="user_name" />
           <label className="form__label">Name</label>
@@ -65,8 +66,10 @@ function FormCar() {
               <div class="arrow"></div>
           </div>
         </button>
-      </form>
       </div>
+      </form>
+</>
+
 
 
   )
