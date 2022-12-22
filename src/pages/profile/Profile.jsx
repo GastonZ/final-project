@@ -189,13 +189,13 @@ function Profile(props) {
         <motion.div>
 
             <main className='main-profile-container'>
-
                 <div className='profile-banner'>
                     <img className='banner-img' src={bannerProfile} alt="banner" />
                     <button onClick={handleShow3} className='edit-banner-btn'> <img className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053024594048589844/icons8-compact-camera-24.png" alt="edit" />
                      Edit banner image</button>
                      <button onClick={handleShow3} className='edit-banner-btn-small'> <img className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053024594048589844/icons8-compact-camera-24.png" alt="edit" />
                      </button>
+                </div>
                     <div className='profile-info'>
                         <div className='profile-section profile-img-container'>
                             <div className='edit-img-user'>
@@ -223,13 +223,16 @@ function Profile(props) {
                             </div>
                         </section>
                           <NewComment/>
-                      
                     </div>
+
                     <div className='user-admin-panel'>
                                 {/* User Panel Profile */}
                     {
                         role === 'user' ?
                         <>
+                            <div>
+
+                            </div>
                         </>
                         : 
                         <></>
@@ -249,7 +252,6 @@ function Profile(props) {
             }
 
 
-                </div>
                 <Modal  size="lg" show={show} onHide={handleClose}>
                     <Modal.Header className='modal-background-profile-img'>
                     </Modal.Header>
@@ -338,7 +340,6 @@ function Profile(props) {
                         </Button>
                     </Modal.Footer>
                 </Modal>        
-    
             </main>
         </motion.div>
 
