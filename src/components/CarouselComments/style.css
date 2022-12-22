@@ -11,4 +11,4 @@
     word-break: break-all;
     padding: 50px;
   }
- 
+ :root{--swiper-theme-color:white !important}
