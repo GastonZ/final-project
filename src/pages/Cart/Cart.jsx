@@ -67,6 +67,8 @@ function Cart() {
       console.log(error);
       setShow(false)
     }
+
+
   }
 
   async function increaseQuantity(itemId){
@@ -85,9 +87,9 @@ function Cart() {
       console.log(error);
     }
   }
-
+  
   async function decreaseQuantity(itemId){
-
+    
     let query = "del"
 
     let quantity = {
@@ -101,6 +103,12 @@ function Cart() {
       } catch (error) {
       console.log(error);
     }
+
+
+/*     if(itemsFiltered.quantity <= 0) {
+      await dispatch(deleteItems(itemId))
+    }
+ */
   }
 
 
@@ -189,6 +197,9 @@ const handleClose = () => setShow(false);
                 </div>
               ):
                 itemsFiltered.map((x)=>{
+
+                  let quantity = x.quantity
+
                   return(
                   <div className='cart-line-section-2 p-2'>
                     <div className='cart-line-image'>
@@ -200,7 +211,12 @@ const handleClose = () => setShow(false);
                       </div>
                       <div className='cart-line-quantity'>
                         <p className="description-tittle">Quantity:  </p>
-                        <img className="quantyti-items" onClick={()=> decreaseQuantity(x._id)} src={less} alt="" />
+                        {
+                          quantity <= 1 ? <>
+                          <img className="quantyti-items"  src={less} alt="" /></> 
+                          :
+                          <img className="quantyti-items" onClick={()=> decreaseQuantity(x._id)} src={less} alt="" />
+                        }
                         <p className="description-tittle">{x.quantity}</p>
                         <img className="quantyti-itemss" onClick={() => increaseQuantity(x._id)} src={plus} alt="" />
                       </div>

@@ -57,8 +57,8 @@ function NewComment(){
           <span class="input-border"></span>
       </div>
       <div class="wrap">
-          <button class="btn-rueda">
-              <span onClick={Submit} class="text-rueda">Send</span>
+          <button onClick={Submit} class="btn-rueda">
+              <span  class="text-rueda">Send</span>
           </button>
       </div>
   </section>

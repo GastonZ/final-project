@@ -11,6 +11,9 @@ import { TextField, ThemeProvider } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
 import { uploadFile } from '../../firebase/config'
 import NewComment from '../../components/NewComment/NewComment';
+import Loading from '../../components/Loading/Loading';
+
+
 function Profile(props) {
 
     const theme = createTheme({
@@ -77,10 +80,20 @@ function Profile(props) {
 
     const [photo, setNewPhoto] = useState('')
 
+    let [loading, setLoading ] = useState(false)
+
     const handleNewPhoto = async (e) => {
-        const res = await uploadFile(file)
-        console.log(res);
-        setNewPhoto(res)
+
+        setLoading(true)
+
+        try {
+            const res = await uploadFile(file)
+            console.log(res);
+            setNewPhoto(res)
+            setLoading(false)
+        } catch (error) {
+            
+        }
     }
 
     async function editPhoto() {
@@ -152,7 +165,9 @@ function Profile(props) {
     
     return (
         <motion.div>
+
             <main className='main-profile-container'>
+
                 <div className='profile-banner'>
                     <img className='banner-img' src={bannerProfile} alt="banner" />
                     <button onClick={handleShow3} className='edit-banner-btn'> <img className='edit-icon-img' src="https://cdn.discordapp.com/attachments/1019371264860770376/1053024594048589844/icons8-compact-camera-24.png" alt="edit" />
@@ -207,7 +222,9 @@ function Profile(props) {
                         <></>
                     }
                     </div>
-
+                    {
+                loading ? <Loading/> : <></>
+            }
 
 
                 </div>
