@@ -92,7 +92,7 @@ function Profile(props) {
             setNewPhoto(res)
             setLoading(false)
         } catch (error) {
-            
+            console.log(error);
         }
     }
 
@@ -121,8 +121,15 @@ function Profile(props) {
     const [banner, setNewBanner] = useState('')
 
     const handleNewBanner = async (e) => {
-        const res = await uploadFile(fileBanner)
-        setNewBanner(res)
+        setLoading(true)
+        
+        try {
+            const res = await uploadFile(fileBanner)
+            setNewBanner(res)
+            setLoading(false)
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     async function editBanner() {
