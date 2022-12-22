@@ -12,9 +12,24 @@ import { createTheme } from '@mui/material/styles';
 import { uploadFile } from '../../firebase/config'
 import NewComment from '../../components/NewComment/NewComment';
 import Loading from '../../components/Loading/Loading';
+import carRequestActions from '../../redux/actions/carRequestActions';
 
 
 function Profile(props) {
+
+    let { getRequests } = carRequestActions
+
+    async function getAllRequests(){
+        await dispatch(getRequests())
+    }
+
+    useEffect(()=>{
+        getAllRequests()
+    },[])
+
+    let {  requests } = useSelector(store => store.requests)
+    
+    console.log(requests);
 
     const theme = createTheme({
         palette: {

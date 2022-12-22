@@ -1,8 +1,7 @@
-import { create } from "@mui/material/styles/createTransitions";
 import { createReducer } from "@reduxjs/toolkit";
 import carRequestActions from "../actions/carRequestActions";
 
-const { createRequest } = carRequestActions
+const { createRequest, getRequests } = carRequestActions
 
 const initialState= {
     requests: []
@@ -15,6 +14,13 @@ const carRequestReducer = createReducer(initialState,
             console.log(action);
             if(action.payload.success){
                 state.requests.push(action.payload.response)
+            }
+        })
+        .addCase(getRequests.fulfilled,(state,action)=> {
+            console.log(action.payload);
+            return {
+                ...state,
+                requests: action.payload.request
             }
         })
     })

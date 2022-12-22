@@ -13,8 +13,26 @@ const createRequest = createAsyncThunk('createRequest', async(data) =>{
     }
 })
 
+const getRequests = createAsyncThunk('getRequests', async() => {
+    try {
+        const res = await axios.get(
+            `${BASE_URL}carrequest`
+        )
+        console.log(res.data.response);
+        return {
+            request : res.data.response
+        }
+    } catch (error) {
+        console.log(error);
+        return {
+            payload: "Error"
+        }
+    }
+})
+
 const carRequestActions = {
-    createRequest
+    createRequest,
+    getRequests
 }
 
 export default carRequestActions
