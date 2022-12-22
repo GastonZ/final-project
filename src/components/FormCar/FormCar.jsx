@@ -7,7 +7,9 @@ import Loading from '../../components/Loading/Loading'
 import Box from '@mui/material/Box';
 import { toast } from 'react-toastify';
 import emailjs from '@emailjs/browser';
+import carRequestActions from '../../redux/actions/carRequestActions'
 import 'aos/dist/aos.css'; // You can also use <link> for styles
+
 // ..
 AOS.init();
 const style = {
@@ -18,12 +20,32 @@ const style = {
     width: 100,
     p: 4,
   };
-function FormCar() {
+function FormCar(props) {
+
+  let { id } = useSelector(store => store.usuario)
+
+  let dispatch = useDispatch()
+
+  let [user_name, setUser_name] = useState('')
+  let [user_email, setUser_email] = useState('')
+  let [request, setRequest] = useState('')
+
+  let userId = id
+
+  let { createRequest } = carRequestActions
+
+  let { car_model, car_photo } = props
+
     const [show, setShow] = useState(false);
   const form = useRef();
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     setShow(true)
+
+    let data = {car_model, car_photo ,  user_name , user_email, request, userId  }
+
+    dispatch(createRequest(data))
+
     e.preventDefault();
 
     emailjs.sendForm('service_ce1rnzg', 'template_ndwvejw', form.current, 'Bp83upMlZrii7gPR-')
@@ -40,7 +62,6 @@ function FormCar() {
             progress: undefined,
             theme: "dark",
             });
-            e.target.value.reset
       }, (error) => {
           console.log(error.text);
       });
@@ -70,15 +91,15 @@ function FormCar() {
           Send a message if you are interesed 
       </h3>
         <div className='form__group field'>
-          <input className='form__field' type="input" name="user_name" />
-          <label className="form__label" for="email">Name</label>
+          <input className='form__field' onChange={e => setUser_name(e.target.value)} type="input" name="user_name" />
+          <label className="form__label" for="name">Name</label>
         </div>
         <div className='form__group field'>
-          <input className="form__field" type="email" name="user_email" />
+          <input className="form__field" onChange={e => setUser_email(e.target.value)} type="email" name="user_email" />
           <label className="form__label">Email</label>
         </div>
         <div className='form__group field'>
-          <textarea className="form__field" name="message" />
+          <textarea className="form__field" name="message" onChange={e => setRequest(e.target.value)} />
           <label className="form__label">Message</label>
         </div>
         <button className="car-form-button" type="submit" value="Send" >Send

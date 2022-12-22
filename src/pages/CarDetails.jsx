@@ -92,7 +92,7 @@ function CarDetails() {
           <img data-aos="fade-up" data-aos-duration="3000" className='specification-image' src="https://fondosmil.com/fondo/89061.jpg" alt="" />
         </article>
       </section>
-      <FormCar/>
+      <FormCar car_model={title} car_photo={imageDetails} />
     </body>
     </motion.div>
  
