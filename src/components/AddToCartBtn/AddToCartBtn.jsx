@@ -40,7 +40,7 @@ function AddToCartBtn(props) {
         try {
           let res = await dispatch(addToCart(data))
           console.log(res.payload);
-          if(res.payload.response==="The new Item has been added to the cart"){
+          if(res.payload.response==="The new Item has been added to the cart" ){
             toast.success('Added to the cart', {
               position: "bottom-right",
               autoClose: 2000,
@@ -52,19 +52,8 @@ function AddToCartBtn(props) {
               theme: "dark",
               });
           
-          }else if( res.payload.success === true){
+          }else if( res.payload.success === false && res.payload.response === "The item has been added to the cart"){
             toast.success('Added to the cart', {
-              position: "bottom-right",
-              autoClose: 2000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "dark",
-              });
-          }else if( res.payload.success === undefined) {
-            toast.success('Item already in cart', {
               position: "bottom-right",
               autoClose: 2000,
               hideProgressBar: false,
