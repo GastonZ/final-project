@@ -221,3 +221,8 @@ video{
         object-fit: cover;
     }
 }
+.sound-h3{
+  font-family: 'Bebas Neue', cursive !important;
+  font-size: 3rem;
+  color: #cfcfcf;
+}
