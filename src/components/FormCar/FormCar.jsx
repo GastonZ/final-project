@@ -22,6 +22,11 @@ const style = {
   };
 function FormCar(props) {
 
+  const nameRef = useRef()
+  const messageRef = useRef()
+  const emailRef = useRef()
+  const formRef = useRef()
+
   let { id } = useSelector(store => store.usuario)
 
   let dispatch = useDispatch()
@@ -37,7 +42,6 @@ function FormCar(props) {
   let { car_model, car_photo } = props
 
     const [show, setShow] = useState(false);
-  const form = useRef();
 
   const sendEmail = async (e) => {
     setShow(true)
@@ -48,7 +52,7 @@ function FormCar(props) {
 
     e.preventDefault();
 
-    emailjs.sendForm('service_ce1rnzg', 'template_ndwvejw', form.current, 'Bp83upMlZrii7gPR-')
+    emailjs.sendForm('service_ce1rnzg', 'template_ndwvejw', formRef.current, 'Bp83upMlZrii7gPR-')
       .then((result) => {
           setShow(false)
           console.log(result.text);
@@ -62,6 +66,7 @@ function FormCar(props) {
             progress: undefined,
             theme: "dark",
             });
+            formRef.current.reset()
       }, (error) => {
           console.log(error.text);
       });
@@ -85,21 +90,21 @@ function FormCar(props) {
               </Modal>
                  : <></>
               }
-      <form ref={form} onSubmit={sendEmail}>
+      <form ref={formRef} onSubmit={sendEmail}>
           <div className='car-form-container'>
 <h3 className='h3-car-form' data-aos="fade-left">
           Send a message if you are interesed 
       </h3>
         <div className='form__group field'>
-          <input className='form__field' onChange={e => setUser_name(e.target.value)} type="input" name="user_name" />
+          <input ref={nameRef} className='form__field' onChange={e => setUser_name(e.target.value)} type="input" name="user_name" />
           <label className="form__label" for="name">Name</label>
         </div>
         <div className='form__group field'>
-          <input className="form__field" onChange={e => setUser_email(e.target.value)} type="email" name="user_email" />
+          <input ref={emailRef} className="form__field" onChange={e => setUser_email(e.target.value)} type="email" name="user_email" />
           <label className="form__label">Email</label>
         </div>
         <div className='form__group field'>
-          <textarea className="form__field" name="message" onChange={e => setRequest(e.target.value)} />
+          <textarea ref={messageRef} className="form__field" name="message" onChange={e => setRequest(e.target.value)} />
           <label className="form__label">Message</label>
         </div>
         <button className="car-form-button" type="submit" value="Send" >Send
