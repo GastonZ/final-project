@@ -219,20 +219,20 @@
   }
 
 @media screen and (max-width: 1349px) {
-    .main-profile-container {
+/*     .main-profile-container {
         min-height: 140vh;
 
-    }
+    } */
     .profile-info {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
+        margin-bottom: 130px;
     }
     .user-profile-img {
-        margin: 50px;
+
         border-radius: 50%;
-        top: -10px;
+        bottom: 40px;
     }
     .edit-banner-btn {
         display: none;
@@ -249,14 +249,18 @@
     }
     .profile-username {
         position: relative;
-        bottom: 50px;
+        bottom: 170px;
     }
 
     .edit-img-user-btn {
-        bottom: -80px;
+        bottom: 50px;
     }
     .wrap {
         margin-bottom: -20px;
+    }
+    .profile-review {
+        position: relative;
+        bottom: 80px;
     }
 }
 
