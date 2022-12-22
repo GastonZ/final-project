@@ -33,6 +33,7 @@ gap: 1rem;
 }
 .quantity-container{
     display: flex;
+    flex-direction: column;
 }
 .quantyti-items{
     height: 25px;

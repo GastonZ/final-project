@@ -6,14 +6,14 @@ import Swal from 'sweetalert2';
 function NewComment(){
     const [comment, setComment] = useState('');
     let { nameProfile, photoProfile, bannerProfile, token, id, role } = useSelector(store => store.usuario)
-    console.log(photoProfile);
+
     let photo = photoProfile
     let userId= id
     let {postComments,getAllComments}= commentAction
     let dispatch = useDispatch()
     async function Submit(event){
         event.preventDefault()
-        console.log(event.target.value);
+
         let data = {comment,userId,photo}
         
 

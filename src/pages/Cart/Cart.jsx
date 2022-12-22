@@ -7,9 +7,10 @@ import { Link } from 'react-router-dom'
 import Loading from '../../components/Loading/Loading'
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import SelectAmount from '../../components/SelectAmount/SelectAmount'
 import paymentActions from '../../redux/actions/paymentActions'
 import axios from 'axios'
+import less from "./less.png"
+import plus from "./plus.png"
 
 
 const style = {
@@ -21,6 +22,7 @@ const style = {
   p: 4,
 };
 function Cart() {
+
 
   let { mpPayment } = paymentActions
 
@@ -36,7 +38,7 @@ function Cart() {
   },[])
   
   
-  let { getItemsInCart ,deleteItems} = cartActions
+  let { getItemsInCart ,deleteItems, increaseDecreaseQuantity} = cartActions
   
   let { itemsInCart } = useSelector(store => store.cart)
   let itemsFiltered = itemsInCart.filter(items=>items.userId === id)
@@ -66,6 +68,41 @@ function Cart() {
       setShow(false)
     }
   }
+
+  async function increaseQuantity(itemId){
+
+    let query = "add"
+
+    let quantity = {
+      "quantity" : 1
+    }
+
+    try {
+       let res = await dispatch(increaseDecreaseQuantity({quantity, itemId, query}))
+       await dispatch(getItemsInCart())
+        console.log(res);
+      } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function decreaseQuantity(itemId){
+
+    let query = "del"
+
+    let quantity = {
+      "quantity" : 1
+    }
+
+    try {
+       let res = await dispatch(increaseDecreaseQuantity({quantity, itemId, query}))
+       await dispatch(getItemsInCart())
+        console.log(res);
+      } catch (error) {
+      console.log(error);
+    }
+  }
+
 
   let items = []
 
@@ -162,13 +199,10 @@ const handleClose = () => setShow(false);
                         <h4 className='m-0 p-0'>{x.title}</h4>
                       </div>
                       <div className='cart-line-quantity'>
-{/*                         <div>
-                        <p>Quantity:</p>
-                        </div>
-                        <div>
-                          <SelectAmount itemId={x._id}  />
-                        </div>
- */}
+                        <p className="description-tittle">Quantity:  </p>
+                        <img className="quantyti-items" onClick={()=> decreaseQuantity(x._id)} src={less} alt="" />
+                        <p className="description-tittle">{x.quantity}</p>
+                        <img className="quantyti-itemss" onClick={() => increaseQuantity(x._id)} src={plus} alt="" />
                       </div>
                       <div className='cart-line-remove'>
                         <p className='remove-cart-btn'  onClick={() => handleDelete(x._id)}>Remove</p>
