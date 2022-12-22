@@ -19,19 +19,26 @@ const style = {
     p: 4,
   };
 function FormCar() {
+    const nameRef = useRef()
+    
+   const messageRef = useRef()
+ 
+    const emailRef = useRef()
+    const formRef = useRef()
     const [show, setShow] = useState(false);
-  const form = useRef();
 
-  const sendEmail = (e) => {
-    setShow(true)
-    e.preventDefault();
+    
+    const sendEmail = (e) => {
 
-    emailjs.sendForm('service_ce1rnzg', 'template_ndwvejw', form.current, 'Bp83upMlZrii7gPR-')
-      .then((result) => {
-          setShow(false)
-          console.log(result.text);
-          toast.success('Message sent', {
-            position: "bottom-right",
+        setShow(true)
+        e.preventDefault();
+        
+        emailjs.sendForm('service_ce1rnzg', 'template_ndwvejw', formRef.current, 'Bp83upMlZrii7gPR-')
+        .then((result) => {
+            setShow(false)
+            console.log(result.text);
+            toast.success('Message sent', {
+                position: "bottom-right",
             autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
@@ -39,12 +46,12 @@ function FormCar() {
             draggable: true,
             progress: undefined,
             theme: "dark",
-            });
-            e.target.value.reset
-      }, (error) => {
-          console.log(error.text);
-      });
-  };
+        });
+        formRef.current.reset()
+    }, (error) => {
+        console.log(error.text);
+    });
+};
 
   const handleClose = () => setShow(false);
     
@@ -64,21 +71,21 @@ function FormCar() {
               </Modal>
                  : <></>
               }
-      <form ref={form} onSubmit={sendEmail}>
+      <form ref={formRef} onSubmit={sendEmail}>
           <div className='car-form-container'>
 <h3 className='h3-car-form' data-aos="fade-left">
           Send a message if you are interesed 
       </h3>
         <div className='form__group field'>
-          <input className='form__field' type="input" name="user_name" />
+          <input ref={nameRef} className='form__field' type="input" name="user_name" />
           <label className="form__label" for="email">Name</label>
         </div>
         <div className='form__group field'>
-          <input className="form__field" type="email" name="user_email" />
+          <input ref={emailRef} className="form__field" type="email" name="user_email" />
           <label className="form__label">Email</label>
         </div>
         <div className='form__group field'>
-          <textarea className="form__field" name="message" />
+          <textarea ref={messageRef}  className="form__field" name="message" />
           <label className="form__label">Message</label>
         </div>
         <button className="car-form-button" type="submit" value="Send" >Send
