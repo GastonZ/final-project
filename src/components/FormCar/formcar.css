@@ -1,0 +1,161 @@
+.form__group {
+    position: relative;
+    padding: 20px 0 0;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 300px;
+  
+  }
+  .select-car-form{
+    background-color: transparent;
+    color: rgb(199, 199, 199);
+    width: 300px;
+
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .select-car-form option{
+    background-color: black;
+  border: none;
+  }
+
+
+  .car-form-container{
+    display: flex;
+ flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.098);
+   
+  }
+  .h3-car-form{
+    font-family: 'Bebas Neue', cursive !important;
+    text-align: center;
+    font-size: 3rem;
+    /* font-weight: bold; */
+    margin-right: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+    color: rgb(199, 199, 199);
+  }
+  
+  .form__field {
+    font-family: inherit;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 17px;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    margin-bottom:20px;
+  }
+  
+  .form__field::placeholder {
+    color: transparent;
+  }
+  
+  .form__field:placeholder-shown ~ .form__label {
+    font-size: 17px;
+    cursor: text;
+    top: 20px;
+  }
+  
+  .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 17px;
+    color: #9b9b9b;
+    pointer-events: none;
+  }
+  
+  .form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #14e318, #30eea2);
+    border-image-slice: 1;
+  }
+  
+  .form__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 17px;
+    color: #38ef3b;
+    font-weight: 700;
+  }
+  
+  /* reset input */
+  .form__field:required, .form__field:invalid {
+    box-shadow: none;
+  }
+
+/*   Button */
+.car-form-button {
+    --primary-color: #46fb46;
+    --secondary-color: rgb(23, 23, 23);
+    --hover-color: rgb(210, 210, 210);
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--secondary-color);
+    padding: 1em 1.8em;
+    background: var(--primary-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+  
+  .car-form-button .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .car-form-button .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+  }
+  
+  .car-form-button .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+  }
+  
+  .car-form-button:hover {
+    background-color: var(--hover-color);
+  }
+  
+  .car-form-button:hover .arrow {
+    background: var(--secondary-color);
+  }
+  
+  .car-form-button:hover .arrow:before {
+    right: 0;
+  }
