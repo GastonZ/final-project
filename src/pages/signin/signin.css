@@ -1,0 +1,33 @@
+
+.cuter-input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url('./aesthetic.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: row-reverse;
+}
+
+.bg-next-in {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(0deg,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.6)), url("./signin-car.png");
+    background-color: #ECEEF0;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+@media screen and (max-width: 622px) {
+    .bg-next-in {
+        display: none;
+    }
+    
+}

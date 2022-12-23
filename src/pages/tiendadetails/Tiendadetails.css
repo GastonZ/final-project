@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.headerTiendaDetails010 {
+  height: 7vh;
+  width: 100%;
+  background-color: #1c1c1b; 
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.titular010TiendaDetails {
+  height: 2vh;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: end;
+  margin-bottom: 10px;
+}
+
+.mainTiendaDetails010 {
+  min-height:40vh;
+  width: 100%;
+
+  padding-top: 5px;
+  padding-bottom: 10px !important;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding-top: 40px;
+  display: flex;
+  gap: 80px;
+  background: rgb(255, 255, 255);
+margin-bottom: 50px; 
+
+}
+
+/* 
+----------------> //////CARD DE DETAILS //// */
+
+.card089 {
+  width: 500px;
+  height: 500px;
+
+  border-radius: 2px;
+  margin-bottom: 5px;
+ 
+}
+
+
+.card089 img {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.cardTiendaText {
+  width: 50%;
+
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+
+  height: 100%;
+
+}
+
+.cardTiendaText h6 {
+  font-size: 13px;
+  margin-left: 2px;
+  font-weight: 700;
+
+}
+
+.cardTiendaContainer {
+  width: 100%;
+
+  height: 60px;
+  display: flex;
+
+
+}
+
+.sectiontitle { 
+  margin-left: 100px;
+  color: rgb(54, 54, 54);
+  font-weight: 600;
+  font-size: 25px;
+ 
+}
+
+.cardTiendaButton {
+  width: 90%;
+
+  height: 100%;
+  display: flex;
+
+  padding-top: 8px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.chango {
+  width: 30px;
+  height: 30px;
+
+  background-image: url(https://media.discordapp.net/attachments/1019730194984091739/1052647967263309859/icons8-agregar-a-carrito-de-compras-80.png);
+  background-size: cover;
+  margin-bottom: 12px;
+  margin-right: 5px;
+}
+
+.chango:hover {
+  background-image: url(https://media.discordapp.net/attachments/1019730194984091739/1052653077330677790/icons8-agregar-a-carrito-de-compras-80.png);
+  background-size: cover;
+  transition-duration: 300ms;
+}
+
+.lupa {
+  width: 35px;
+  height: 35px;
+
+  background-image: url(https://media.discordapp.net/attachments/763661782555426817/1052660470127018034/icons8-ojo-cerrado-80.png);
+  background-size: cover;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.lupa:hover {
+  background-image: url(https://media.discordapp.net/attachments/763661782555426817/1052662806945747005/icons8-visible-80.png);
+  background-size: cover;
+  transition-duration: 300ms;
+}
+
+.banner {
+  width: 57%;
+  height: 50vh;
+  background: rgb(206, 241, 10);
+  background: linear-gradient(
+    180deg,
+    rgba(206, 241, 10, 1) 45%,
+    rgba(255, 255, 255, 1) 45%
+  );
+  display: flex;
+  justify-content: center;
+  /* border-radius: 4px; */
+  flex-direction: column;
+}
+
+.banner h1 {
+  color: #222121;
+  font-weight: 300;
+  font-family: monospace !;
+  font-size: 20px;
+}
+
+.titular010TiendaDetails h1 {
+  font-size: 20px;
+  color: #222121;
+  font-weight: 800;
+  text-align: center;
+}
+
+.divSlidersCont {
+  width:94.5%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+cursor: pointer;
+  gap: 5px;
+  
+
+ margin-bottom: 10px;
+
+}
+.divSlidersCont ul:hover {
+
+font-weight: 400;
+
+}
+
+
+
+.div
+
+.divSliders {
+  width: 40%;
+  margin-top: 10px;
+}
+
+.divSlidersCont p {
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 12px;
+  color: #313131;
+}
+
+.contenedorSlidersx {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 0px;
+  height: 56px;
+  /* background-color: rgb(237, 238, 234); */
+ 
+  border-radius: 4px;
+}
+
+
+.divSlidersCont{display: flex;}
+
+
+
+@media (max-width: 800px) {
+  .contenedorSlidersx {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0px;
+    height: 56px;
+    /* background-color: rgb(197, 255, 61); */
+    border: 0px solid rgb(196, 196, 196);
+    border-radius: 4px;
+  }
+  
+  
+  .divSlidersCont{display: flex;
+  flex-direction: column;
+margin-top: 55px;
+margin-bottom: 50px;}
+  
+}
+
+
+.primary{
+
+  color: bisque !important;
+  background-color: #313131 !important;
+}

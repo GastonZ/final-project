@@ -1,0 +1,73 @@
+.body-integrantes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #111;
+}
+
+.container-integrantes {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: #222;
+}
+
+.container-integrantes .clip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+}
+
+.container-integrantes .clip.clip1{
+    background: url('./Alpha-AN.webp');
+    clip-path: polygon(0 0, 14% 0, 14% 100%, 0 100%);
+    background-size: cover;
+}
+
+.container-integrantes .clip.clip2{
+    background: url('./Beta-AN.webp');
+    clip-path: polygon(14% 0, 28% 0, 28% 100%, 14% 100%);
+    background-size: cover;
+}
+
+.container-integrantes .clip.clip3{
+    background: url('./Delta-AN.webp');
+    clip-path: polygon(28% 0, 42% 0, 42% 100%, 28% 100%);
+    background-size: cover;
+}
+
+.container-integrantes .clip.clip4{
+    background: url('./Epsilon-AN.webp');
+    clip-path: polygon(42% 0, 56% 0, 56% 100%, 42% 100%);
+    background-size: cover;
+}
+
+.container-integrantes .clip.clip5{
+    background: url('./Eta-Anime.webp');
+    clip-path: polygon(56% 0, 70% 0, 70% 100%, 56% 100%);
+    background-size: cover;
+}
+
+.container-integrantes .clip.clip6{
+    background: url('./Gamma-AN.webp');
+    clip-path: polygon(70% 0, 84% 0, 84% 100%, 70% 100%);
+    background-size: cover;
+}
+
+.container-integrantes .clip.clip7{
+    background: url('./Zeta-Anime.webp');
+    clip-path: polygon(84% 0, 100% 0, 100% 100%, 84% 100%);
+    background-size: cover;
+}
+
+.container-integrantes:hover .clip {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+}
+
+.container-integrantes .clip:hover {
+    clip-path: polygon(100% 0, 0 0, 0 100%, 99% 100%);
+}
