@@ -12,8 +12,6 @@ import { useDispatch ,useSelector} from 'react-redux';
 
 function CarDetails() {
 
-
-
   let car = useParams()
 
   let [filter, setFilter] = useState([])

@@ -311,3 +311,18 @@
 .heigth-go {
     min-height: 100vh;
 }
+.request-user{
+    border-top: 1px solid rgba(217, 217, 217, 0.11);
+    display: flex;
+   
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.request-text{
+    color: rgb(202, 202, 202);
+    margin-top: 15px;
+}
+.request-p{
+    color: rgb(202, 202, 202);
+}

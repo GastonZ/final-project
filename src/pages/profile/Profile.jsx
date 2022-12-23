@@ -28,8 +28,10 @@ function Profile(props) {
     },[])
 
     let {  requests } = useSelector(store => store.requests)
-    
-    console.log(requests);
+  
+    let { nameProfile, photoProfile, bannerProfile, token, id, role } = useSelector(store => store.usuario)
+    let requestFiltered = requests.filter((x) => x.userId === id);
+    console.log(requestFiltered);
 
     const theme = createTheme({
         palette: {
@@ -43,7 +45,6 @@ function Profile(props) {
         },
       });
 
-    let { nameProfile, photoProfile, bannerProfile, token, id, role } = useSelector(store => store.usuario)
     let { getOneUser ,logOut, editUserInfo } = usersActions
 
     let dispatch = useDispatch()
@@ -89,7 +90,7 @@ function Profile(props) {
     const handleClose3 = () => setShow3(false);
     const handleShow3 = () => setShow3(true);
 
-    /* Update profile photo */
+    
 
     const [file, setFile] = useState(null)
 
@@ -228,14 +229,23 @@ function Profile(props) {
                     <div className='user-admin-panel'>
                                 {/* User Panel Profile */}
                     {
-                        role === 'user' ?
+                    
                         <>
-                            <div>
+                        {
+                            requestFiltered.map((x)=>{
+                                return(
+
+                            <div className='request-user'>
+<h3 className='request-text'>  Your request for {x.car_model} is in progress</h3>
+<p className='request-p'>Request message : {x.request}</p>
 
                             </div>
+                                )
+                            })
+                        }
                         </>
-                        : 
-                        <></>
+                        
+                       
                     }
 
                                 {/* Admin Panel Profile */}
