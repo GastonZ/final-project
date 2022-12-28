@@ -52,9 +52,9 @@ function FormCar(props) {
 
     e.preventDefault();
 
-    if(user_name === '' || user_email === '' || request === '' ){
+    if(logged === false ){
       setShow(false)
-      toast.warn('You must complete all fields', {
+      toast.warn('You need to sign in first', {
         position: "bottom-left",
         autoClose: 5000,
         hideProgressBar: false,
@@ -65,9 +65,9 @@ function FormCar(props) {
         theme: "dark",
         });
       return
-    } else if(logged === false) {
+    } else if(user_name === '' || user_email === '' || request === '') {
       setShow(false)
-      toast.warn('You need to sign in first', {
+      toast.warn('You must complete all fields', {
         position: "bottom-left",
         autoClose: 5000,
         hideProgressBar: false,
