@@ -11,6 +11,7 @@ import paymentActions from '../../redux/actions/paymentActions'
 import axios from 'axios'
 import less from "./less.png"
 import plus from "./plus.png"
+import { BASE_URL } from '../../api/url'
 
 
 const style = {
@@ -128,8 +129,8 @@ function Cart() {
   let preference = {
 
     back_urls: {
-      failure: "http://localhost:3000",
-      success: "http://localhost:3000"
+      failure: "https://motorx.vercel.app/",
+      success: "https://motorx.vercel.app/"
     }
   }
   preference.items= items
@@ -142,7 +143,7 @@ function Cart() {
 
       if(res.payload.success){
          window.location.assign(res.payload.response.init_point) 
-          await axios.delete(`http://localhost:8000/api/cart/items-cart/paymentDone/${id}`)
+          await axios.delete(`${BASE_URL}cart/items-cart/paymentDone/${id}`)
       }
 
 
