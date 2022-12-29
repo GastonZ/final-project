@@ -3,7 +3,7 @@ import axios from "axios";
 import { BASE_URL } from '../../api/url'
 
 const newUser = createAsyncThunk('newUser', async(data)=> {
-    let url = `http://localhost:8000/users`
+    let url = `${BASE_URL}users`
     try {
         const res = await axios.post(url,data)
         if (res.data.success){

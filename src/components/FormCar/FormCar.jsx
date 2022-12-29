@@ -27,7 +27,7 @@ function FormCar(props) {
   const emailRef = useRef()
   const formRef = useRef()
 
-  let { id } = useSelector(store => store.usuario)
+  let { id, logged } = useSelector(store => store.usuario)
 
   let dispatch = useDispatch()
 
@@ -52,9 +52,36 @@ function FormCar(props) {
 
     e.preventDefault();
 
-    emailjs.sendForm('service_ce1rnzg', 'template_ndwvejw', formRef.current, 'Bp83upMlZrii7gPR-')
+    if(logged === false ){
+      setShow(false)
+      toast.warn('You need to sign in first', {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+      return
+    } else if(user_name === '' || user_email === '' || request === '') {
+      setShow(false)
+      toast.warn('You must complete all fields', {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+      return
+    }
+     else {
+      emailjs.sendForm('service_ce1rnzg', 'template_ndwvejw', formRef.current, 'Bp83upMlZrii7gPR-')
       .then((result) => {
-          setShow(false)
           console.log(result.text);
           toast.success('Message sent', {
             position: "bottom-right",
@@ -70,13 +97,16 @@ function FormCar(props) {
       }, (error) => {
           console.log(error.text);
       });
+    }
+
+   
   };
 
   const handleClose = () => setShow(false);
     
   return (
 <>
-{
+              {
                 show ? 
                 <Modal
                 open={show}
